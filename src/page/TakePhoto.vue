@@ -1,25 +1,6 @@
 <template>
   <div>
     <x-header class="x-header" :left-options="{showBack: false}">随手拍</x-header>
-    
-    <tabbar>
-      <tabbar-item selected link="/">
-        <img slot="icon" src="../assets/img/icon/paizhao.png" alt="">
-        <span slot="label">随手拍</span>
-      </tabbar-item>
-      <!-- <tabbar-item link="/page/HotChat">
-        <img slot="icon" src="../assets/img/icon/remen.png" alt="">
-        <span slot="label">热聊</span>
-      </tabbar-item> -->
-      <tabbar-item link="/page/Release">
-        <img slot="icon" src="../assets/img/icon/fabu.png" alt="">
-        <span slot="label">发布</span>
-      </tabbar-item>
-      <tabbar-item link="/page/UserIndex">
-        <img slot="icon" src="../assets/img/icon/wode.png" alt="">
-        <span slot="label">我的</span>
-      </tabbar-item>
-    </tabbar>
   </div>
 </template>
 
@@ -40,5 +21,5 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
 </style>

@@ -1,44 +1,71 @@
 <template>
-  <div>
-    <x-header class="x-header" :left-options="{showBack: true}">我的</x-header>
-    我的
-    <tabbar>
-      <tabbar-item link="/">
-        <img slot="icon" src="../assets/img/icon/paizhao.png" alt="">
-        <span slot="label">随手拍</span>
-      </tabbar-item>
-      <!-- <tabbar-item link="/page/HotChat">
-        <img slot="icon" src="../assets/img/icon/remen.png" alt="">
-        <span slot="label">热聊</span>
-      </tabbar-item> -->
-      <tabbar-item link="/page/Release">
-        <img slot="icon" src="../assets/img/icon/fabu.png" alt="">
-        <span slot="label">发布</span>
-      </tabbar-item>
-      <tabbar-item selected link="/page/UserIndex">
-        <img slot="icon" src="../assets/img/icon/wode.png" alt="">
-        <span slot="label">我的</span>
-      </tabbar-item>
-    </tabbar>
+  <div class="containBox">
+    <x-header class="x-header" :left-options="{showBack: false}">我的
+      <i slot="right" class="iconfont icon-shezhi" @click="toSetPage"></i>
+    </x-header>
+    <x-img class="avatar" default-src="src/assets/img/test/avatar.png"></x-img>
+    <div class="username">
+      把我还给自己
+      <i class="iconfont icon-nvsheng"></i>
+    </div>
+    <div class="signature">再敬往事一杯酒，再美也不要回头</div>
   </div>
 </template>
 
 <script>
-import { XHeader,Tabbar,TabbarItem } from 'vux'
+import { XHeader, Tabbar, TabbarItem, XImg } from "vux";
 
 export default {
-  data () {
-    return {
-    }
+  data() {
+    return {};
   },
   components: {
-    XHeader,Tabbar,TabbarItem
+    XHeader,
+    Tabbar,
+    TabbarItem,
+    XImg
   },
-  created: function() {
-  },
-}
+  created: function() {},
+  methods: {
+    toSetPage: function() {
+      this.$router.replace("/");
+    }
+  }
+};
 </script>
 
-<style>
-
+<style lang="less">
+.containBox {
+  padding: 0 5vw;
+  box-sizing: border-box;
+  .vux-header .vux-header-right {
+    right: 0;
+  }
+}
+.icon-shezhi {
+  font-size: 18px;
+  display: inline-block;
+  width: 18px;
+}
+.username {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 550;
+}
+.signature {
+  text-align: center;
+  color: rgb(169, 169, 169);
+  font-size: 11px;
+}
+.icon-nvsheng {
+  width: 15px;
+  color: rgb(255, 108, 152) !important;
+  margin-left: -10px;
+}
+.avatar {
+  display: block;
+  width: 65px;
+  height: 65px;
+  margin: auto;
+}
 </style>
