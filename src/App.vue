@@ -58,11 +58,17 @@ export default {
 
 <style lang="less">
 @import "~vux/src/styles/reset.less";
-body {
-  background-color: rgb(249, 249, 249);
+body .containBox {
+  background-color: rgb(255, 255, 255);
 }
 .x-header .vux-header-title{
   font-weight: 550 !important;
+}
+#app .vux-header .vux-header-left .left-arrow:before {
+  width: 8px;
+  height: 8px;
+  border-width: 2px 0 0 2px;
+  top: 10px;
 }
 #app .iconfont,
 .weui-tabbar__label {
@@ -70,7 +76,7 @@ body {
 }
 .weui-tabbar {
   position: fixed !important;
-  background-color: rgba(0, 0, 0, 0) !important;
+  background-color: rgba(255, 255, 255, 1) !important;
   .weui-bar__item_on .iconfont,
   .weui-bar__item_on .weui-tabbar__label {
     color: rgb(252, 97, 66) !important;
