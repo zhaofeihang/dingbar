@@ -1,6 +1,7 @@
 <template>
   <div>
     <x-header class="x-header" :left-options="{backText: ''}"></x-header>
+    忘记密码
   </div>
 </template>
 
