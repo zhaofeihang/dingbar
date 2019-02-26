@@ -14,19 +14,19 @@
     </router-link>
     <card>
       <div slot="content" class="card-demo-flex card-demo-content01">
-        <router-link to="/page/MyRelease">
+        <router-link to>
           <span>1130</span>
           <br>发布
         </router-link>
-        <router-link to="/page/MyFollow">
+        <router-link to>
           <span>15</span>
           <br>关注
         </router-link>
-        <router-link to="/page/MyFan">
+        <router-link to>
           <span>0</span>
           <br>粉丝
         </router-link>
-        <router-link to="">
+        <router-link to>
           <span>88</span>
           <br>获赞
         </router-link>
@@ -52,7 +52,8 @@ export default {
         {
           title: "我的发布",
           iconclass: "icon-fabu",
-          pageUrl: "/page/MyRelease"
+          pageUrl: "/page/MyRelease",
+
         },
         {
           title: "我的关注",
@@ -61,7 +62,7 @@ export default {
         },
         {
           title: "我的收藏",
-          iconclass: "icon-shoucang",
+          iconclass: "icon-shoucangxianxing",
           pageUrl: "/page/MyCollect"
         },
         { title: "我的粉丝", iconclass: "icon-fensi", pageUrl: "/page/MyFan" },
@@ -126,6 +127,9 @@ export default {
     margin-top: 10px;
   }
 
+  .weui-cell {
+    padding: 20px;
+  }
   .weui-panel {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -134,6 +138,7 @@ export default {
     font-size: 14px;
     font-weight: 550;
     color: rgb(51, 51, 51);
+    margin-bottom: 65px;
   }
   .card-demo-flex {
     display: flex;

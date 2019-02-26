@@ -25,23 +25,26 @@ export default {
   name: "app",
   data() {
     return {
-      transitionName: "vux-pop-in"
+      transitionName: "vux-pop-in",
+      showTabbar: true
     };
   },
-  created: function() {
-    
-  },
-  computed: {
-    showTabbar() {
-      if (this.$route.path.match(/\/page/) || this.$route.path == "/") {
-        return true;
-      } else {
-        return false;
-      }
-    }
-  },
+  created: function() {},
+  computed: {},
   watch: {
     $route(to, from) {
+      switch (to.path) {
+        case "/":
+          this.showTabbar = true;
+          break;
+        case "/page/UserIndex":
+          this.showTabbar = true;
+          break;
+
+        default:
+          this.showTabbar = false;
+          break;
+      }
       if (to.meta.index > from.meta.index) {
         this.transitionName = "vux-pop-in";
       } else {
@@ -61,7 +64,7 @@ export default {
 body .containBox {
   background-color: rgb(255, 255, 255);
 }
-.x-header .vux-header-title{
+.x-header .vux-header-title {
   font-weight: 550 !important;
 }
 #app .vux-header .vux-header-left .left-arrow:before {

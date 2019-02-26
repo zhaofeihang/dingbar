@@ -1,12 +1,27 @@
-import TakePhoto from '@/page/TakePhoto'
+//个人中心相关
 import UserIndex from '@/page/UserIndex'
-import SetUserInfo from '@/page/SetUserInfo'
-import MyFollow from '@/page/MyFollow'
-import MyRelease from '@/page/MyRelease'
-import MyCollect from '@/page/MyCollect'
-import MyFan from '@/page/MyFan'
-import MyIncome from '@/page/MyIncome'
-import MySet from '@/page/MySet'
+import SetUserInfo from '@/page/user/SetUserInfo'
+import MyFollow from '@/page/user/MyFollow'
+import MyRelease from '@/page/user/MyRelease'
+import MyCollect from '@/page/user/MyCollect'
+import MyFan from '@/page/user/MyFan'
+import MyIncome from '@/page/user/MyIncome'
+import MySet from '@/page/user/MySet'
+import AboutUs from '@/page/user/AboutUs'
+import IncomeAccount from '@/page/user/IncomeAccount'
+import IncomeRecord from '@/page/user/IncomeRecord'
+import ReportOpinion from '@/page/user/ReportOpinion'
+import ServicePact from '@/page/user/ServicePact'
+//登录注册相关
+import RegisterVerification from '@/page/user/RegisterVerification'
+import ForgetPwd from '@/page/user/ForgetPwd'
+import LoginIndex from '@/page/user/LoginIndex'
+import MobileInfoLogin from '@/page/user/MobileInfoLogin'
+import MobileNumLogin from '@/page/user/MobileNumLogin'
+import Register from '@/page/user/Register'
+//随手拍
+import TakePhoto from '@/page/TakePhoto'
+import DesignDetail from '@/page/take_photo/DesignDetail'
 
 export default  [
   {
@@ -79,6 +94,102 @@ export default  [
     component: MySet,
     meta: {
       index: 11
+    }
+  },
+  {
+    path: '/page/AboutUs',
+    name: 'AboutUs',
+    component: AboutUs,
+    meta: {
+      index: 12
+    }
+  },
+  {
+    path: '/page/IncomeAccount',
+    name: 'IncomeAccount',
+    component: IncomeAccount,
+    meta: {
+      index: 13
+    }
+  },
+  {
+    path: '/page/IncomeRecord',
+    name: 'IncomeRecord',
+    component: IncomeRecord,
+    meta: {
+      index: 14
+    }
+  },
+  {
+    path: '/page/ReportOpinion',
+    name: 'ReportOpinion',
+    component: ReportOpinion,
+    meta: {
+      index: 15
+    }
+  },
+  {
+    path: '/page/ServicePact',
+    name: 'ServicePact',
+    component: ServicePact,
+    meta: {
+      index: 16
+    }
+  },
+  {
+    path: '/page/take_photo/DesignDetail',
+    name: 'DesignDetail',
+    component: DesignDetail,
+    meta: {
+      index: 17
+    }
+  },
+  {
+    path: '/page/user/LoginIndex',
+    name: 'LoginIndex',
+    component: LoginIndex,
+    meta: {
+      index: 18
+    }
+  },
+  {
+    path: '/page/user/ForgetPwd',
+    name: 'ForgetPwd',
+    component: ForgetPwd,
+    meta: {
+      index: 19
+    }
+  },
+  {
+    path: '/page/user/Register',
+    name: 'Register',
+    component: Register,
+    meta: {
+      index: 20
+    }
+  },
+  {
+    path: '/page/user/MobileNumLogin',
+    name: 'MobileNumLogin',
+    component: MobileNumLogin,
+    meta: {
+      index: 21
+    }
+  },
+  {
+    path: '/page/user/MobileInfoLogin',
+    name: 'MobileInfoLogin',
+    component: MobileInfoLogin,
+    meta: {
+      index: 22
+    }
+  },
+  {
+    path: '/page/user/RegisterVerification',
+    name: 'RegisterVerification',
+    component: RegisterVerification,
+    meta: {
+      index: 23
     }
   },
 ]
