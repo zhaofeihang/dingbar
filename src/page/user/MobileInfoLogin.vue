@@ -1,5 +1,7 @@
 <template>
   <div>
+    <x-header class="x-header" :left-options="{backText: ''}"></x-header>
+    手机号登录
   </div>
 </template>
 
