@@ -99,7 +99,7 @@
         <span class="preview-icon xiazai">
           <i class="iconfont icon-xiazai"></i>
         </span>
-        <span class="preview-icon shang">
+        <span class="preview-icon shang" @click="rewardShow">
           <i class="iconfont icon-shang"></i>
         </span>
         <span class="preview-icon fenxiang">
@@ -110,15 +110,26 @@
         </span>
       </div>
     </div>
+    <div v-transfer-dom>
+      <popup v-model="rewardState" height="270px" style="background-color:#fff;height:250px;border-radius:20px 20px 0 0;">
+        <div>
+          123
+        </div>
+      </popup>
+    </div>
   </div>
 </template>
 
 <script>
-import { XHeader, Swiper, XButton, Flexbox, FlexboxItem, XImg } from "vux";
+import { XHeader, Swiper, XButton, Flexbox, FlexboxItem, XImg, Popup, TransferDom } from "vux";
 
 export default {
+  directives: {
+    TransferDom
+  },
   data() {
     return {
+      rewardState: false,
       previewList: {
         list: [],
         index: 0
@@ -430,6 +441,9 @@ export default {
     imgCollect() {},
     toDetail(designItemIndex) {
       this.$router.push({path: '/page/take_photo/DesignDetail',params:{ id:'1'}});
+    },
+    rewardShow() {
+      this.rewardState = true;
     }
   },
   components: {
@@ -438,7 +452,8 @@ export default {
     XButton,
     Flexbox,
     FlexboxItem,
-    XImg
+    XImg,
+    Popup
   }
 };
 </script>

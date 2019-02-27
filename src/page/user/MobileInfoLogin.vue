@@ -1,29 +1,83 @@
 <template>
-  <div>
-    <x-header class="x-header" :left-options="{backText: ''}"></x-header>
-    手机号登录
+  <div class="MobileInfoLogin">
+    <x-header class="x-header" :left-options="{backText: ''}">
+    </x-header>
+    <div class="content-box">
+      <group>
+        <h1 slot="title" class="login-title">短信登录</h1>
+        <x-input class="mobile" title="手机" is-type="china-mobile" placeholder="请输入手机号"></x-input>
+        <x-button class="login-commit" link="/page/user/MobileInfoVerification">下一步</x-button>
+      </group>
+    </div>
   </div>
 </template>
 
 <script>
-import { XHeader, XButton, Flexbox, FlexboxItem } from "vux";
+import { XHeader, XButton, Group, XInput } from "vux";
 
 export default {
   data() {
-    return {
-    };
+    return {};
   },
   components: {
     XHeader,
     XButton,
-    Flexbox,
-    FlexboxItem
+    Group,
+    XInput
   },
-  created: function() {}
+  created: function() {},
+  methods: {
+  }
 };
 </script>
 
 <style lang="less">
-.MyFollow {
+.MobileInfoLogin {
+  .to-register a {
+    font-size: 15px;
+    color: rgb(142, 142, 142) !important;
+  }
+  .content-box {
+    padding: 0 10vw;
+  }
+  .login-title {
+    height: 135px;
+    line-height: 135px;
+  }
+  .mobile {
+    font-size: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid rgb(237, 237, 237);
+  }
+  .login-commit {
+    margin-top: 105px;
+    background-color: rgb(252, 97, 66);
+    color: #fff;
+  }
+  .weui-label {
+    font-weight: 550;
+  }
+  .weui-cell::before,
+  .weui-cells::before,
+  .weui-cells::after {
+    display: none;
+  }
+
+  ::-webkit-input-placeholder {
+    /* WebKit, Blink, Edge */
+    color: rgb(192, 192, 192);
+  }
+  :-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: rgb(192, 192, 192);
+  }
+  ::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: rgb(192, 192, 192);
+  }
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: rgb(192, 192, 192);
+  }
 }
 </style>

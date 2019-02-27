@@ -13,7 +13,7 @@ import IncomeRecord from '@/page/user/IncomeRecord'
 import ReportOpinion from '@/page/user/ReportOpinion'
 import ServicePact from '@/page/user/ServicePact'
 //登录注册相关
-import RegisterVerification from '@/page/user/RegisterVerification'
+import MobileInfoVerification from '@/page/user/MobileInfoVerification'
 import ForgetPwd from '@/page/user/ForgetPwd'
 import LoginIndex from '@/page/user/LoginIndex'
 import MobileInfoLogin from '@/page/user/MobileInfoLogin'
@@ -185,9 +185,9 @@ export default  [
     }
   },
   {
-    path: '/page/user/RegisterVerification',
-    name: 'RegisterVerification',
-    component: RegisterVerification,
+    path: '/page/user/MobileInfoVerification',
+    name: 'MobileInfoVerification',
+    component: MobileInfoVerification,
     meta: {
       index: 23
     }

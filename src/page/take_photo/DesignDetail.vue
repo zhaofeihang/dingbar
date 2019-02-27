@@ -119,6 +119,12 @@ export default {
           designImgList: [
             {
               img: "src/assets/img/test/img.png"
+            },
+            {
+              img: "src/assets/img/test/img.png"
+            },
+            {
+              img: "src/assets/img/test/img.png"
             }
           ],
           avatarList: [
@@ -272,6 +278,20 @@ export default {
     .design-item-comment {
       margin-right: 55px;
     }
+  }
+
+  .vux-indicator {
+    bottom: 0 !important;
+    a:first-child {
+      margin-left: 0;
+    }
+  }
+  .vux-icon-dot {
+    background-color: rgb(153, 137, 134);
+  }
+  .vux-icon-dot.active {
+    width: 15px !important;
+    background-color: #fff !important;
   }
   //赞赏
   .avatar-list {

@@ -4,30 +4,31 @@
       我的
       <i slot="right" class="iconfont icon-shezhi" @click="toSetPage"></i>
     </x-header>
-    <router-link to="/page/SetUserInfo">
-      <x-img class="avatar" default-src="src/assets/img/test/avatar.png"></x-img>
+    <div @click="to">
+      <x-img class="avatar" :default-src="userInfo.avatar"></x-img>
       <div class="username">
-        把我还给自己
-        <i class="iconfont icon-nvsheng"></i>
+        {{userInfo.username}}
+        <i v-if="userInfo.sex == 'girl'" class="iconfont icon-nvsheng"></i>
+        <i v-if="userInfo.sex == 'boy'" class="iconfont icon-nansheng"></i>
       </div>
-      <div class="signature">再敬往事一杯酒，再美也不要回头</div>
-    </router-link>
+      <div class="signature">{{userInfo.signature}}</div>
+    </div>
     <card>
       <div slot="content" class="card-demo-flex card-demo-content01">
         <router-link to>
-          <span>1130</span>
+          <span>{{userInfo.fabu}}</span>
           <br>发布
         </router-link>
         <router-link to>
-          <span>15</span>
+          <span>{{userInfo.guanzhu}}</span>
           <br>关注
         </router-link>
         <router-link to>
-          <span>0</span>
+          <span>{{userInfo.fensi}}</span>
           <br>粉丝
         </router-link>
         <router-link to>
-          <span>88</span>
+          <span>{{userInfo.huozan}}</span>
           <br>获赞
         </router-link>
       </div>
@@ -48,6 +49,26 @@ import { XHeader, Tabbar, TabbarItem, XImg, Card, Cell } from "vux";
 export default {
   data() {
     return {
+      // userInfo: {
+      //   avatar: 'src/assets/img/test/avatar.png',
+      //   username: '把我还给自己',
+      //   sex: 'girl',
+      //   signature: '再敬往事一杯酒，再美也不要回头',
+      //   fabu: 1130,
+      //   guanzhu: 15,
+      //   fensi: 0,
+      //   huozan: 88
+      // },
+      userInfo: {
+        avatar: 'src/assets/img/default-avatar.png',
+        username: '未登录',
+        sex: '',
+        signature: '',
+        fabu: 0,
+        guanzhu: 0,
+        fensi: 0,
+        huozan: 0
+      },
       cellArr: [
         {
           title: "我的发布",
@@ -86,6 +107,9 @@ export default {
   methods: {
     toSetPage: function() {
       this.$router.push("/page/MySet");
+    },
+    to() {
+      this.$router.push("/page/user/LoginIndex");
     }
   }
 };
@@ -123,6 +147,7 @@ export default {
     display: block;
     width: 65px;
     height: 65px;
+    border-radius: 50%;
     margin: auto;
     margin-top: 10px;
   }
