@@ -1,6 +1,12 @@
 <template>
   <div class="TakePhoto">
-    <x-header class="x-header" :left-options="{showBack: false}">随手拍</x-header>
+    <x-header class="x-header" :left-options="{showBack: false}">
+      随手拍
+      <router-link to="/page/take_photo/Message" slot="right" class="message-icon">
+          <badge class="message-badge" text="8"></badge>
+          <i class="iconfont icon-xiaoxi"></i>
+      </router-link>
+    </x-header>
     <div class="tab-box">
       <div class="tab-title">热门话题</div>
       <div class="tab-list">
@@ -92,6 +98,7 @@
           height="504px"
           class="previewSwiper"
           :list="previewList.list"
+          v-model="previewList.index"
         ></swiper>
         <span @click="imgCollect" class="preview-icon shoucang">
           <i class="iconfont icon-shoucang collected"></i>
@@ -99,7 +106,7 @@
         <span class="preview-icon xiazai">
           <i class="iconfont icon-xiazai"></i>
         </span>
-        <span class="preview-icon shang" @click="rewardShow">
+        <span class="preview-icon shang" @click="togglePopup('reward')">
           <i class="iconfont icon-shang"></i>
         </span>
         <span class="preview-icon fenxiang">
@@ -110,10 +117,51 @@
         </span>
       </div>
     </div>
-    <div v-transfer-dom>
-      <popup v-model="rewardState" height="270px" style="background-color:#fff;height:250px;border-radius:20px 20px 0 0;">
-        <div>
-          123
+    <div>
+      <popup
+        v-model="popup.popupState"
+        height="270px"
+        :show-mask="false"
+        style="background-color:#fff;border-radius:20px 20px 0 0;"
+      >
+        <div class="reward-box">
+          <div class="reward-title-box">
+            <span v-show="popup.type=='pay'" class="back-reward" @click="backSelectReward">返回</span>
+            <span v-if="popup.type=='reward'">选择打赏金额</span>
+            <span v-else>选择支付方式</span>
+            <i @click="togglePopup('reward')" class="iconfont icon-danchuangguanbi"></i>
+          </div>
+          <div v-if="popup.type=='reward'" class="reward-content-box">
+            <flexbox wrap="wrap" class="reward-content">
+              <flexbox-item :span="4" v-for="(reward,index) in rewards.list" :key="index">
+                <div class="reward-item" :class="{selected: index==rewards.seleted}">
+                  <span @click="rewardSelected(index)">{{reward}}元</span>
+                </div>
+              </flexbox-item>
+            </flexbox>
+            <x-input
+              v-model="confirmReward"
+              class="reward-input"
+              is-type="number"
+              placeholder="输入打赏金额"
+            >
+              <span v-show="confirmReward" @click="toPay" style="font-size:12px;color:rgb(252,97,66);" slot="right">确认</span>
+            </x-input>
+          </div>
+          <div v-else class="select-pay">
+            <div style="text-align:center;color:rgb(252,97,66);">{{confirmReward}}元</div>
+            <card class="card">
+              <div slot="content">
+                <div v-for="(cell,index) in cellArr" :key="index" @click="selectPay(cell)">
+                  <cell :title="cell.title">
+                    <i slot="icon" class="iconfont" :class="cell.lefticonclass"></i>
+                    <i slot="default" class="iconfont" :class="cell.righticonclass"></i>
+                  </cell>
+                </div>
+              </div>
+            </card>
+            <x-button class="pay-commit">立即支付</x-button>
+          </div>
         </div>
       </popup>
     </div>
@@ -121,19 +169,48 @@
 </template>
 
 <script>
-import { XHeader, Swiper, XButton, Flexbox, FlexboxItem, XImg, Popup, TransferDom } from "vux";
+import {
+  XHeader,
+  Swiper,
+  XButton,
+  Flexbox,
+  FlexboxItem,
+  XImg,
+  Popup,
+  XInput,
+  Card,
+  Cell,
+  Badge
+} from "vux";
 
 export default {
-  directives: {
-    TransferDom
-  },
   data() {
     return {
-      rewardState: false,
+      cellArr: [
+        {
+          title: "微信",
+          lefticonclass: "icon-weixin",
+          righticonclass: "icon-xuanzhong"
+        },
+        {
+          title: "支付宝",
+          lefticonclass: "icon-zhifubao",
+          righticonclass: "icon-weixuanzhong"
+        }
+      ],
+      popup: {
+        popupState: false,
+        type: "reward"
+      },
       previewList: {
         list: [],
         index: 0
       },
+      rewards: {
+        list: [0.01, 0.1, 0.5, 1, 5, 10],
+        seleted: -1
+      },
+      confirmReward: "",
       tab: {
         tabList: [
           {
@@ -440,10 +517,32 @@ export default {
     },
     imgCollect() {},
     toDetail(designItemIndex) {
-      this.$router.push({path: '/page/take_photo/DesignDetail',params:{ id:'1'}});
+      this.$router.push({
+        path: "/page/take_photo/DesignDetail",
+        params: { id: "1" }
+      });
     },
-    rewardShow() {
-      this.rewardState = true;
+    togglePopup(type) {
+      this.popup.type = type;
+      this.popup.popupState = !this.popup.popupState;
+    },
+    rewardSelected(index) {
+      this.confirmReward = this.rewards.list[index];
+      this.rewards.seleted = index;
+      this.toPay();
+    },
+    toPay() {
+      this.popup.type = "pay";
+    },
+    backSelectReward() {
+      this.confirmReward = "";
+      this.popup.type = "reward";
+    },
+    selectPay(cell) {
+      this.cellArr.forEach((item, index) => {
+        item.righticonclass = "icon-weixuanzhong";
+      });
+      cell.righticonclass = "icon-xuanzhong";
     }
   },
   components: {
@@ -453,7 +552,11 @@ export default {
     Flexbox,
     FlexboxItem,
     XImg,
-    Popup
+    Popup,
+    XInput,
+    Card,
+    Cell,
+    Badge
   }
 };
 </script>
@@ -933,7 +1036,7 @@ export default {
     bottom: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
+    z-index: 500;
     .preview-icon {
       position: absolute;
       display: inline-flex;
@@ -1044,6 +1147,104 @@ export default {
     width: 100%;
     height: 100%;
     border-radius: 10px;
+  }
+  .reward-box {
+    .reward-title-box {
+      height: 45px;
+      position: relative;
+      border-bottom: 1px solid rgb(229,229,229);
+      span {
+        display: inline-block;
+        width: max-content;
+        height: max-content;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        font-size: 15px;
+      }
+      .icon-danchuangguanbi {
+        display: inline-block;
+        width: max-content;
+        height: max-content;
+        position: absolute;
+        top: 0;
+        right: 20px;
+        bottom: 0;
+        margin: auto;
+        font-size: 11px;
+      }
+    }
+    .reward-content-box {
+      padding: 30px 40px;
+      .reward-item {
+        color: rgb(252, 97, 66);
+        span {
+          display: inline-block;
+          width: 80px;
+          height: 40px;
+          line-height: 40px;
+          border: 1px solid rgb(252, 97, 66);
+          box-sizing: border-box;
+          border-radius: 5px;
+          text-align: center;
+          margin-bottom: 15px;
+        }
+      }
+      .selected span {
+        background-color: rgb(252, 97, 66);
+        color: #fff;
+      }
+      .reward-input {
+        background-color: rgb(241, 241, 241);
+        border-radius: 5px;
+      }
+      .reward-input::before {
+        display: none;
+      }
+    }
+  }
+  //选择付款账户
+  .select-pay {
+    padding: 0 5vw;
+  }
+  .card {
+    border-radius: 10px;
+    margin: 10px 0 !important;
+    font-size: 14px;
+    color: rgb(51, 51, 51);
+    .weui-cell {
+      padding: 10px 0;
+    }
+  }
+  .card::before,
+  .card::after {
+    display: none;
+  }
+  .iconfont {
+    font-size: 25px;
+  }
+  .icon-weixin {
+    color: rgb(37, 155, 36) !important;
+  }
+  .icon-zhifubao {
+    color: rgb(16, 149, 218) !important;
+  }
+  .back-reward {
+    margin-left: 20px !important;
+    font-size: 11px !important;
+  }
+  .icon-xuanzhong::before {
+    color: rgb(252, 97, 66);
+  }
+  .icon-weixuanzhong::before {
+    color: rgb(197, 197, 197);
+  }
+  .pay-commit {
+    background-color: rgb(252, 97, 66);
+    color: #fff;
   }
 }
 </style>

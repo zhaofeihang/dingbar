@@ -9,28 +9,46 @@
         <span slot="label">随手拍</span>
       </tabbar-item>
       <tabbar-item>
-        <i slot="icon" class="iconfont icon-tianjiafabu"></i>
+        <i slot="icon" @click="releaseShow" class="iconfont icon-tianjiafabu"></i>
       </tabbar-item>
       <tabbar-item link="/page/UserIndex">
         <i slot="icon" class="iconfont icon-wode"></i>
         <span slot="label">我的</span>
       </tabbar-item>
     </tabbar>
+    <popup v-model="releaseShowState" height="190px" is-transparent>
+      <div class="release-view">
+        <span>
+          <i slot="icon" class="iconfont icon-xiangji"></i>
+          拍照
+        </span>
+        <span>
+          <i slot="icon" class="iconfont icon-xiangce"></i>
+          相册
+        </span>
+      </div>
+    </popup>
   </div>
 </template>
 
 <script>
-import { Tabbar, TabbarItem } from "vux";
+import { Tabbar, TabbarItem, Popup } from "vux";
 export default {
   name: "app",
   data() {
     return {
       transitionName: "vux-pop-in",
-      showTabbar: true
+      showTabbar: true,
+      releaseShowState: false
     };
   },
   created: function() {},
   computed: {},
+  methods: {
+    releaseShow() {
+      this.releaseShowState = true;
+    }
+  },
   watch: {
     $route(to, from) {
       switch (to.path) {
@@ -54,7 +72,8 @@ export default {
   },
   components: {
     Tabbar,
-    TabbarItem
+    TabbarItem,
+    Popup
   }
 };
 </script>
@@ -66,6 +85,23 @@ body .containBox {
 }
 .x-header .vux-header-title {
   font-weight: 550 !important;
+}
+.message-icon {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  .icon-xiaoxi::before {
+    font-size: 18px;
+  }
+  .message-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+  }
 }
 #app .vux-header .vux-header-left .left-arrow:before {
   width: 8px;
@@ -80,6 +116,7 @@ body .containBox {
 .weui-tabbar {
   position: fixed !important;
   background-color: rgba(255, 255, 255, 1) !important;
+  z-index: 100 !important;
   .weui-bar__item_on .iconfont,
   .weui-bar__item_on .weui-tabbar__label {
     color: rgb(252, 97, 66) !important;
@@ -150,5 +187,34 @@ body .containBox {
   -ms-transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
   -o-transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
   transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+.release-view {
+  color: #fff;
+  font-size: 13px;
+  padding: 0 40px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .iconfont {
+      font-size: 33px;
+      width: 80px;
+      height: 80px;
+      background-color: #fff;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    .iconfont::before {
+      color: rgb(252, 97, 66);
+    }
+  }
 }
 </style>

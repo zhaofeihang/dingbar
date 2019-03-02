@@ -1,6 +1,12 @@
 <template>
   <div class="DesignDetail">
-    <x-header class="x-header" :left-options="{backText: ''}">详情</x-header>
+    <x-header class="x-header" :left-options="{backText: ''}">
+      详情
+      <router-link to="/page/take_photo/Message" slot="right" class="message-icon">
+          <badge class="message-badge" text="8"></badge>
+          <i class="iconfont icon-xiaoxi"></i>
+      </router-link>
+    </x-header>
     <div class="content-box">
       <div
         class="design-list"
@@ -62,7 +68,13 @@
         <div class="avatar-list">
           <flexbox>
             <flexbox-item class="avatar-item-box" :span="9">
-              <img class="avatar-item" v-for="(avatarItem,index) in designItem.avatarList" :key="index" :src="avatarItem.img" alt="">
+              <img
+                class="avatar-item"
+                v-for="(avatarItem,index) in designItem.avatarList"
+                :key="index"
+                :src="avatarItem.img"
+                alt
+              >
               <span>{{designItem.avatarList.length}}</span>
             </flexbox-item>
             <flexbox-item :span="3">
@@ -70,9 +82,7 @@
             </flexbox-item>
           </flexbox>
         </div>
-        <div class="comment-title">
-          {{designItem.commentList.length}}条评论
-        </div>
+        <div class="comment-title">{{designItem.commentList.length}}条评论</div>
         <div class="comment-box" v-for="(commentItem,index) in designItem.commentList" :key="index">
           <flexbox class="flexbox">
             <flexbox-item :span="1.7">
@@ -102,7 +112,15 @@
 </template>
 
 <script>
-import { XHeader, Swiper, XButton, Flexbox, FlexboxItem, XImg } from "vux";
+import {
+  XHeader,
+  Swiper,
+  XButton,
+  Flexbox,
+  FlexboxItem,
+  XImg,
+  Badge
+} from "vux";
 
 export default {
   data() {
@@ -145,7 +163,7 @@ export default {
             },
             {
               img: "src/assets/img/test/img.png"
-            },
+            }
           ],
           commentList: [
             {
@@ -154,7 +172,8 @@ export default {
               sex: "boy",
               direc: "2019-02-21 11:10:52",
               praise: 70152,
-              content: '有念念不忘的美好，有爱而不得的疼痛。有念念不忘的美好，有爱而不得的疼痛。'
+              content:
+                "有念念不忘的美好，有爱而不得的疼痛。有念念不忘的美好，有爱而不得的疼痛。"
             },
             {
               avatar: "src/assets/img/test/avatar.png",
@@ -162,7 +181,8 @@ export default {
               sex: "boy",
               direc: "2019-02-21 11:10:52",
               praise: 70152,
-              content: '有念念不忘的美好，有爱而不得的疼痛。有念念不忘的美好，有爱而不得的疼痛。'
+              content:
+                "有念念不忘的美好，有爱而不得的疼痛。有念念不忘的美好，有爱而不得的疼痛。"
             }
           ]
         }
@@ -182,7 +202,8 @@ export default {
     XButton,
     Flexbox,
     FlexboxItem,
-    XImg
+    XImg,
+    Badge
   }
 };
 </script>
@@ -300,7 +321,8 @@ export default {
       align-items: center;
       overflow: hidden;
     }
-    .avatar-item,span {
+    .avatar-item,
+    span {
       display: inline-block;
       width: 25px;
       height: 25px;
@@ -309,34 +331,37 @@ export default {
       margin-left: 5px;
     }
     span {
-      color: rgb(192,192,192);
-      background-color: rgb(242,242,242);
+      color: rgb(192, 192, 192);
+      background-color: rgb(242, 242, 242);
       text-align: center;
     }
     .avatar-btn {
       display: block;
-      border: 1px solid rgb(252,97,66);
+      border: 1px solid rgb(252, 97, 66);
       background-color: #fff;
-      color: rgb(252,97,66);
+      color: rgb(252, 97, 66);
       margin: auto;
       margin-right: 0;
     }
   }
   //评论
-  .comment-title, {
-    border-bottom: 1px solid rgb(237,237,237);
+  .comment-title {
+    border-bottom: 1px solid rgb(237, 237, 237);
   }
-  .comment-title,.avatar-list {
+  .comment-title,
+  .avatar-list {
     padding: 10px 5vw;
   }
-  .comment-box .username,.comment-title {
+  .comment-box .username,
+  .comment-title {
     color: rgb(153, 153, 153);
   }
   .icon-dianzan {
     margin-right: -8px;
     font-size: 19px;
   }
-  .design-item-comment,.design-item-comment .iconfont {
+  .design-item-comment,
+  .design-item-comment .iconfont {
     color: rgb(185, 185, 185) !important;
   }
 }

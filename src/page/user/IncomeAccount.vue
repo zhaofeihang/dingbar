@@ -3,12 +3,17 @@
     <x-header class="x-header" :left-options="{backText: ''}">收款账户</x-header>
     <div class="content-box">
       <card class="card">
-      <div slot="content">
-        <cell v-for="(cell,index) in cellArr" :key="index" :title="cell.title" :link="cell.pageUrl">
-          <i slot="icon" class="iconfont" :class="cell.iconclass"></i>
-        </cell>
-      </div>
-    </card>
+        <div slot="content">
+          <cell
+            v-for="(cell,index) in cellArr"
+            :key="index"
+            :title="cell.title"
+            :link="cell.pageUrl"
+          >
+            <i slot="icon" class="iconfont" :class="cell.iconclass"></i>
+          </cell>
+        </div>
+      </card>
     </div>
   </div>
 </template>
@@ -55,16 +60,16 @@ export default {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 15px 0 !important;
     font-size: 14px;
-    color: rgb(51,51,51);
+    color: rgb(51, 51, 51);
   }
   .iconfont {
     font-size: 25px;
   }
   .icon-weixin {
-    color: rgb(37,155,36) !important;
+    color: rgb(37, 155, 36) !important;
   }
   .icon-zhifubao {
-    color: rgb(16,149,218) !important;
+    color: rgb(16, 149, 218) !important;
   }
 }
 </style>

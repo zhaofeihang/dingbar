@@ -22,6 +22,8 @@ import Register from '@/page/user/Register'
 //随手拍
 import TakePhoto from '@/page/TakePhoto'
 import DesignDetail from '@/page/take_photo/DesignDetail'
+import Message from '@/page/take_photo/Message'
+
 
 export default  [
   {
@@ -188,6 +190,14 @@ export default  [
     path: '/page/user/MobileInfoVerification',
     name: 'MobileInfoVerification',
     component: MobileInfoVerification,
+    meta: {
+      index: 23
+    }
+  },
+  {
+    path: '/page/take_photo/Message',
+    name: 'Message',
+    component: Message,
     meta: {
       index: 23
     }
