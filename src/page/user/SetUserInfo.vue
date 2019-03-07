@@ -1,7 +1,7 @@
 <template>
   <div class="SetUserInfo">
     <x-header class="x-header" :left-options="{backText: ''}">
-      <span slot="right">保存</span>
+      <span slot="right" @click="commit">保存</span>
       设置个人资料
     </x-header>
     <div class="content">
@@ -11,7 +11,7 @@
         </flexbox-item>
         <flexbox-item>
           <div class="avatar">
-            <img src="src/assets/img/test/avatar.png" alt>
+            <img :src="userInfo.logos" alt>
           </div>
         </flexbox-item>
       </flexbox>
@@ -21,7 +21,7 @@
         </flexbox-item>
         <flexbox-item>
           <div>
-            <x-input class="x-input" v-model="userInfo.nickname"></x-input>
+            <x-input class="x-input" v-model="userInfo.nicknames" placeholder="请输入昵称"></x-input>
           </div>
         </flexbox-item>
       </flexbox>
@@ -36,6 +36,7 @@
               :data="[['男','女']]"
               v-model="userInfo.sex"
               value-text-align="left"
+              placeholder="请选择性别"
             ></popup-picker>
           </div>
         </flexbox-item>
@@ -46,7 +47,7 @@
         </flexbox-item>
         <flexbox-item>
           <div>
-            <datetime v-model="userInfo.birthday"></datetime>
+            <datetime v-model="userInfo.birthdays" placeholder="请选择出生日期"></datetime>
           </div>
         </flexbox-item>
       </flexbox>
@@ -56,7 +57,7 @@
         </flexbox-item>
         <flexbox-item>
           <div>
-            <x-textarea class="x-textarea" :rows="2" :max="30" v-model="userInfo.direc" placeholder="点击输入(最多30个字)"></x-textarea>
+            <x-textarea class="x-textarea" :rows="2" :max="30" v-model="userInfo.remarks" placeholder="点击输入(最多30个字)"></x-textarea>
           </div>
         </flexbox-item>
       </flexbox>
@@ -81,10 +82,10 @@ export default {
   data() {
     return {
       userInfo: {
-        nickname: "把我还给自己",
-        sex: ["女"],
-        birthday: "2019-02-21",
-        direc: "为天地立心,为生民立命,为往圣继绝学,为万世开太平！"
+        nicknames: "",
+        sex: "",
+        birthdays: "",
+        remarks: ""
       }
     };
   },
@@ -99,8 +100,58 @@ export default {
     XAddress,
     XTextarea
   },
-  created: function() {},
-  methods: {}
+  created: function() {
+    this.userInfo = JSON.parse(localStorage.getItem('userInfo'));
+    //头像
+    if(!this.userInfo.logos) {
+      this.userInfo.logos = "src/assets/img/test/avatar.png";
+    }
+    //昵称
+    if(!this.userInfo.nicknames) {
+      this.userInfo.nicknames = "";
+    }
+    //性别
+    if(!this.userInfo.gender) {
+      this.userInfo.sex = "";
+    }else if(this.userInfo.gender==1){
+      this.userInfo.sex = "男";
+    }else {
+      this.userInfo.sex = "女";
+    }
+    //生日
+    if(this.userInfo.birthdays == '0000-00-00') {
+      this.userInfo.birthdays = "";
+    }
+    //签名
+    if(!this.userInfo.remarks) {
+      this.userInfo.remarks = "";
+    }
+  },
+  methods: {
+    async commit() {
+      let data = await util.getData({
+        url: `/users/updates`,
+        method: "post",
+        param: {
+          loginid: this.userInfo.id,
+          nicknames: this.userInfo.nicknames,
+          genders: this.userInfo.sex == "男" ? 1 : 2,
+          logos: this.userInfo.logos,
+          birthdays: this.userInfo.birthdays,
+          remarks: this.userInfo.remarks,
+        }
+      });
+      this.$vux.toast.show({
+        text: data,
+        type: "text",
+        onHide: () => {
+          this.$router.push({
+            path: '/page/UserIndex'
+          });
+        }
+      });
+    }
+  }
 };
 </script>
 
@@ -150,5 +201,8 @@ export default {
 }
 .content .weui-cell::before {
   display: none;
+}
+.vux-cell-placeholder {
+  color: #777 !important;
 }
 </style>

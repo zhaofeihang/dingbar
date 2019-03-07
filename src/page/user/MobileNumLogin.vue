@@ -8,13 +8,13 @@
     <div class="content-box">
       <group>
         <h1 slot="title" class="login-title">手机号登录</h1>
-        <x-input class="mobile" title="手机" is-type="china-mobile" placeholder="请输入手机号"></x-input>
-        <x-input class="pwd" title="密码" is-type="china-mobile" placeholder="请输入登录密码"></x-input>
+        <x-input v-model="mobile" class="mobile" title="手机" placeholder="请输入手机号"></x-input>
+        <x-input v-model="pwd" type="password" class="pwd" title="密码" placeholder="请输入登录密码"></x-input>
         <div class="forget-pwd">
           <router-link to="/page/user/MobileInfoLogin">短信登录</router-link>
           <router-link to="/page/user/ForgetPwd">忘记密码？</router-link>
         </div>
-        <x-button class="login-commit">立即登录</x-button>
+        <x-button class="login-commit" @click.native="loginCommit">立即登录</x-button>
         <div class="fast-login">
           <div class="title">其他方式登录</div>
           <div class="btns">
@@ -34,10 +34,14 @@
 
 <script>
 import { XHeader, XButton, Group, XInput } from "vux";
+import util from "../../util";
 
 export default {
   data() {
-    return {};
+    return {
+      mobile: "",
+      pwd: ""
+    };
   },
   components: {
     XHeader,
@@ -45,7 +49,37 @@ export default {
     Group,
     XInput
   },
-  created: function() {}
+  created: function() {},
+  methods: {
+    async loginCommit() {
+      let mobile = this.mobile;
+      let pwd = this.pwd;
+      if (
+        mobile.match(
+          /^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/
+        ) &&
+        pwd
+      ) {
+        let data = await util.getData({
+          url: `/users/login?login_username=${mobile}&login_type=0&login_password=${pwd}`,
+          method: "get",
+        });
+        localStorage.setItem('userInfo', JSON.stringify(data));
+        this.$vux.toast.show({
+          text: "登录成功",
+          type: "text",
+          onHide: () => {
+            this.$router.push({ path: "/page/UserIndex" });
+          }
+        });
+      } else {
+        this.$vux.alert.show({
+          title: "提示",
+          content: "手机号或密码有误"
+        });
+      }
+    }
+  }
 };
 </script>
 
@@ -128,7 +162,7 @@ export default {
     text-align: center;
     margin-top: 85px;
     span {
-      color: rgb(252,97,66);
+      color: rgb(252, 97, 66);
       font-size: 12px;
       font-weight: 550;
     }

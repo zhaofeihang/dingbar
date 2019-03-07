@@ -1,10 +1,9 @@
 <template>
   <div class="TakePhoto">
-    <x-header class="x-header" :left-options="{showBack: false}">
-      随手拍
+    <x-header class="x-header" :left-options="{showBack: false}">随手拍
       <router-link to="/page/take_photo/Message" slot="right" class="message-icon">
-          <badge class="message-badge" text="8"></badge>
-          <i class="iconfont icon-xiaoxi"></i>
+        <badge class="message-badge" :text="messageBadge"></badge>
+        <i class="iconfont icon-xiaoxi"></i>
       </router-link>
     </x-header>
     <div class="tab-box">
@@ -13,9 +12,9 @@
         <span
           v-for="(tabItem,index) in tab.tabList"
           :key="index"
-          @click="seleted(index)"
-          :class="tab.index == index?'active':''"
-        >{{tabItem.text}}</span>
+          @click="seleted(tabItem.topics_id)"
+          :class="tab.id == tabItem.topics_id?'active':''"
+        >{{tabItem.tits}}</span>
       </div>
     </div>
     <div class="content-box">
@@ -24,28 +23,28 @@
         class="design-list"
         v-for="(designItem,designItemIndex) in designList"
         :key="designItemIndex"
-        @click="toDetail(designItemIndex)"
+        @click="toDetail(designItem)"
       >
         <flexbox class="flexbox">
           <flexbox-item :span="1.7">
-            <img class="avatar" :src="designItem.avatar" alt>
+            <img class="avatar" :src="designItem.users_logos" alt>
           </flexbox-item>
           <flexbox-item :span="7.3">
             <div>
               <div class="username">
-                {{designItem.username}}
+                {{designItem.nicknames}}
                 <i
                   v-if="designItem.sex == 'girl'"
                   class="iconfont icon-nvsheng"
                 ></i>
                 <i v-else class="iconfont icon-nansheng"></i>
               </div>
-              <div class="direc">{{designItem.direc}}</div>
+              <div class="direc">{{designItem.dates}}</div>
             </div>
           </flexbox-item>
           <flexbox-item class="x-button-box" :span="3">
             <x-button
-              v-if="designItem.follow"
+              v-if="designItem.followed"
               class="x-button"
               mini
               :gradients="['rgb(525,97,66)', 'rgb(525,97,66)']"
@@ -55,17 +54,17 @@
         </flexbox>
         <flexbox class="design-item-box">
           <flexbox-item :span="1.7"></flexbox-item>
-          <flexbox-item :span="10.3">有念念不忘的美好，有爱而不得的疼痛。</flexbox-item>
+          <flexbox-item :span="10.3">{{designItem.descriptions}}</flexbox-item>
         </flexbox>
         <flexbox class="design-item-box">
           <flexbox-item :span="1.7"></flexbox-item>
           <flexbox-item :span="10.3" class="design-item" :class="designItem.class">
             <img
               class="design-item-img"
-              v-for="(designImg,designImgIndex) in designItem.designImgList"
+              v-for="(designImg,designImgIndex) in designItem.images"
               :key="designImgIndex"
-              :src="designImg.img"
-              @click.stop="show(designImgIndex,designItem.designImgList)"
+              :src="designImg.thumbs"
+              @click.stop="show(designImgIndex,designItem.previewList)"
             >
           </flexbox-item>
         </flexbox>
@@ -75,11 +74,11 @@
             <div class="design-item-menus">
               <span class="design-item-praise">
                 <i class="iconfont icon-dianzan"></i>
-                {{designItem.praise}}
+                {{designItem.praisesnums}}
               </span>
               <span class="design-item-comment">
                 <i class="iconfont icon-pinglun"></i>
-                {{designItem.comment}}
+                {{designItem.commentsnums}}
               </span>
               <span class="design-item-menu">
                 <i class="iconfont icon-gengduo"></i>
@@ -145,7 +144,12 @@
               is-type="number"
               placeholder="输入打赏金额"
             >
-              <span v-show="confirmReward" @click="toPay" style="font-size:12px;color:rgb(252,97,66);" slot="right">确认</span>
+              <span
+                v-show="confirmReward"
+                @click="toPay"
+                style="font-size:12px;color:rgb(252,97,66);"
+                slot="right"
+              >确认</span>
             </x-input>
           </div>
           <div v-else class="select-pay">
@@ -182,10 +186,12 @@ import {
   Cell,
   Badge
 } from "vux";
+import util from "../util";
 
 export default {
   data() {
     return {
+      messageBadge: "80",
       cellArr: [
         {
           title: "微信",
@@ -212,301 +218,155 @@ export default {
       },
       confirmReward: "",
       tab: {
-        tabList: [
-          {
-            text: "全部"
-          },
-          {
-            text: "#缘分天空"
-          },
-          {
-            text: "#天下美食"
-          },
-          {
-            text: "#萌宠萌宝"
-          },
-          {
-            text: "#缘分天空"
-          },
-          {
-            text: "#天下美食"
-          },
-          {
-            text: '#萌宠萌宝"'
-          }
-        ],
-        index: 0
+        tabList: [],
+        id: 0
       },
-      baseList: [
-        {
-          url: "javascript:",
-          img: "src/assets/img/test/img.png",
-          title: "送你一朵fua"
-        },
-        {
-          url: "javascript:",
-          img: "src/assets/img/test/img.png",
-          title: "送你一辆车"
-        },
-        {
-          url: "javascript:",
-          img: "src/assets/img/test/img.png", // 404
-          title: "送你一次旅行",
-          fallbackImg: "src/assets/img/test/img.png"
-        }
-      ],
-      designList: [
-        {
-          avatar: "src/assets/img/test/avatar.png",
-          username: "齐衡小公爷",
-          sex: "boy",
-          direc: "2019-02-21 11:10:52",
-          follow: true,
-          class: "one-img",
-          praise: 70152,
-          comment: 1845,
-          designImgList: [
-            {
-              img: "src/assets/img/test/img.png",
-              state: false
-            }
-          ]
-        },
-        {
-          avatar: "src/assets/img/test/avatar.png",
-          username: "把我还给自己",
-          sex: "girl",
-          direc: "2019-02-21 11:10:52",
-          follow: false,
-          class: "two-img",
-          praise: 70152,
-          comment: 1845,
-          designImgList: [
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            }
-          ]
-        },
-        {
-          avatar: "src/assets/img/test/avatar.png",
-          username: "把我还给自己",
-          sex: "girl",
-          direc: "2019-02-21 11:10:52",
-          follow: true,
-          class: "three-img",
-          praise: 70152,
-          comment: 1845,
-          designImgList: [
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            }
-          ]
-        },
-        {
-          avatar: "src/assets/img/test/avatar.png",
-          username: "把我还给自己",
-          sex: "girl",
-          direc: "2019-02-21 11:10:52",
-          follow: true,
-          class: "four-img",
-          praise: 70152,
-          comment: 1845,
-          designImgList: [
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            }
-          ]
-        },
-        {
-          avatar: "src/assets/img/test/avatar.png",
-          username: "把我还给自己",
-          sex: "boy",
-          direc: "2019-02-21 11:10:52",
-          follow: true,
-          class: "five-img",
-          praise: 70152,
-          comment: 1845,
-          designImgList: [
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            }
-          ]
-        },
-        {
-          avatar: "src/assets/img/test/avatar.png",
-          username: "把我还给自己",
-          sex: "boy",
-          direc: "2019-02-21 11:10:52",
-          follow: true,
-          class: "fix-img",
-          praise: 70152,
-          comment: 1845,
-          designImgList: [
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            }
-          ]
-        },
-        {
-          avatar: "src/assets/img/test/avatar.png",
-          username: "把我还给自己",
-          sex: "boy",
-          direc: "2019-02-21 11:10:52",
-          follow: true,
-          class: "seven-img",
-          praise: 70152,
-          comment: 1845,
-          designImgList: [
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            }
-          ]
-        },
-        {
-          avatar: "src/assets/img/test/avatar.png",
-          username: "把我还给自己",
-          sex: "boy",
-          direc: "2019-02-21 11:10:52",
-          follow: true,
-          class: "eight-img",
-          praise: 70152,
-          comment: 1845,
-          designImgList: [
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            }
-          ]
-        },
-        {
-          avatar: "src/assets/img/test/avatar.png",
-          username: "把我还给自己",
-          sex: "boy",
-          direc: "2019-02-21 11:10:52",
-          follow: true,
-          class: "nine-img",
-          praise: 70152,
-          comment: 1845,
-          designImgList: [
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            }
-          ]
-        }
-      ]
+      baseList: [],
+      designList: []
     };
   },
   created: function() {},
+  mounted: async function() {
+    this.$vux.loading.show({
+      text: "Loading"
+    });
+    /*
+     ** 话题列表
+     */
+    this.tab.tabList = await util.getData({
+      url: "/materials/topicslists",
+      method: "post"
+    });
+    this.tab.id = this.tab.tabList[0].topics_id;
+    /*
+     ** 轮播图
+     */
+    this.bannerList = await util.getData({
+      url: "/materials/bannerslists",
+      method: "post"
+    });
+    this.bannerList.forEach((item, index) => {
+      item = {
+        img: item.thumbs
+      };
+      this.baseList.push(item);
+    });
+    /*
+     ** 随手拍列表
+     */
+    this.designList = await util.getData({
+      url: `/materials/postslists?topics_id=${this.tab.id}&pages=1&rowsmax=10`,
+      method: "get"
+    });
+    //处理随手拍列表数据
+    this.designList.forEach((item, index) => {
+      //提取预览图片集
+      item.previewList = [];
+      item.images.forEach(img => {
+        item.previewList.push({
+          img: img.previews
+        });
+      });
+      //判断性别
+      item.sex = item.gender == 1 ? "boy" : "girl";
+      //根据图片数量布局
+      switch (item.previewList.length) {
+        case 1:
+          item.class = "one-img";
+          break;
+        case 2:
+          item.class = "two-img";
+          break;
+        case 3:
+          item.class = "three-img";
+          break;
+        case 4:
+          item.class = "four-img";
+          break;
+        case 5:
+          item.class = "five-img";
+          break;
+        case 6:
+          item.class = "fix-img";
+          break;
+        case 7:
+          item.class = "seven-img";
+          break;
+        case 8:
+          item.class = "eight-img";
+          break;
+        case 9:
+          item.class = "nine-img";
+          break;
+
+        default:
+          break;
+      }
+    });
+    this.$vux.loading.hide();
+  },
   methods: {
-    seleted(index) {
-      this.tab.index = index;
+    //话题目录切换
+    async seleted(id) {
+      this.tab.id = id;
+      this.$vux.loading.show({
+        text: "Loading"
+      });
+      /*
+       ** 随手拍列表
+       */
+      this.designList = await util.getData({
+        url: `/materials/postslists?topics_id=${
+          this.tab.id
+        }&pages=1&rowsmax=10`,
+        method: "get"
+      });
+      //处理随手拍列表数据
+      this.designList.forEach((item, index) => {
+        //提取预览图片集
+        item.previewList = [];
+        item.images.forEach(img => {
+          item.previewList.push({
+            img: img.previews
+          });
+        });
+        //判断性别
+        item.sex = item.gender == 1 ? "boy" : "girl";
+        //根据图片数量布局
+        switch (item.previewList.length) {
+          case 1:
+            item.class = "one-img";
+            break;
+          case 2:
+            item.class = "two-img";
+            break;
+          case 3:
+            item.class = "three-img";
+            break;
+          case 4:
+            item.class = "four-img";
+            break;
+          case 5:
+            item.class = "five-img";
+            break;
+          case 6:
+            item.class = "fix-img";
+            break;
+          case 7:
+            item.class = "seven-img";
+            break;
+          case 8:
+            item.class = "eight-img";
+            break;
+          case 9:
+            item.class = "nine-img";
+            break;
+
+          default:
+            break;
+        }
+      });
+      this.$vux.loading.hide();
     },
     show(index, list) {
       this.previewList.index = index;
@@ -516,10 +376,10 @@ export default {
       this.previewList.list = [];
     },
     imgCollect() {},
-    toDetail(designItemIndex) {
+    toDetail(designItem) {
       this.$router.push({
         path: "/page/take_photo/DesignDetail",
-        params: { id: "1" }
+        query: { id: designItem.sources_id }
       });
     },
     togglePopup(type) {
@@ -557,7 +417,8 @@ export default {
     Card,
     Cell,
     Badge
-  }
+  },
+  watch: {}
 };
 </script>
 
@@ -633,6 +494,7 @@ export default {
     display: block;
     width: 40px;
     height: 40px;
+    border-radius: 50%;
   }
   .icon-nvsheng,
   .icon-nansheng {
@@ -686,6 +548,7 @@ export default {
   }
   .one-img {
     height: 190px;
+    overflow: hidden;
     .design-item-img {
       display: block;
       width: 100%;
@@ -1152,7 +1015,7 @@ export default {
     .reward-title-box {
       height: 45px;
       position: relative;
-      border-bottom: 1px solid rgb(229,229,229);
+      border-bottom: 1px solid rgb(229, 229, 229);
       span {
         display: inline-block;
         width: max-content;

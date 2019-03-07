@@ -1,10 +1,9 @@
 <template>
   <div class="DesignDetail">
-    <x-header class="x-header" :left-options="{backText: ''}">
-      详情
+    <x-header class="x-header" :left-options="{backText: ''}">详情
       <router-link to="/page/take_photo/Message" slot="right" class="message-icon">
-          <badge class="message-badge" text="8"></badge>
-          <i class="iconfont icon-xiaoxi"></i>
+        <badge class="message-badge" :text="messageBadge"></badge>
+        <i class="iconfont icon-xiaoxi"></i>
       </router-link>
     </x-header>
     <div class="content-box">
@@ -15,24 +14,24 @@
       >
         <flexbox class="flexbox">
           <flexbox-item :span="1.7">
-            <img class="avatar" :src="designItem.avatar" alt>
+            <img class="avatar" :src="designItem.users_logos" alt>
           </flexbox-item>
           <flexbox-item :span="7.3">
             <div>
               <div class="username">
-                {{designItem.username}}
+                {{designItem.nicknames}}
                 <i
                   v-if="designItem.sex == 'girl'"
                   class="iconfont icon-nvsheng"
                 ></i>
                 <i v-else class="iconfont icon-nansheng"></i>
               </div>
-              <div class="direc">{{designItem.direc}}</div>
+              <div class="direc">{{designItem.time}}</div>
             </div>
           </flexbox-item>
           <flexbox-item class="x-button-box" :span="3">
             <x-button
-              v-if="designItem.follow"
+              v-if="designItem.followed"
               class="x-button"
               mini
               :gradients="['rgb(525,97,66)', 'rgb(525,97,66)']"
@@ -41,7 +40,7 @@
           </flexbox-item>
         </flexbox>
         <flexbox class="design-item-box">
-          <flexbox-item class="desc">有念念不忘的美好，有爱而不得的疼痛。有念念不忘的美好，有爱而不得的疼痛。</flexbox-item>
+          <flexbox-item class="desc">{{designItem.descriptions}}</flexbox-item>
         </flexbox>
         <flexbox class="design-item-box">
           <flexbox-item>
@@ -53,11 +52,11 @@
             <div class="design-item-menus">
               <span class="design-item-praise">
                 <i class="iconfont icon-dianzan"></i>
-                {{designItem.praise}}
+                {{designItem.praisesnums}}
               </span>
               <span class="design-item-comment">
                 <i class="iconfont icon-chaping"></i>
-                {{designItem.badComment}}
+                {{designItem.commentsnums}}
               </span>
               <span class="design-item-menu">
                 <i class="iconfont icon-gengduo"></i>
@@ -72,17 +71,17 @@
                 class="avatar-item"
                 v-for="(avatarItem,index) in designItem.avatarList"
                 :key="index"
-                :src="avatarItem.img"
+                :src="avatarItem.users_logos"
                 alt
               >
-              <span>{{designItem.avatarList.length}}</span>
+              <span v-if="designItem.avatarList.length>6">{{designItem.avatarList.length - 6}}</span>
             </flexbox-item>
             <flexbox-item :span="3">
               <x-button class="avatar-btn" mini>赞赏</x-button>
             </flexbox-item>
           </flexbox>
         </div>
-        <div class="comment-title">{{designItem.commentList.length}}条评论</div>
+        <div class="comment-title">{{designItem.commentCount}}条评论</div>
         <div class="comment-box" v-for="(commentItem,index) in designItem.commentList" :key="index">
           <flexbox class="flexbox">
             <flexbox-item :span="1.7">
@@ -103,7 +102,7 @@
           </flexbox>
           <flexbox class="design-item-box">
             <flexbox-item :span="1.7"></flexbox-item>
-            <flexbox-item :span="10.3" class="desc">{{commentItem.content}}</flexbox-item>
+            <flexbox-item :span="10.3" class="desc">{{commentItem.comments}}</flexbox-item>
           </flexbox>
         </div>
       </div>
@@ -121,10 +120,12 @@ import {
   XImg,
   Badge
 } from "vux";
+import util from "../../util"
 
 export default {
   data() {
     return {
+      messageBadge: "80",
       designList: [
         {
           avatar: "src/assets/img/test/avatar.png",
@@ -134,17 +135,8 @@ export default {
           follow: true,
           praise: 70152,
           badComment: 1845,
-          designImgList: [
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            },
-            {
-              img: "src/assets/img/test/img.png"
-            }
-          ],
+          designImgList: [],
+          commentCount: 0,
           avatarList: [
             {
               img: "src/assets/img/test/img.png"
@@ -189,7 +181,53 @@ export default {
       ]
     };
   },
-  created: function() {},
+  created: async function() {
+    this.$vux.loading.show({
+        text: "Loading"
+      });
+    /**
+     * 获取设计师详情
+     */
+    let disnId = this.$route.query.id;
+    this.designList[0] = await util.getData({
+      url: `/materials/details?sources_id=${disnId}`,
+      method: "get",
+    })
+    this.designList[0].designImgList = [];
+    this.designList[0].images.forEach((item,index) => {
+      this.designList[0].designImgList.push({
+        img: item.thumbs
+      });
+    });
+    //获取评论列表
+    this.designList[0].commentList = await util.getData({
+      url: `/materials/commentslists?sources_id=${disnId}&pages=1&rowsmaxs=10`,
+      method: "get",
+    })
+    //获取点赞头像列表
+    this.designList[0].avatarList = await util.getData({
+      url: `/materials/praiserslists?sources_id=${disnId}`,
+      method: "get",
+    })
+    //获取评论总数字
+    this.designList[0].commentCount = await util.getData({
+      url: `/materials/commenttotals?sources_id=${disnId}`,
+      method: "get",
+    })
+    //处理数据
+    this.designList.forEach((item,index) => {
+      item.sex = item.gender == 1 ? "boy" : "girl";
+      item.images.forEach((img,index) => {
+        item.designImgList.push({
+          img: img.thumbs
+        });
+      });
+    });
+    this.$vux.loading.hide();
+  },
+  mounted: function() {
+    
+  },
   methods: {
     show(index, list) {
       this.previewList.index = index;
@@ -212,6 +250,9 @@ export default {
 .DesignDetail {
   .x-header {
     background-color: rgb(249, 249, 249);
+  }
+  .icon-xiaoxi {
+    font-size: 25px;
   }
   .design-list {
     border-bottom: 1px solid rgb(229, 229, 229);

@@ -23,6 +23,14 @@ import Register from '@/page/user/Register'
 import TakePhoto from '@/page/TakePhoto'
 import DesignDetail from '@/page/take_photo/DesignDetail'
 import Message from '@/page/take_photo/Message'
+//发布
+import Release from '@/page/release/Release'
+import SelectAddress from '@/page/release/SelectAddress'
+import SelectLabel from '@/page/release/SelectLabel'
+import ReleaseImgEdit from '@/page/release/ReleaseImgEdit'
+
+import UserIndex1 from '@/page/UserIndex1'
+
 
 
 export default  [
@@ -43,7 +51,7 @@ export default  [
     }
   },
   {
-    path: '/page/SetUserInfo',
+    path: '/page/user/SetUserInfo',
     name: 'SetUserInfo',
     component: SetUserInfo,
     meta: {
@@ -199,7 +207,47 @@ export default  [
     name: 'Message',
     component: Message,
     meta: {
-      index: 23
+      index: 24
+    }
+  },
+  {
+    path: '/page/release/ReleaseImgEdit',
+    name: 'ReleaseImgEdit',
+    component: ReleaseImgEdit,
+    meta: {
+      index: 25
+    }
+  },
+  {
+    path: '/page/release/Release',
+    name: 'Release',
+    component: Release,
+    meta: {
+      index: 26
+    }
+  },
+  {
+    path: '/page/release/SelectAddress',
+    name: 'SelectAddress',
+    component: SelectAddress,
+    meta: {
+      index: 27
+    }
+  },
+  {
+    path: '/page/release/SelectLabel',
+    name: 'SelectLabel',
+    component: SelectLabel,
+    meta: {
+      index: 28
+    }
+  },
+  {
+    path: '/page/UserIndex1',
+    name: 'UserIndex1',
+    component: UserIndex1,
+    meta: {
+      index: 29
     }
   },
 ]

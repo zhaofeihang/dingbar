@@ -4,14 +4,14 @@
       <router-view class="router-view"></router-view>
     </transition>
     <tabbar v-if="showTabbar">
-      <tabbar-item selected link="/">
+      <tabbar-item :selected="$route.path=='/'" link="/">
         <i slot="icon" class="iconfont icon-suipai"></i>
         <span slot="label">随手拍</span>
       </tabbar-item>
       <tabbar-item>
         <i slot="icon" @click="releaseShow" class="iconfont icon-tianjiafabu"></i>
       </tabbar-item>
-      <tabbar-item link="/page/UserIndex">
+      <tabbar-item :selected="$route.path=='/page/UserIndex'" link="/page/UserIndex">
         <i slot="icon" class="iconfont icon-wode"></i>
         <span slot="label">我的</span>
       </tabbar-item>
@@ -42,7 +42,20 @@ export default {
       releaseShowState: false
     };
   },
-  created: function() {},
+  created: function() {
+    switch (this.$route.path) {
+        case "/":
+          this.showTabbar = true;
+          break;
+        case "/page/UserIndex":
+          this.showTabbar = true;
+          break;
+
+        default:
+          this.showTabbar = false;
+          break;
+      }
+  },
   computed: {},
   methods: {
     releaseShow() {
@@ -93,14 +106,15 @@ body .containBox {
   align-items: center;
   justify-content: center;
   position: relative;
+  left: -10px;
   .icon-xiaoxi::before {
     font-size: 18px;
   }
   .message-badge {
     position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(50%, -50%);
+    right: 8px;
+    top: 8px;
+    transform: translate(90%,-90%);
   }
 }
 #app .vux-header .vux-header-left .left-arrow:before {
@@ -216,5 +230,10 @@ body .containBox {
       color: rgb(252, 97, 66);
     }
   }
+}
+//loading窗口
+.weui-toast {
+  top: 50%;
+  transform: translate(-50%,-50%); 
 }
 </style>

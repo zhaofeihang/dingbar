@@ -1,34 +1,37 @@
 <template>
-  <div class="UserIndex">
+  <div class="UserIndex" v-if="userInfo">
     <x-header class="x-header" :left-options="{showBack: false}">
       我的
       <i slot="right" class="iconfont icon-shezhi" @click="toSetPage"></i>
     </x-header>
     <div @click="to">
-      <x-img class="avatar" :default-src="userInfo.avatar"></x-img>
+      <x-img class="avatar" :default-src="userInfo.usersinfos.logos"></x-img>
       <div class="username">
-        {{userInfo.username}}
-        <i v-if="userInfo.sex == 'girl'" class="iconfont icon-nvsheng"></i>
-        <i v-if="userInfo.sex == 'boy'" class="iconfont icon-nansheng"></i>
+        {{userInfo.usersinfos.nicknames}}
+        <i
+          v-if="userInfo.usersinfos.gender == 1"
+          class="iconfont icon-nansheng"
+        ></i>
+        <i v-else class="iconfont icon-nvsheng"></i>
       </div>
-      <div class="signature">{{userInfo.signature}}</div>
+      <div class="signature">{{userInfo.usersinfos.remarks}}</div>
     </div>
     <card>
       <div slot="content" class="card-demo-flex card-demo-content01">
         <router-link to>
-          <span>{{userInfo.fabu}}</span>
+          <span>{{userInfo.my_post_total}}</span>
           <br>发布
         </router-link>
         <router-link to>
-          <span>{{userInfo.guanzhu}}</span>
+          <span>{{userInfo.my_follow_total}}</span>
           <br>关注
         </router-link>
         <router-link to>
-          <span>{{userInfo.fensi}}</span>
+          <span>{{userInfo.my_fans_total}}</span>
           <br>粉丝
         </router-link>
         <router-link to>
-          <span>{{userInfo.huozan}}</span>
+          <span>{{userInfo.my_praise_total}}</span>
           <br>获赞
         </router-link>
       </div>
@@ -45,52 +48,34 @@
 
 <script>
 import { XHeader, Tabbar, TabbarItem, XImg, Card, Cell } from "vux";
+import util from "../util";
 
 export default {
   data() {
     return {
-      // userInfo: {
-      //   avatar: 'src/assets/img/test/avatar.png',
-      //   username: '把我还给自己',
-      //   sex: 'girl',
-      //   signature: '再敬往事一杯酒，再美也不要回头',
-      //   fabu: 1130,
-      //   guanzhu: 15,
-      //   fensi: 0,
-      //   huozan: 88
-      // },
-      userInfo: {
-        avatar: 'src/assets/img/default-avatar.png',
-        username: '未登录',
-        sex: '',
-        signature: '',
-        fabu: 0,
-        guanzhu: 0,
-        fensi: 0,
-        huozan: 0
-      },
+      userId: "",
+      userInfo: null,
       cellArr: [
         {
           title: "我的发布",
           iconclass: "icon-fabu",
-          pageUrl: "/page/MyRelease",
-
+          pageUrl: "/page/MyRelease?type=current"
         },
         {
           title: "我的关注",
           iconclass: "icon-guanzhu",
-          pageUrl: "/page/MyFollow"
+          pageUrl: "/page/MyFollow?type=current"
         },
         {
           title: "我的收藏",
           iconclass: "icon-shoucangxianxing",
-          pageUrl: "/page/MyCollect"
+          pageUrl: "/page/MyCollect?type=current"
         },
-        { title: "我的粉丝", iconclass: "icon-fensi", pageUrl: "/page/MyFan" },
+        { title: "我的粉丝", iconclass: "icon-fensi", pageUrl: "/page/MyFan?type=current" },
         {
           title: "我的收入",
           iconclass: "icon-shouru",
-          pageUrl: "/page/MyIncome"
+          pageUrl: "/page/MyIncome?type=current"
         }
       ]
     };
@@ -104,12 +89,50 @@ export default {
     Cell
   },
   created: function() {},
+  mounted: async function() {
+    try {
+      this.userId = JSON.parse(localStorage.getItem("userInfo")).id;
+    }catch(data) {
+      this.userId = false;
+    }
+    if (this.userId) {
+      this.$vux.loading.show({
+        text: "Loading"
+      });
+      let data = await util.getData({
+        url: `/users/usersinfos?loginid=${this.userId}`,
+        method: "get"
+      });
+      data.usersinfos.logos =
+        data.usersinfos.logos || "src/assets/img/default-avatar.png";
+      data.usersinfos.remarks = data.usersinfos.remarks || "暂无签名";
+      this.userInfo = data;
+      this.$vux.loading.hide();
+    }else {
+      this.userInfo = {
+        my_fans_total: 0,
+        my_follow_total: 0,
+        my_post_total: 0,
+        my_praise_total: 0,
+        usersinfos: {
+          gender: "-1",
+          logos: "src/assets/img/default-avatar.png",
+          nicknames: "未登录",
+          remarks: null
+        }
+      }
+    }
+  },
   methods: {
     toSetPage: function() {
       this.$router.push("/page/MySet");
     },
     to() {
-      this.$router.push("/page/user/LoginIndex");
+      if (this.userId) {
+        this.$router.push("/page/user/SetUserInfo");
+      } else {
+        this.$router.push("/page/user/LoginIndex");
+      }
     }
   }
 };

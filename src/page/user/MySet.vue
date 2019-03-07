@@ -27,7 +27,7 @@
           </cell>
         </div>
       </card>
-      <x-button class="log-out">退出登录</x-button>
+      <x-button @click.native="logout" class="log-out">退出登录</x-button>
     </div>
   </div>
 </template>
@@ -76,7 +76,20 @@ export default {
     XButton,
     Cell
   },
-  created: function() {}
+  created: function() {
+
+  },
+  mounted: async function() {
+    
+  },
+  methods: {
+    logout(){
+      localStorage.removeItem('userInfo');
+      this.$router.push({
+        path: '/page/UserIndex'
+      });
+    }
+  }
 };
 </script>
 

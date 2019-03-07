@@ -8,12 +8,17 @@
     <div class="content-box">
       <group>
         <h1 slot="title" class="login-title">手机号注册</h1>
-        <x-input class="mobile" title="手机" is-type="china-mobile" placeholder="请输入手机号"></x-input>
-        <x-input :type="password" class="pwd" title="密码" placeholder="请设置登录密码">
-            <i slot="right" @click="pwdToggle" v-show="pwdShowState" class="iconfont icon-mimakejian"></i>
-            <i slot="right" @click="pwdToggle" v-show="!pwdShowState" class="iconfont icon-mimabukejian"></i>
+        <x-input v-model="mobile" class="mobile" title="手机" placeholder="请输入手机号"></x-input>
+        <x-input v-model="pwd" :type="password" class="pwd" title="密码" placeholder="请设置登录密码">
+          <i slot="right" @click="pwdToggle" v-show="pwdShowState" class="iconfont icon-mimakejian"></i>
+          <i
+            slot="right"
+            @click="pwdToggle"
+            v-show="!pwdShowState"
+            class="iconfont icon-mimabukejian"
+          ></i>
         </x-input>
-        <x-button class="login-commit">注册</x-button>
+        <x-button class="login-commit" @click.native="register">注册</x-button>
         <div class="fast-login">
           <div class="title">其他方式登录</div>
           <div class="btns">
@@ -33,12 +38,15 @@
 
 <script>
 import { XHeader, XButton, Group, XInput } from "vux";
+import util from "../../util";
 
 export default {
   data() {
     return {
       pwdShowState: false,
-      password: 'password'
+      password: "password",
+      mobile: "",
+      pwd: ""
     };
   },
   components: {
@@ -51,17 +59,43 @@ export default {
   methods: {
     pwdToggle() {
       this.pwdShowState = !this.pwdShowState;
+    },
+    //提交注册
+    register() {
+      let mobile = this.mobile;
+      let pwd = this.pwd;
+      if (
+        mobile.match(
+          /^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/
+        ) &&
+        pwd
+      ) {
+        this.$router.push({
+          path: `/page/user/MobileInfoVerification`,
+          query: {
+            type: 'register',
+            mobile: mobile,
+            pwd: pwd
+          }
+        });
+        
+      } else {
+        this.$vux.alert.show({
+          title: "提示",
+          content: "请输入正确的手机号或密码"
+        });
+      }
     }
   },
   watch: {
     pwdShowState(pwdShowState) {
-      if(pwdShowState) {
-        this.password = 'text';
-      }else {
-        this.password = 'password';
+      if (pwdShowState) {
+        this.password = "text";
+      } else {
+        this.password = "password";
       }
     }
-  },
+  }
 };
 </script>
 
@@ -87,7 +121,7 @@ export default {
     padding: 15px 0;
     border-bottom: 1px solid rgb(237, 237, 237);
     .iconfont::before {
-      color: rgb(197,197,197);
+      color: rgb(197, 197, 197);
     }
   }
   .weui-cell::before,
@@ -113,19 +147,19 @@ export default {
         width: 43px;
         height: 43px;
         line-height: 43px;
-        border: 1px solid rgb(226,226,226);
+        border: 1px solid rgb(226, 226, 226);
         border-radius: 50%;
         margin: 0 20px;
       }
       .iconfont::before {
-        color: rgb(235,85,85);
+        color: rgb(235, 85, 85);
         font-size: 25px;
       }
       .icon-weixin1::before {
-        color: rgb(70,187,43);
+        color: rgb(70, 187, 43);
       }
       .icon-QQ::before {
-        color: rgb(32,161,215);
+        color: rgb(32, 161, 215);
       }
     }
   }
@@ -135,7 +169,7 @@ export default {
     text-align: center;
     margin-top: 85px;
     span {
-      color: rgb(252,97,66);
+      color: rgb(252, 97, 66);
       font-size: 12px;
       font-weight: 550;
     }

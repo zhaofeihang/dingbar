@@ -1,12 +1,11 @@
 <template>
   <div class="MobileInfoLogin">
-    <x-header class="x-header" :left-options="{backText: ''}">
-    </x-header>
+    <x-header class="x-header" :left-options="{backText: ''}"></x-header>
     <div class="content-box">
       <group>
         <h1 slot="title" class="login-title">短信登录</h1>
-        <x-input class="mobile" title="手机" is-type="china-mobile" placeholder="请输入手机号"></x-input>
-        <x-button class="login-commit" link="/page/user/MobileInfoVerification">下一步</x-button>
+        <x-input v-model="mobile" class="mobile" title="手机" placeholder="请输入手机号"></x-input>
+        <x-button class="login-commit" @click.native="commit">下一步</x-button>
       </group>
     </div>
   </div>
@@ -17,7 +16,9 @@ import { XHeader, XButton, Group, XInput } from "vux";
 
 export default {
   data() {
-    return {};
+    return {
+      mobile: ""
+    };
   },
   components: {
     XHeader,
@@ -27,6 +28,28 @@ export default {
   },
   created: function() {},
   methods: {
+    //提交
+    commit() {
+      let mobile = this.mobile;
+      if (
+        mobile.match(
+          /^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/
+        )
+      ) {
+        this.$router.push({
+          path: `/page/user/MobileInfoVerification`,
+          query: {
+            type: "login",
+            mobile: mobile
+          }
+        });
+      } else {
+        this.$vux.alert.show({
+          title: "提示",
+          content: "请输入正确的手机号码"
+        });
+      }
+    }
   }
 };
 </script>

@@ -5,6 +5,13 @@ import FastClick from 'fastclick'
 import VueRouter from 'vue-router'
 import App from './App'
 import routes from './router/index'
+import  { AlertPlugin } from 'vux'
+import  { ToastPlugin } from 'vux'
+import  { LoadingPlugin } from 'vux'
+
+Vue.use(ToastPlugin, {position: 'center'})
+Vue.use(AlertPlugin)
+Vue.use(LoadingPlugin)
 
 Vue.use(VueRouter)
 

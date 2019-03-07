@@ -7,6 +7,9 @@
 @tab-bar-active-color: rgb(252, 97, 66);
 @badge-bg-color: rgb(252, 97, 66);
 
-@function rpx($rpx) {
-  @return calc(#{$rpx} / 7.5 * 1vw);
+// @function rpx($rpx) {
+//   @return calc(#{$rpx} / 7.5 * 1vw);
+// }
+.rpx($rpx) {
+  calc($rpx / 7.5 * 1vw);
 }

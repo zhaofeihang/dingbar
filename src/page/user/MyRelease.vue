@@ -1,33 +1,33 @@
 <template>
-  <div class="MyRelease">
+  <div class="MyRelease" v-if="showState">
     <x-header class="x-header" :left-options="{backText: ''}">我的发布</x-header>
     <div class="user">
-      <x-img class="bgImg" default-src="src/assets/img/test/img.png"></x-img>
+      <x-img class="bgImg" :default-src="userInfo.imgList[0].src"></x-img>
       <div class="user-detail">
         <router-link to>
-          <x-img class="avatar" default-src="src/assets/img/test/avatar.png"></x-img>
+          <x-img class="avatar" :default-src="userInfo.usersinfos.logos"></x-img>
           <div class="username">
-            {{userDetail.username}}
+            {{userInfo.usersinfos.nicknames}}
             <i class="iconfont icon-nvsheng"></i>
           </div>
-          <div class="signature">{{userDetail.signature}}</div>
+          <div class="signature">{{userInfo.usersinfos.remarks}}</div>
         </router-link>
         <card>
           <div slot="content" class="card-demo-flex card-demo-content01">
             <router-link to>
-              <span>{{userDetail.release}}</span>
+              <span>{{userInfo.my_post_total}}</span>
               <br>发布
             </router-link>
             <router-link to>
-              <span>{{userDetail.follow}}</span>
+              <span>{{userInfo.my_follow_total}}</span>
               <br>关注
             </router-link>
             <router-link to>
-              <span>{{userDetail.fan}}</span>
+              <span>{{userInfo.my_fans_total}}</span>
               <br>粉丝
             </router-link>
             <router-link to>
-              <span>{{userDetail.praise}}</span>
+              <span>{{userInfo.my_praise_total}}</span>
               <br>获赞
             </router-link>
           </div>
@@ -42,89 +42,28 @@
       </div>-->
       <div>
         <grid class="grid" :cols="3" :show-lr-borders="false" :show-vertical-dividers="false">
-          <grid-item class="grid-item" v-for="(item, index) in imgList" :key="index">
-            <img class="previewer-demo-img" :src="item.src" @click="show(index)">
+          <grid-item class="grid-item" v-for="(item, index) in userInfo.imgList" :key="index">
+            <img class="previewer-demo-img" :src="item.src">
+            <span>
+              <i class="iconfont icon-shuliangbiaoqian"></i>
+              <span>{{item.imgCount}}</span>
+            </span>
           </grid-item>
         </grid>
-        <div v-transfer-dom>
-          <previewer :list="imgList" ref="previewer" :options="options"></previewer>
-        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import {
-  XHeader,
-  XImg,
-  Card,
-  Grid,
-  GridItem,
-  Previewer,
-  TransferDom
-} from "vux";
+import { XHeader, XImg, Card, Grid, GridItem } from "vux";
+import util from "../../util";
 
 export default {
-  directives: {
-    TransferDom
-  },
   data() {
     return {
-      userDetail: {
-        avatar: "src/assets/test.avatar.png",
-        username: "把我还给自己",
-        signature: "再敬往事一杯酒，再美也不要回头",
-        release: 100,
-        follow: 1000,
-        fan: 100,
-        praise: 10
-      },
-      imgList: [
-        {
-          msrc: "src/assets/img/test/img.png",
-          src: "src/assets/img/test/img.png"
-        },
-        {
-          msrc: "src/assets/img/test/img.png",
-          src: "src/assets/img/test/img.png"
-        },
-        {
-          msrc: "src/assets/img/test/img.png",
-          src: "src/assets/img/test/img.png"
-        },
-        {
-          msrc: "src/assets/img/test/img.png",
-          src: "src/assets/img/test/img.png"
-        },
-        {
-          msrc: "src/assets/img/test/img.png",
-          src: "src/assets/img/test/img.png"
-        },
-        {
-          msrc: "src/assets/img/test/img.png",
-          src: "src/assets/img/test/img.png"
-        },
-        {
-          msrc: "src/assets/img/test/img.png",
-          src: "src/assets/img/test/img.png"
-        },
-        {
-          msrc: "src/assets/img/test/img.png",
-          src: "src/assets/img/test/img.png"
-        }
-      ],
-      options: {
-        getThumbBoundsFn(index) {
-          let thumbnail = document.querySelectorAll(".previewer-demo-img")[
-            index
-          ];
-          let pageYScroll =
-            window.pageYOffset || document.documentElement.scrollTop;
-          let rect = thumbnail.getBoundingClientRect();
-          return { x: rect.left, y: rect.top + pageYScroll, w: rect.width };
-        }
-      }
+      userInfo: {},
+      showState: false
     };
   },
   components: {
@@ -132,15 +71,50 @@ export default {
     Card,
     XImg,
     Grid,
-    GridItem,
-    Previewer
+    GridItem
   },
-  created: function() {},
-  methods: {
-    show(index) {
-      this.$refs.previewer.show(index);
+  created: async function() {
+    let type = this.$route.query.type;
+    let userInfo = localStorage.getItem("userInfo");
+    if (type == "current") {
+      try {
+        this.userId = JSON.parse(localStorage.getItem("userInfo")).id;
+      } catch (data) {
+        this.userId = false;
+      }
+      if (this.userId) {
+        this.$vux.loading.show({
+          text: "Loading"
+        });
+        let data = await util.getData({
+          url: `/users/usersinfos?loginid=${this.userId}`,
+          method: "get"
+        });
+        data.usersinfos.logos =
+          data.usersinfos.logos || "src/assets/img/default-avatar.png";
+        data.usersinfos.remarks = data.usersinfos.remarks || "暂无签名";
+        this.userInfo = data;
+        /*
+         ** 发布信息
+         */
+        this.userInfo.imgList = [];
+        let imgList = await util.getData({
+          url: `/users/mypublishes?loginid=${this.userId}`,
+          method: "get"
+        });
+        imgList.forEach((item,index) => {
+          this.userInfo.imgList.push({
+            src: item.thumbs,
+            imgCount: item.image_total,
+            id: item.id
+          });
+        });
+        this.showState = true;
+        this.$vux.loading.hide();
+      }
     }
-  }
+  },
+  methods: {}
 };
 </script>
 
@@ -231,6 +205,39 @@ export default {
   }
   .grid-item {
     padding: 0 3px;
+    position: relative;
+    .icon-shuliangbiaoqian {
+      font-size: 22px;
+    }
+    > span {
+      position: absolute;
+      top: 0;
+      right: 8px;
+      display: inline-block;
+      width: 18px;
+      height: 22px;
+      .icon-shuliangbiaoqian,
+      span {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .icon-shuliangbiaoqian {
+        color: rgb(252, 97, 66) !important;
+      }
+      span {
+        bottom: 10%;
+        color: #fff;
+        font-size: 12px;
+        transform: scale(0.6);
+      }
+    }
   }
   .weui-grids:before {
     display: none;

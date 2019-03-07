@@ -16,6 +16,7 @@
 
 <script>
 import { XHeader, XImg, Grid, GridItem, Previewer, TransferDom } from "vux";
+import util from "../../util";
 
 export default {
   directives: {
@@ -77,8 +78,14 @@ export default {
     GridItem,
     Previewer
   },
-  created: function() {
-
+  created: async function() {
+    let userInfo = JSON.parse(localStorage.getItem('userInfo'));
+    if(userInfo) {
+      let data = await util.getData1({
+        url: `/users/mycollects?loginid=${userInfo.id}`,
+        method: 'get',
+      })
+    }
   },
   methods: {
     show(index) {
