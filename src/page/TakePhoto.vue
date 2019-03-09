@@ -227,13 +227,13 @@ export default {
   },
   created: function() {},
   mounted: async function() {
-    this.$vux.loading.show({
-      text: "Loading"
-    });
+    // this.$vux.loading.show({
+    //   text: "Loading"
+    // });
     /*
      ** 话题列表
      */
-    this.tab.tabList = await util.getData({
+    this.tab.tabList = await util.getData1({
       url: "/materials/topicslists",
       method: "post"
     });
@@ -303,7 +303,7 @@ export default {
           break;
       }
     });
-    this.$vux.loading.hide();
+    // this.$vux.loading.hide();
   },
   methods: {
     //话题目录切换

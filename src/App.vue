@@ -18,11 +18,11 @@
     </tabbar>
     <popup v-model="releaseShowState" height="190px" is-transparent>
       <div class="release-view">
-        <span>
+        <span @click="takephoto">
           <i slot="icon" class="iconfont icon-xiangji"></i>
           拍照
         </span>
-        <span>
+        <span @click="selectImg">
           <i slot="icon" class="iconfont icon-xiangce"></i>
           相册
         </span>
@@ -33,6 +33,7 @@
 
 <script>
 import { Tabbar, TabbarItem, Popup } from "vux";
+import { openAlbum,takePicture } from "../static/cordovaplugin.js"
 export default {
   name: "app",
   data() {
@@ -60,6 +61,12 @@ export default {
   methods: {
     releaseShow() {
       this.releaseShowState = true;
+    },
+    takephoto() {
+      takePicture();
+    },
+    selectImg() {
+      openAlbum();
     }
   },
   watch: {

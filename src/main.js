@@ -22,9 +22,16 @@ const router = new VueRouter({
 FastClick.attach(document.body)
 
 Vue.config.productionTip = false
-
 /* eslint-disable no-new */
-new Vue({
-  router,
-  render: h => h(App)
-}).$mount('#app-box')
+// new Vue({
+//   router,
+//   render: h => h(App)
+// }).$mount('#app-box')
+
+document.addEventListener('deviceready', function() {
+  new Vue({
+    router,
+    render: h => h(App)
+  }).$mount('#app-box')
+  window.navigator.splashscreen.hide()
+}, false);
