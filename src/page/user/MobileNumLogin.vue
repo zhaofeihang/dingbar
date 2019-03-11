@@ -61,17 +61,22 @@ export default {
         pwd
       ) {
         let data = await util.getData({
-          url: `/users/login?login_username=${mobile}&login_type=0&login_password=${pwd}`,
-          method: "get",
-        });
-        localStorage.setItem('userInfo', JSON.stringify(data));
-        this.$vux.toast.show({
-          text: "登录成功",
-          type: "text",
-          onHide: () => {
-            this.$router.push({ path: "/page/UserIndex" });
+          url: `/users/login`,
+          method: "post",
+          param: {
+            login_username: mobile,
+            login_type: 0,
+            login_password: pwd
           }
         });
+        localStorage.setItem('userInfo', JSON.stringify(data));
+        // this.$vux.toast.show({
+        //   text: "登录成功",
+        //   type: "text",
+        //   onHide: () => {
+        //     this.$router.push({ path: "/page/UserIndex" });
+        //   }
+        // });
       } else {
         this.$vux.alert.show({
           title: "提示",
