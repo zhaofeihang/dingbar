@@ -9,7 +9,7 @@ module.exports = {
 
     // Paths
     assetsSubDirectory: 'static',
-    assetsPublicPath: '',
+    assetsPublicPath: './',
     proxyTable: {
       '/apiapp': { //代理地址  
         target: 'http://testv1.shedouwang.com/', //需要代理的地址  

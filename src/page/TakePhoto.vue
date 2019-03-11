@@ -227,9 +227,9 @@ export default {
   },
   created: function() {},
   mounted: async function() {
-    // this.$vux.loading.show({
-    //   text: "Loading"
-    // });
+    this.$vux.loading.show({
+      text: "Loading"
+    });
     /*
      ** 话题列表
      */
@@ -303,7 +303,7 @@ export default {
           break;
       }
     });
-    // this.$vux.loading.hide();
+    this.$vux.loading.hide();
   },
   methods: {
     //话题目录切换
@@ -441,6 +441,7 @@ export default {
     border-bottom: 1px solid #eee;
     margin-left: 5vw;
     .tab-list {
+      color: rgb(185,185,185);
       display: flex;
       align-items: center;
       flex-wrap: nowrap;

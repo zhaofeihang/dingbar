@@ -3,7 +3,7 @@
     <transition :name="transitionName">
       <router-view class="router-view"></router-view>
     </transition>
-    <tabbar v-if="showTabbar">
+    <tabbar class="tabbar" v-if="showTabbar">
       <tabbar-item :selected="$route.path=='/'" link="/">
         <i slot="icon" class="iconfont icon-suipai"></i>
         <span slot="label">随手拍</span>
@@ -33,7 +33,7 @@
 
 <script>
 import { Tabbar, TabbarItem, Popup } from "vux";
-import { openAlbum,takePicture } from "../static/cordovaplugin.js"
+import { openAlbum, takePicture } from "../static/cordovaplugin.js";
 export default {
   name: "app",
   data() {
@@ -45,17 +45,17 @@ export default {
   },
   created: function() {
     switch (this.$route.path) {
-        case "/":
-          this.showTabbar = true;
-          break;
-        case "/page/UserIndex":
-          this.showTabbar = true;
-          break;
+      case "/":
+        this.showTabbar = true;
+        break;
+      case "/page/UserIndex":
+        this.showTabbar = true;
+        break;
 
-        default:
-          this.showTabbar = false;
-          break;
-      }
+      default:
+        this.showTabbar = false;
+        break;
+    }
   },
   computed: {},
   methods: {
@@ -121,7 +121,7 @@ body .containBox {
     position: absolute;
     right: 8px;
     top: 8px;
-    transform: translate(90%,-90%);
+    transform: translate(90%, -90%);
   }
 }
 #app .vux-header .vux-header-left .left-arrow:before {
@@ -136,7 +136,7 @@ body .containBox {
 }
 .weui-tabbar {
   position: fixed !important;
-  background-color: rgba(255, 255, 255, 1) !important;
+  background-color: rgba(255, 255, 255, 0) !important;
   z-index: 100 !important;
   .weui-bar__item_on .iconfont,
   .weui-bar__item_on .weui-tabbar__label {
@@ -154,13 +154,12 @@ body .containBox {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 55px;
-    height: 55px;
-    background-color: rgb(249, 249, 249);
-    font-size: 46px;
-    border-top: 1px solid rgb(212, 212, 212);
+    width: 50px;
+    height: 50px;
+    font-size: 52px;
+    margin-top: -13px;
     border-radius: 50%;
-    margin-top: -18px;
+    overflow: hidden;
   }
 
   .icon-tianjiafabu::before {
@@ -168,7 +167,34 @@ body .containBox {
   }
 }
 .weui-tabbar:before {
-  border-top-color: rgb(212, 212, 212) !important;
+  display: none;
+}
+.tabbar {
+  height: 49px;
+  padding-top: 13px;
+  background-image: linear-gradient(
+      0deg,
+      #fff 0%,
+      #fff 48px,
+      transparent 49px,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      #fff 0%,
+      #fff 30px,
+      rgb(212,212,212) 31px,
+      transparent 31px
+    ),
+    linear-gradient(
+      0deg,
+      #fff 0%,
+      #fff 48px,
+      rgb(212,212,212) 49px,
+      rgb(212,212,212) 49px,
+      transparent 49px,
+      transparent 100%
+    );
 }
 
 //页面切换动画
@@ -241,6 +267,6 @@ body .containBox {
 //loading窗口
 .weui-toast {
   top: 50%;
-  transform: translate(-50%,-50%); 
+  transform: translate(-50%, -50%);
 }
 </style>
