@@ -50,20 +50,20 @@ export default {
 <style lang="less">
 .IncomeAccount {
   .x-header {
-    border-bottom: 1px solid rgb(229, 229, 229);
+    border-bottom: calc(1 *2 / 7.5 * 1vw) solid rgb(229, 229, 229);
   }
   .content-box {
     padding: 0 5vw;
   }
   .card {
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 15px 0 !important;
-    font-size: 14px;
+    border-radius: calc(10 *2 / 7.5 * 1vw);
+    box-shadow: 0 0 calc(10 *2 / 7.5 * 1vw) rgba(0, 0, 0, 0.1);
+    margin: calc(15 *2 / 7.5 * 1vw) 0 !important;
+    font-size: calc(14 *2 / 7.5 * 1vw);
     color: rgb(51, 51, 51);
   }
   .iconfont {
-    font-size: 25px;
+    font-size: calc(25 *2 / 7.5 * 1vw);
   }
   .icon-weixin {
     color: rgb(37, 155, 36) !important;

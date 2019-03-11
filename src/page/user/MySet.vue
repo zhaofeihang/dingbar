@@ -96,21 +96,21 @@ export default {
 <style lang="less">
 .MySet {
   .x-header {
-    border-bottom: 1px solid rgb(229, 229, 229);
+    border-bottom: calc(1 *2 / 7.5 * 1vw) solid rgb(229, 229, 229);
   }
   .content-box {
     padding: 0 5vw;
   }
   .weui-cell {
-    padding: 20px;
+    padding: calc(20 *2 / 7.5 * 1vw);
   }
   .card {
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 15px 0 !important;
+    border-radius: calc(10 *2 / 7.5 * 1vw);
+    box-shadow: 0 0 calc(10 *2 / 7.5 * 1vw) rgba(0, 0, 0, 0.1);
+    margin: calc(15 *2 / 7.5 * 1vw) 0 !important;
   }
   .log-out {
-    margin-top: 30px;
+    margin-top: calc(30 *2 / 7.5 * 1vw);
     color: rgb(252, 97, 66);
     background-color: #fff;
     overflow: initial;

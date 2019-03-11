@@ -49,45 +49,45 @@ export default {
 <style lang="less">
 .AboutUs {
   .x-header {
-    border-bottom: 1px solid rgb(229, 229, 229);
+    border-bottom: calc(1 *2 / 7.5 * 1vw) solid rgb(229, 229, 229);
   }
   .content-box {
     padding: 0 5vw;
   }
   .logo-box {
-    margin-top: 40px;
+    margin-top: calc(40 *2 / 7.5 * 1vw);
   }
   .logo {
     display: block;
-    width: 70px;
-    height: 70px;
+    width: calc(70 *2 / 7.5 * 1vw);
+    height: calc(70 *2 / 7.5 * 1vw);
     margin: auto;
   }
   .logo-title {
     text-align: center;
-    font-size: 16px;
-    line-height: 16px;
-    margin-top: 10px;
+    font-size: calc(16 *2 / 7.5 * 1vw);
+    line-height: calc(16 *2 / 7.5 * 1vw);
+    margin-top: calc(10 *2 / 7.5 * 1vw);
   }
   .desc {
-    padding: 15px 20px;
+    padding: calc(15 *2 / 7.5 * 1vw) calc(20 *2 / 7.5 * 1vw);
     box-sizing: border-box;
-    border-radius: 10px;
+    border-radius: calc(10 *2 / 7.5 * 1vw);
     text-indent: 2em;
-    font-size: 13px;
-    line-height: 23px;
+    font-size: calc(13 *2 / 7.5 * 1vw);
+    line-height: calc(23 *2 / 7.5 * 1vw);
     color: rgb(51, 51, 51);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 25px;
+    box-shadow: 0 0 calc(10 *2 / 7.5 * 1vw) rgba(0, 0, 0, 0.1);
+    margin-top: calc(25 *2 / 7.5 * 1vw);
   }
 
   .card {
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 15px 0 !important;
+    border-radius: calc(10 *2 / 7.5 * 1vw);
+    box-shadow: 0 0 calc(10 *2 / 7.5 * 1vw) rgba(0, 0, 0, 0.1);
+    margin: calc(15 *2 / 7.5 * 1vw) 0 !important;
   }
   .weui-cell {
-    padding: 20px;
+    padding: calc(20 *2 / 7.5 * 1vw);
   }
 }
 </style>

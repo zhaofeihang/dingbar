@@ -44,7 +44,7 @@
         </flexbox>
         <flexbox class="design-item-box">
           <flexbox-item>
-            <swiper height="300px" class="swiper" loop :list="designItem.designImgList"></swiper>
+            <swiper height="calc(300 *2 / 7.5 * 1vw)" class="swiper" loop :list="designItem.designImgList"></swiper>
           </flexbox-item>
         </flexbox>
         <flexbox>
@@ -252,10 +252,10 @@ export default {
     background-color: rgb(249, 249, 249);
   }
   .icon-xiaoxi {
-    font-size: 25px;
+    font-size: calc(25 *2 / 7.5 * 1vw);
   }
   .design-list {
-    border-bottom: 1px solid rgb(229, 229, 229);
+    border-bottom: calc(1 *2 / 7.5 * 1vw) solid rgb(229, 229, 229);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -265,7 +265,7 @@ export default {
   }
   .flexbox {
     width: 100%;
-    padding: 15px 5vw 5px 5vw;
+    padding: calc(15 *2 / 7.5 * 1vw) 5vw calc(5 *2 / 7.5 * 1vw) 5vw;
     box-sizing: border-box;
   }
   .vux-flexbox-item {
@@ -273,14 +273,14 @@ export default {
   }
   .avatar {
     display: block;
-    width: 40px;
-    height: 40px;
+    width: calc(40 *2 / 7.5 * 1vw);
+    height: calc(40 *2 / 7.5 * 1vw);
   }
   .icon-nvsheng,
   .icon-nansheng {
-    width: 15px;
+    width: calc(15 *2 / 7.5 * 1vw);
     color: rgb(255, 108, 152) !important;
-    margin-left: -10px;
+    margin-left: -calc(10 *2 / 7.5 * 1vw);
   }
   .icon-nansheng {
     color: rgb(75, 157, 255) !important;
@@ -291,17 +291,17 @@ export default {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: 12px;
+    font-size: calc(12 *2 / 7.5 * 1vw);
     color: rgb(169, 169, 169);
   }
   .username {
-    font-size: 15px;
+    font-size: calc(15 *2 / 7.5 * 1vw);
     font-weight: 550;
     color: rgb(51, 51, 51);
   }
   .x-button {
-    width: 60px;
-    height: 30px;
+    width: calc(60 *2 / 7.5 * 1vw);
+    height: calc(30 *2 / 7.5 * 1vw);
     padding: 0;
     margin: 0;
   }
@@ -320,12 +320,12 @@ export default {
   .desc {
     padding: 0 5vw;
     box-sizing: border-box;
-    margin-bottom: 5px;
+    margin-bottom: calc(5 *2 / 7.5 * 1vw);
   }
 
   .design-item-box {
     box-sizing: border-box;
-    font-size: 16px;
+    font-size: calc(16 *2 / 7.5 * 1vw);
   }
   .design-item-menus,
   .design-item-menus .iconfont::before {
@@ -335,10 +335,10 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 15px 0;
+    margin: calc(15 *2 / 7.5 * 1vw) 0;
     padding: 0 5vw;
     .design-item-comment {
-      margin-right: 55px;
+      margin-right: calc(55 *2 / 7.5 * 1vw);
     }
   }
 
@@ -352,7 +352,7 @@ export default {
     background-color: rgb(153, 137, 134);
   }
   .vux-icon-dot.active {
-    width: 15px !important;
+    width: calc(15 *2 / 7.5 * 1vw) !important;
     background-color: #fff !important;
   }
   //赞赏
@@ -365,11 +365,11 @@ export default {
     .avatar-item,
     span {
       display: inline-block;
-      width: 25px;
-      height: 25px;
-      line-height: 25px;
+      width: calc(25 *2 / 7.5 * 1vw);
+      height: calc(25 *2 / 7.5 * 1vw);
+      line-height: calc(25 *2 / 7.5 * 1vw);
       border-radius: 50%;
-      margin-left: 5px;
+      margin-left: calc(5 *2 / 7.5 * 1vw);
     }
     span {
       color: rgb(192, 192, 192);
@@ -378,7 +378,7 @@ export default {
     }
     .avatar-btn {
       display: block;
-      border: 1px solid rgb(252, 97, 66);
+      border: calc(1 *2 / 7.5 * 1vw) solid rgb(252, 97, 66);
       background-color: #fff;
       color: rgb(252, 97, 66);
       margin: auto;
@@ -387,19 +387,19 @@ export default {
   }
   //评论
   .comment-title {
-    border-bottom: 1px solid rgb(237, 237, 237);
+    border-bottom: calc(1 *2 / 7.5 * 1vw) solid rgb(237, 237, 237);
   }
   .comment-title,
   .avatar-list {
-    padding: 10px 5vw;
+    padding: calc(10 *2 / 7.5 * 1vw) 5vw;
   }
   .comment-box .username,
   .comment-title {
     color: rgb(153, 153, 153);
   }
   .icon-dianzan {
-    margin-right: -8px;
-    font-size: 19px;
+    margin-right: -calc(8 *2 / 7.5 * 1vw);
+    font-size: calc(19 *2 / 7.5 * 1vw);
   }
   .design-item-comment,
   .design-item-comment .iconfont {

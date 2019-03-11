@@ -13,7 +13,7 @@
           </div>
           <card class="desc">
             <div slot="content" class="card-demo-flex card-demo-content01">
-              <div class="vux-1px-r">
+              <div class="vux-calc(1 *2 / 7.5 * 1vw)-r">
                 <span>本月收入 162.00</span>
               </div>
               <div>
@@ -79,57 +79,57 @@ export default {
 @import "~vux/src/styles/1px.less";
 .MyIncome {
   .x-header {
-    border-bottom: 1px solid rgb(229, 229, 229);
+    border-bottom: calc(1 *2 / 7.5 * 1vw) solid rgb(229, 229, 229);
   }
   .content-box {
     padding: 0 5vw;
   }
   .card {
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 15px 0 !important;
+    border-radius: calc(10 *2 / 7.5 * 1vw);
+    box-shadow: 0 0 calc(10 *2 / 7.5 * 1vw) rgba(0, 0, 0, 0.1);
+    margin: calc(15 *2 / 7.5 * 1vw) 0 !important;
   }
   .icon-shourujine {
     display: block;
-    height: 30px;
-    line-height: 30px;
-    margin: 15px auto;
+    height: calc(30 *2 / 7.5 * 1vw);
+    line-height: calc(30 *2 / 7.5 * 1vw);
+    margin: calc(15 *2 / 7.5 * 1vw) auto;
     width: max-content;
-    font-size: 30px;
+    font-size: calc(30 *2 / 7.5 * 1vw);
     color: rgb(252, 97, 66) !important;
   }
   .amount {
     text-align: center;
-    font-size: 22px;
-    line-height: 22px;
+    font-size: calc(22 *2 / 7.5 * 1vw);
+    line-height: calc(22 *2 / 7.5 * 1vw);
   }
   .amount-text {
     display: block;
-    width: 100px;
-    height: 25px;
-    line-height: 25px;
-    font-size: 12px;
+    width: calc(100 *2 / 7.5 * 1vw);
+    height: calc(25 *2 / 7.5 * 1vw);
+    line-height: calc(25 *2 / 7.5 * 1vw);
+    font-size: calc(12 *2 / 7.5 * 1vw);
     text-align: center;
     color: rgb(139, 139, 139);
-    border: 1px solid rgb(229, 229, 229);
-    border-radius: 13px;
-    margin: 15px auto;
+    border: calc(1 *2 / 7.5 * 1vw) solid rgb(229, 229, 229);
+    border-radius: calc(13 *2 / 7.5 * 1vw);
+    margin: calc(15 *2 / 7.5 * 1vw) auto;
   }
 
   .weui-cell {
-    padding: 20px;
+    padding: calc(20 *2 / 7.5 * 1vw);
   }
 
   .card-demo-flex {
     display: flex;
   }
   .card-padding {
-    padding: 15px;
+    padding: calc(15 *2 / 7.5 * 1vw);
   }
   .card-demo-flex > div {
     flex: 1;
     text-align: center;
-    font-size: 12px;
+    font-size: calc(12 *2 / 7.5 * 1vw);
   }
   .card-demo-flex span {
     color: rgb(139, 139, 139);
@@ -140,13 +140,13 @@ export default {
   }
   .desc {
     margin-top: 0;
-    margin-bottom: 15px;
+    margin-bottom: calc(15 *2 / 7.5 * 1vw);
   }
 
   .take-away {
     display: block;
     width: 100%;
-    height: 44px;
+    height: calc(44 *2 / 7.5 * 1vw);
     background-color: rgb(252, 97, 66);
     color: #fff;
   }

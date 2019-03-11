@@ -29,8 +29,6 @@ import SelectAddress from '@/page/release/SelectAddress'
 import SelectLabel from '@/page/release/SelectLabel'
 import ReleaseImgEdit from '@/page/release/ReleaseImgEdit'
 
-import UserIndex1 from '@/page/UserIndex1'
-
 
 
 export default  [
@@ -240,14 +238,6 @@ export default  [
     component: SelectLabel,
     meta: {
       index: 28
-    }
-  },
-  {
-    path: '/page/UserIndex1',
-    name: 'UserIndex1',
-    component: UserIndex1,
-    meta: {
-      index: 29
     }
   },
 ]

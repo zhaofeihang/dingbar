@@ -33,7 +33,7 @@ export default {
 <style lang="less">
 .ServicePact {
   .x-header {
-    border-bottom: 1px solid rgb(229, 229, 229);
+    border-bottom: calc(1 *2 / 7.5 * 1vw) solid rgb(229, 229, 229);
   }
   .content-box {
     padding: 5vw;

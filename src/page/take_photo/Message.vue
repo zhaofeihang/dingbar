@@ -81,8 +81,8 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding-top: 15px;
-    padding-left: 20px;
+    padding-top: calc(15 *2 / 7.5 * 1vw);
+    padding-left: calc(20 *2 / 7.5 * 1vw);
   }
   .design-list:last-child {
     border-bottom: none;
@@ -90,16 +90,16 @@ export default {
   .flexbox {
     width: 100%;
     box-sizing: border-box;
-    border-bottom: 1px solid rgb(229, 229, 229);
-    padding-bottom: 15px;
+    border-bottom: calc(1 *2 / 7.5 * 1vw) solid rgb(229, 229, 229);
+    padding-bottom: calc(15 *2 / 7.5 * 1vw);
   }
   .vux-flexbox-item {
     margin-left: 0 !important;
   }
   .avatar {
     display: block;
-    width: 40px;
-    height: 40px;
+    width: calc(40 *2 / 7.5 * 1vw);
+    height: calc(40 *2 / 7.5 * 1vw);
   }
   .direc,
   .username {
@@ -107,11 +107,11 @@ export default {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: 12px;
+    font-size: calc(12 *2 / 7.5 * 1vw);
     color: rgb(169, 169, 169);
   }
   .username {
-    font-size: 15px;
+    font-size: calc(15 *2 / 7.5 * 1vw);
     font-weight: 550;
     color: rgb(51, 51, 51);
   }

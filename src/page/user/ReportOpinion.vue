@@ -47,29 +47,29 @@ export default {
 <style lang="less">
 .ReportOpinion {
   .x-header {
-    border-bottom: 1px solid rgb(229, 229, 229);
+    border-bottom: calc(1 *2 / 7.5 * 1vw) solid rgb(229, 229, 229);
   }
   .content-box {
     padding: 0 5vw;
   }
   .edit-box {
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: calc(10 *2 / 7.5 * 1vw);
+    box-shadow: 0 0 calc(10 *2 / 7.5 * 1vw) rgba(0, 0, 0, 0.1);
     padding: 5vw;
     box-sizing: border-box;
-    margin: 15px 0 !important;
+    margin: calc(15 *2 / 7.5 * 1vw) 0 !important;
   }
   .vux-x-textarea {
     padding: 0;
   }
   .add-img {
     display: block;
-    width: 75px;
-    height: 75px;
+    width: calc(75 *2 / 7.5 * 1vw);
+    height: calc(75 *2 / 7.5 * 1vw);
   }
   .img-item {
     padding: 0;
-    margin-top: 20px;
+    margin-top: calc(20 *2 / 7.5 * 1vw);
   }
   .img-list::before,.img-item::after {
     display: none;

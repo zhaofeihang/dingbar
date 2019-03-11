@@ -97,35 +97,35 @@ export default {
   }
   .label {
     display: block;
-    width: 100px;
-    height: 32px;
-    line-height: 32px;
+    width: calc(100 *2 / 7.5 * 1vw);
+    height: calc(32 *2 / 7.5 * 1vw);
+    line-height: calc(32 *2 / 7.5 * 1vw);
     text-align: center;
-    font-size: 14px;
+    font-size: calc(14 *2 / 7.5 * 1vw);
     color: rgb(51, 51, 51);
     background-color: rgb(242, 242, 242);
-    border-radius: 5px;
+    border-radius: calc(5 *2 / 7.5 * 1vw);
     margin: auto;
-    margin-bottom: 15px;
+    margin-bottom: calc(15 *2 / 7.5 * 1vw);
   }
   .selected {
     background-color: rgb(252, 97, 66) !important;
     color: #fff !important;
   }
   .grid {
-    padding: 6px 3px;
+    padding: calc(6 *2 / 7.5 * 1vw) calc(3 *2 / 7.5 * 1vw);
   }
   .grid-item {
-    padding: 0 3px;
+    padding: 0 calc(3 *2 / 7.5 * 1vw);
   }
   .weui-grids:before {
     display: none;
   }
   .commit-btn-box {
-    padding: 0 15px;
+    padding: 0 calc(15 *2 / 7.5 * 1vw);
     box-sizing: border-box;
     position: fixed;
-    bottom: 15px;
+    bottom: calc(15 *2 / 7.5 * 1vw);
     left: 0;
     right: 0;
     margin: auto;

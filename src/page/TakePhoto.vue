@@ -49,7 +49,12 @@
               mini
               :gradients="['rgb(525,97,66)', 'rgb(525,97,66)']"
             >已关注</x-button>
-            <x-button v-else class="x-button no-follow" mini>关注</x-button>
+            <x-button
+              v-else
+              @click.native.stop="follow(designItem.userid)"
+              class="x-button no-follow"
+              mini
+            >关注</x-button>
           </flexbox-item>
         </flexbox>
         <flexbox class="design-item-box">
@@ -94,7 +99,7 @@
           dots-class="test"
           dots-position="center"
           loop
-          height="504px"
+          height="calc(504 *2 / 7.5 * 1vw)"
           class="previewSwiper"
           :list="previewList.list"
           v-model="previewList.index"
@@ -119,9 +124,9 @@
     <div>
       <popup
         v-model="popup.popupState"
-        height="270px"
+        height="calc(270 *2 / 7.5 * 1vw)"
         :show-mask="false"
-        style="background-color:#fff;border-radius:20px 20px 0 0;"
+        style="background-color:#fff;border-radius:calc(20 *2 / 7.5 * 1vw) calc(20 *2 / 7.5 * 1vw) 0 0;"
       >
         <div class="reward-box">
           <div class="reward-title-box">
@@ -147,7 +152,7 @@
               <span
                 v-show="confirmReward"
                 @click="toPay"
-                style="font-size:12px;color:rgb(252,97,66);"
+                style="font-size:calc(12 *2 / 7.5 * 1vw);color:rgb(252,97,66);"
                 slot="right"
               >确认</span>
             </x-input>
@@ -233,7 +238,7 @@ export default {
     /*
      ** 话题列表
      */
-    this.tab.tabList = await util.getData1({
+    this.tab.tabList = await util.getData({
       url: "/materials/topicslists",
       method: "post"
     });
@@ -403,6 +408,19 @@ export default {
         item.righticonclass = "icon-weixuanzhong";
       });
       cell.righticonclass = "icon-xuanzhong";
+    },
+    async follow(userId) {
+      let userInfo = localStorage.getItem("userInfo");
+      if (userInfo) {
+        let data = await util.getData({
+          url: `/materials/usersfollows`,
+          method: "post",
+          param: {
+            users_mains_id: userId,
+            loginid: JSON.parse(userInfo).id,
+          }
+        });
+      }
     }
   },
   components: {
@@ -428,20 +446,20 @@ export default {
     background-color: rgb(249, 249, 249);
   }
   .content-box {
-    padding: 60px 5vw;
+    padding: calc(60 *2 / 7.5 * 1vw) 5vw;
     padding-top: 0;
   }
   .tab-box {
     display: flex;
     align-items: center;
     width: 95vw;
-    height: 40px;
-    line-height: 40px;
-    font-size: 15px;
-    border-bottom: 1px solid #eee;
+    height: calc(40 *2 / 7.5 * 1vw);
+    line-height: calc(40 *2 / 7.5 * 1vw);
+    font-size: calc(15 *2 / 7.5 * 1vw);
+    border-bottom: calc(1 *2 / 7.5 * 1vw) solid #eee;
     margin-left: 5vw;
     .tab-list {
-      color: rgb(185,185,185);
+      color: rgb(185, 185, 185);
       display: flex;
       align-items: center;
       flex-wrap: nowrap;
@@ -454,27 +472,27 @@ export default {
       width: max-content;
       white-space: nowrap;
       height: 100%;
-      margin: 0 10px;
+      margin: 0 calc(10 *2 / 7.5 * 1vw);
     }
     span:first-child {
-      margin-left: 20px;
+      margin-left: calc(20 *2 / 7.5 * 1vw);
     }
     .tab-title {
-      font-size: 17px;
+      font-size: calc(17 *2 / 7.5 * 1vw);
       font-weight: 550;
       margin: 0;
     }
     .active {
       color: rgb(252, 97, 66);
-      border-bottom: 3px solid rgb(252, 97, 66);
+      border-bottom: calc(3 *2 / 7.5 * 1vw) solid rgb(252, 97, 66);
     }
   }
   .swiper {
-    border-radius: 10px;
-    margin: 10px 0;
+    border-radius: calc(10 *2 / 7.5 * 1vw);
+    margin: calc(10 *2 / 7.5 * 1vw) 0;
   }
   .design-list {
-    border-bottom: 1px solid rgb(229, 229, 229);
+    border-bottom: calc(1 *2 / 7.5 * 1vw) solid rgb(229, 229, 229);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -484,8 +502,8 @@ export default {
   }
   .flexbox {
     width: 100%;
-    padding-top: 15px;
-    padding-bottom: 12px;
+    padding-top: calc(15 *2 / 7.5 * 1vw);
+    padding-bottom: calc(12 *2 / 7.5 * 1vw);
     box-sizing: border-box;
   }
   .vux-flexbox-item {
@@ -493,15 +511,15 @@ export default {
   }
   .avatar {
     display: block;
-    width: 40px;
-    height: 40px;
+    width: calc(40 *2 / 7.5 * 1vw);
+    height: calc(40 *2 / 7.5 * 1vw);
     border-radius: 50%;
   }
   .icon-nvsheng,
   .icon-nansheng {
-    width: 15px;
+    width: calc(15 *2 / 7.5 * 1vw);
     color: rgb(255, 108, 152) !important;
-    margin-left: -10px;
+    margin-left: -calc(10 *2 / 7.5 * 1vw);
   }
   .icon-nansheng {
     color: rgb(75, 157, 255) !important;
@@ -512,17 +530,17 @@ export default {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: 12px;
+    font-size: calc(12 *2 / 7.5 * 1vw);
     color: rgb(169, 169, 169);
   }
   .username {
-    font-size: 15px;
+    font-size: calc(15 *2 / 7.5 * 1vw);
     font-weight: 550;
     color: rgb(51, 51, 51);
   }
   .x-button {
-    width: 60px;
-    height: 30px;
+    width: calc(60 *2 / 7.5 * 1vw);
+    height: calc(30 *2 / 7.5 * 1vw);
     padding: 0;
     margin: 0;
   }
@@ -540,21 +558,21 @@ export default {
 
   .design-item-box {
     box-sizing: border-box;
-    font-size: 16px;
+    font-size: calc(16 *2 / 7.5 * 1vw);
   }
   //设计师上传的图片列表
   .design-item {
-    margin: 10px 0;
+    margin: calc(10 *2 / 7.5 * 1vw) 0;
     width: 100%;
   }
   .one-img {
-    height: 190px;
+    height: calc(190 *2 / 7.5 * 1vw);
     overflow: hidden;
     .design-item-img {
       display: block;
       width: 100%;
       height: 100%;
-      border-radius: 5px;
+      border-radius: calc(5 *2 / 7.5 * 1vw);
       object-fit: cover;
     }
   }
@@ -562,97 +580,97 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 190px;
+    height: calc(190 *2 / 7.5 * 1vw);
     .design-item-img {
       display: block;
-      border-radius: 5px;
+      border-radius: calc(5 *2 / 7.5 * 1vw);
       object-fit: cover;
       height: 100%;
     }
     .design-item-img:nth-child(1) {
-      width: 190px;
+      width: calc(190 *2 / 7.5 * 1vw);
     }
     .design-item-img:nth-child(2) {
-      width: 93px;
+      width: calc(93 *2 / 7.5 * 1vw);
     }
   }
   .three-img {
-    height: 190px;
+    height: calc(190 *2 / 7.5 * 1vw);
     overflow: hidden;
     position: relative;
     .design-item-img {
       display: inline-block;
-      border-radius: 5px;
+      border-radius: calc(5 *2 / 7.5 * 1vw);
       object-fit: cover;
-      width: 190px;
+      width: calc(190 *2 / 7.5 * 1vw);
       position: absolute;
     }
     .design-item-img:nth-child(1) {
-      height: 93px;
+      height: calc(93 *2 / 7.5 * 1vw);
       left: 0;
       top: 0;
     }
     .design-item-img:nth-child(2) {
-      height: 93px;
+      height: calc(93 *2 / 7.5 * 1vw);
       left: 0;
       bottom: 0;
     }
     .design-item-img:nth-child(3) {
-      width: 93px;
-      height: 190px;
+      width: calc(93 *2 / 7.5 * 1vw);
+      height: calc(190 *2 / 7.5 * 1vw);
       right: 0;
       top: 0;
     }
   }
   .four-img {
-    height: 190px;
+    height: calc(190 *2 / 7.5 * 1vw);
     overflow: hidden;
     position: relative;
     .design-item-img {
       display: inline-block;
-      border-radius: 5px;
+      border-radius: calc(5 *2 / 7.5 * 1vw);
       object-fit: cover;
       position: absolute;
     }
     .design-item-img:nth-child(1) {
-      width: 190px;
-      height: 93px;
+      width: calc(190 *2 / 7.5 * 1vw);
+      height: calc(93 *2 / 7.5 * 1vw);
       left: 0;
       top: 0;
     }
     .design-item-img:nth-child(2) {
-      width: 93px;
-      height: 93px;
+      width: calc(93 *2 / 7.5 * 1vw);
+      height: calc(93 *2 / 7.5 * 1vw);
       right: 0;
       top: 0;
     }
     .design-item-img:nth-child(3) {
-      width: 93px;
-      height: 93px;
+      width: calc(93 *2 / 7.5 * 1vw);
+      height: calc(93 *2 / 7.5 * 1vw);
       left: 0;
       bottom: 0;
     }
     .design-item-img:nth-child(4) {
-      width: 190px;
-      height: 93px;
+      width: calc(190 *2 / 7.5 * 1vw);
+      height: calc(93 *2 / 7.5 * 1vw);
       right: 0;
       bottom: 0;
     }
   }
   .five-img {
-    height: 190px;
+    height: calc(190 *2 / 7.5 * 1vw);
     overflow: hidden;
     position: relative;
     .design-item-img {
       display: inline-block;
-      border-radius: 5px;
+      border-radius: calc(5 *2 / 7.5 * 1vw);
       object-fit: cover;
       position: absolute;
-      width: 93px;
-      height: 93px;
+      width: calc(93 *2 / 7.5 * 1vw);
+      height: calc(93 *2 / 7.5 * 1vw);
     }
     .design-item-img:nth-child(1) {
-      width: 190px;
+      width: calc(190 *2 / 7.5 * 1vw);
       left: 0;
       top: 0;
     }
@@ -676,19 +694,19 @@ export default {
     }
   }
   .fix-img {
-    height: 289px;
+    height: calc(289 *2 / 7.5 * 1vw);
     overflow: hidden;
     position: relative;
     .design-item-img {
       display: inline-block;
-      border-radius: 5px;
+      border-radius: calc(5 *2 / 7.5 * 1vw);
       object-fit: cover;
       position: absolute;
-      width: 93px;
-      height: 93px;
+      width: calc(93 *2 / 7.5 * 1vw);
+      height: calc(93 *2 / 7.5 * 1vw);
     }
     .design-item-img:nth-child(1) {
-      width: 190px;
+      width: calc(190 *2 / 7.5 * 1vw);
       left: 0;
       top: 0;
     }
@@ -703,14 +721,14 @@ export default {
       margin: auto;
     }
     .design-item-img:nth-child(4) {
-      width: 190px;
+      width: calc(190 *2 / 7.5 * 1vw);
       top: 0;
       bottom: 0;
       right: 0;
       margin: auto;
     }
     .design-item-img:nth-child(5) {
-      width: 190px;
+      width: calc(190 *2 / 7.5 * 1vw);
       left: 0;
       bottom: 0;
     }
@@ -720,19 +738,19 @@ export default {
     }
   }
   .seven-img {
-    height: 289px;
+    height: calc(289 *2 / 7.5 * 1vw);
     overflow: hidden;
     position: relative;
     .design-item-img {
       display: inline-block;
-      border-radius: 5px;
+      border-radius: calc(5 *2 / 7.5 * 1vw);
       object-fit: cover;
       position: absolute;
-      width: 93px;
-      height: 93px;
+      width: calc(93 *2 / 7.5 * 1vw);
+      height: calc(93 *2 / 7.5 * 1vw);
     }
     .design-item-img:nth-child(1) {
-      width: 190px;
+      width: calc(190 *2 / 7.5 * 1vw);
       left: 0;
       top: 0;
     }
@@ -764,22 +782,22 @@ export default {
       bottom: 0;
     }
     .design-item-img:nth-child(7) {
-      width: 190px;
+      width: calc(190 *2 / 7.5 * 1vw);
       right: 0;
       bottom: 0;
     }
   }
   .eight-img {
-    height: 289px;
+    height: calc(289 *2 / 7.5 * 1vw);
     overflow: hidden;
     position: relative;
     .design-item-img {
       display: inline-block;
-      border-radius: 5px;
+      border-radius: calc(5 *2 / 7.5 * 1vw);
       object-fit: cover;
       position: absolute;
-      width: 93px;
-      height: 93px;
+      width: calc(93 *2 / 7.5 * 1vw);
+      height: calc(93 *2 / 7.5 * 1vw);
     }
     .design-item-img:nth-child(1) {
       left: 0;
@@ -802,7 +820,7 @@ export default {
       margin: auto;
     }
     .design-item-img:nth-child(5) {
-      width: 190px;
+      width: calc(190 *2 / 7.5 * 1vw);
       right: 0;
       bottom: 0;
       top: 0;
@@ -824,19 +842,19 @@ export default {
     }
   }
   .nine-img {
-    height: 387px;
+    height: calc(387 *2 / 7.5 * 1vw);
     overflow: hidden;
     position: relative;
     .design-item-img {
       display: inline-block;
-      border-radius: 5px;
+      border-radius: calc(5 *2 / 7.5 * 1vw);
       object-fit: cover;
       position: absolute;
-      width: 93px;
-      height: 93px;
+      width: calc(93 *2 / 7.5 * 1vw);
+      height: calc(93 *2 / 7.5 * 1vw);
     }
     .design-item-img:nth-child(1) {
-      width: 190px;
+      width: calc(190 *2 / 7.5 * 1vw);
       left: 0;
       top: 0;
     }
@@ -846,27 +864,27 @@ export default {
     }
     .design-item-img:nth-child(3) {
       left: 0;
-      top: 98px;
+      top: calc(98 *2 / 7.5 * 1vw);
     }
     .design-item-img:nth-child(4) {
-      height: 190px;
-      top: 98px;
+      height: calc(190 *2 / 7.5 * 1vw);
+      top: calc(98 *2 / 7.5 * 1vw);
       left: 0;
       right: 0;
       margin: auto;
     }
     .design-item-img:nth-child(5) {
-      top: 98px;
+      top: calc(98 *2 / 7.5 * 1vw);
       right: 0;
       margin: auto;
     }
     .design-item-img:nth-child(6) {
       left: 0;
-      bottom: 98px;
+      bottom: calc(98 *2 / 7.5 * 1vw);
     }
     .design-item-img:nth-child(7) {
       right: 0;
-      bottom: 98px;
+      bottom: calc(98 *2 / 7.5 * 1vw);
       margin: auto;
     }
     .design-item-img:nth-child(8) {
@@ -874,7 +892,7 @@ export default {
       bottom: 0;
     }
     .design-item-img:nth-child(9) {
-      width: 190px;
+      width: calc(190 *2 / 7.5 * 1vw);
       right: 0;
       bottom: 0;
     }
@@ -887,9 +905,9 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 15px;
+    margin-bottom: calc(15 *2 / 7.5 * 1vw);
     .design-item-comment {
-      margin-right: 55px;
+      margin-right: calc(55 *2 / 7.5 * 1vw);
     }
   }
   //预览图片
@@ -907,7 +925,7 @@ export default {
       align-items: center;
       justify-content: center;
       border-radius: 50%;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 calc(5 *2 / 7.5 * 1vw) rgba(0, 0, 0, 0.1);
       overflow: hidden;
       .iconfont {
         display: inline-flex;
@@ -916,25 +934,25 @@ export default {
       }
     }
     .guanbi {
-      width: 29px;
-      height: 29px;
+      width: calc(29 *2 / 7.5 * 1vw);
+      height: calc(29 *2 / 7.5 * 1vw);
       left: 0;
       right: 0;
-      bottom: -49px;
+      bottom: -calc(49 *2 / 7.5 * 1vw);
       margin: auto;
       .icon-guanbi::before {
-        font-size: 29px;
+        font-size: calc(29 *2 / 7.5 * 1vw);
         color: #fff;
       }
     }
     .shoucang {
-      width: 44px;
-      height: 44px;
+      width: calc(44 *2 / 7.5 * 1vw);
+      height: calc(44 *2 / 7.5 * 1vw);
       background-color: #fff;
-      top: 20px;
-      right: 20px;
+      top: calc(20 *2 / 7.5 * 1vw);
+      right: calc(20 *2 / 7.5 * 1vw);
       .icon-shoucang::before {
-        font-size: 18px;
+        font-size: calc(18 *2 / 7.5 * 1vw);
         color: rgb(197, 197, 197);
       }
     }
@@ -942,43 +960,43 @@ export default {
       color: rgb(252, 97, 66) !important;
     }
     .xiazai {
-      width: 44px;
-      height: 44px;
+      width: calc(44 *2 / 7.5 * 1vw);
+      height: calc(44 *2 / 7.5 * 1vw);
       background-color: #fff;
-      left: 40px;
-      bottom: 30px;
+      left: calc(40 *2 / 7.5 * 1vw);
+      bottom: calc(30 *2 / 7.5 * 1vw);
       .icon-xiazai::before {
-        font-size: 18px;
+        font-size: calc(18 *2 / 7.5 * 1vw);
         color: rgb(252, 97, 66);
       }
     }
     .shang {
-      width: 60px;
-      height: 60px;
+      width: calc(60 *2 / 7.5 * 1vw);
+      height: calc(60 *2 / 7.5 * 1vw);
       background-color: #fff;
       left: 0;
       right: 0;
-      bottom: 20px;
+      bottom: calc(20 *2 / 7.5 * 1vw);
       margin: auto;
       .icon-shang {
-        width: 35px;
-        height: 35px;
+        width: calc(35 *2 / 7.5 * 1vw);
+        height: calc(35 *2 / 7.5 * 1vw);
         border-radius: 50%;
         background-color: rgb(252, 97, 66);
       }
       .icon-shang::before {
-        font-size: 16px;
+        font-size: calc(16 *2 / 7.5 * 1vw);
         color: #fff;
       }
     }
     .fenxiang {
-      width: 44px;
-      height: 44px;
+      width: calc(44 *2 / 7.5 * 1vw);
+      height: calc(44 *2 / 7.5 * 1vw);
       background-color: #fff;
-      right: 40px;
-      bottom: 27px;
+      right: calc(40 *2 / 7.5 * 1vw);
+      bottom: calc(27 *2 / 7.5 * 1vw);
       .icon-fenxiang::before {
-        font-size: 17px;
+        font-size: calc(17 *2 / 7.5 * 1vw);
         color: rgb(252, 97, 66);
       }
     }
@@ -1004,19 +1022,19 @@ export default {
     background-color: rgb(153, 137, 134);
   }
   .vux-icon-dot.active {
-    width: 15px !important;
+    width: calc(15 *2 / 7.5 * 1vw) !important;
     background-color: #fff !important;
   }
   .previewSwiper {
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: calc(10 *2 / 7.5 * 1vw);
   }
   .reward-box {
     .reward-title-box {
-      height: 45px;
+      height: calc(45 *2 / 7.5 * 1vw);
       position: relative;
-      border-bottom: 1px solid rgb(229, 229, 229);
+      border-bottom: calc(1 *2 / 7.5 * 1vw) solid rgb(229, 229, 229);
       span {
         display: inline-block;
         width: max-content;
@@ -1027,7 +1045,7 @@ export default {
         right: 0;
         bottom: 0;
         margin: auto;
-        font-size: 15px;
+        font-size: calc(15 *2 / 7.5 * 1vw);
       }
       .icon-danchuangguanbi {
         display: inline-block;
@@ -1035,26 +1053,26 @@ export default {
         height: max-content;
         position: absolute;
         top: 0;
-        right: 20px;
+        right: calc(20 *2 / 7.5 * 1vw);
         bottom: 0;
         margin: auto;
-        font-size: 11px;
+        font-size: calc(11 *2 / 7.5 * 1vw);
       }
     }
     .reward-content-box {
-      padding: 30px 40px;
+      padding: calc(30 *2 / 7.5 * 1vw) calc(40 *2 / 7.5 * 1vw);
       .reward-item {
         color: rgb(252, 97, 66);
         span {
           display: inline-block;
-          width: 80px;
-          height: 40px;
-          line-height: 40px;
-          border: 1px solid rgb(252, 97, 66);
+          width: calc(80 *2 / 7.5 * 1vw);
+          height: calc(40 *2 / 7.5 * 1vw);
+          line-height: calc(40 *2 / 7.5 * 1vw);
+          border: calc(1 *2 / 7.5 * 1vw) solid rgb(252, 97, 66);
           box-sizing: border-box;
-          border-radius: 5px;
+          border-radius: calc(5 *2 / 7.5 * 1vw);
           text-align: center;
-          margin-bottom: 15px;
+          margin-bottom: calc(15 *2 / 7.5 * 1vw);
         }
       }
       .selected span {
@@ -1063,7 +1081,7 @@ export default {
       }
       .reward-input {
         background-color: rgb(241, 241, 241);
-        border-radius: 5px;
+        border-radius: calc(5 *2 / 7.5 * 1vw);
       }
       .reward-input::before {
         display: none;
@@ -1075,12 +1093,12 @@ export default {
     padding: 0 5vw;
   }
   .card {
-    border-radius: 10px;
-    margin: 10px 0 !important;
-    font-size: 14px;
+    border-radius: calc(10 *2 / 7.5 * 1vw);
+    margin: calc(10 *2 / 7.5 * 1vw) 0 !important;
+    font-size: calc(14 *2 / 7.5 * 1vw);
     color: rgb(51, 51, 51);
     .weui-cell {
-      padding: 10px 0;
+      padding: calc(10 *2 / 7.5 * 1vw) 0;
     }
   }
   .card::before,
@@ -1088,7 +1106,7 @@ export default {
     display: none;
   }
   .iconfont {
-    font-size: 25px;
+    font-size: calc(25 *2 / 7.5 * 1vw);
   }
   .icon-weixin {
     color: rgb(37, 155, 36) !important;
@@ -1097,8 +1115,8 @@ export default {
     color: rgb(16, 149, 218) !important;
   }
   .back-reward {
-    margin-left: 20px !important;
-    font-size: 11px !important;
+    margin-left: calc(20 *2 / 7.5 * 1vw) !important;
+    font-size: calc(11 *2 / 7.5 * 1vw) !important;
   }
   .icon-xuanzhong::before {
     color: rgb(252, 97, 66);

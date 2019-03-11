@@ -78,24 +78,24 @@ export default {
 <style lang="less">
 .MobileNumLogin {
   .to-register a {
-    font-size: 15px;
+    font-size: calc(15 *2 / 7.5 * 1vw);
     color: rgb(142, 142, 142) !important;
   }
   .content-box {
     padding: 0 10vw;
   }
   .login-title {
-    height: 135px;
-    line-height: 135px;
+    height: calc(135 *2 / 7.5 * 1vw);
+    line-height: calc(135 *2 / 7.5 * 1vw);
   }
   .vux-no-group-title {
     margin-top: 0;
   }
   .mobile,
   .pwd {
-    font-size: 15px;
-    padding: 15px 0;
-    border-bottom: 1px solid rgb(237, 237, 237);
+    font-size: calc(15 *2 / 7.5 * 1vw);
+    padding: calc(15 *2 / 7.5 * 1vw) 0;
+    border-bottom: calc(1 *2 / 7.5 * 1vw) solid rgb(237, 237, 237);
   }
   .weui-label {
     font-weight: 550;
@@ -106,30 +106,30 @@ export default {
     display: none;
   }
   .login-commit {
-    margin-top: 55px;
+    margin-top: calc(55 *2 / 7.5 * 1vw);
     background-color: rgb(252, 97, 66);
     color: #fff;
   }
 
   .fast-login {
     text-align: center;
-    margin-top: 75px;
+    margin-top: calc(75 *2 / 7.5 * 1vw);
     color: rgb(142, 142, 142);
-    font-size: 12px;
+    font-size: calc(12 *2 / 7.5 * 1vw);
     .btns {
-      margin-top: 15px;
+      margin-top: calc(15 *2 / 7.5 * 1vw);
       .iconfont {
         display: inline-block;
-        width: 43px;
-        height: 43px;
-        line-height: 43px;
-        border: 1px solid rgb(226, 226, 226);
+        width: calc(43 *2 / 7.5 * 1vw);
+        height: calc(43 *2 / 7.5 * 1vw);
+        line-height: calc(43 *2 / 7.5 * 1vw);
+        border: calc(1 *2 / 7.5 * 1vw) solid rgb(226, 226, 226);
         border-radius: 50%;
-        margin: 0 20px;
+        margin: 0 calc(20 *2 / 7.5 * 1vw);
       }
       .iconfont::before {
         color: rgb(235, 85, 85);
-        font-size: 25px;
+        font-size: calc(25 *2 / 7.5 * 1vw);
       }
       .icon-weixin1::before {
         color: rgb(70, 187, 43);
@@ -140,13 +140,13 @@ export default {
     }
   }
   .statement-box {
-    font-size: 12px;
+    font-size: calc(12 *2 / 7.5 * 1vw);
     color: rgb(142, 142, 142);
     text-align: center;
-    margin-top: 85px;
+    margin-top: calc(85 *2 / 7.5 * 1vw);
     span {
       color: rgb(252, 97, 66);
-      font-size: 12px;
+      font-size: calc(12 *2 / 7.5 * 1vw);
       font-weight: 550;
     }
   }

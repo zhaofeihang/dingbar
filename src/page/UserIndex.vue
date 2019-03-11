@@ -146,67 +146,67 @@ export default {
     right: 0;
   }
   .icon-shezhi {
-    font-size: 18px;
+    font-size: calc(18 *2 / 7.5 * 1vw);
     display: inline-block;
-    width: 18px;
+    width: calc(18 *2 / 7.5 * 1vw);
   }
   .username {
     color: rgb(51, 51, 51);
     text-align: center;
-    font-size: 15px;
+    font-size: calc(15 *2 / 7.5 * 1vw);
     font-weight: 550;
   }
   .signature {
     text-align: center;
     color: rgb(169, 169, 169);
-    font-size: 11px;
+    font-size: calc(11 *2 / 7.5 * 1vw);
   }
   .icon-nvsheng {
-    width: 15px;
+    width: calc(15 *2 / 7.5 * 1vw);
     color: rgb(255, 108, 152) !important;
-    margin-left: -10px;
+    margin-left: -calc(10 *2 / 7.5 * 1vw);
   }
   .avatar {
     display: block;
-    width: 65px;
-    height: 65px;
+    width: calc(65 *2 / 7.5 * 1vw);
+    height: calc(65 *2 / 7.5 * 1vw);
     border-radius: 50%;
     margin: auto;
-    margin-top: 10px;
+    margin-top: calc(10 *2 / 7.5 * 1vw);
   }
 
   .weui-cell {
-    padding: 20px;
+    padding: calc(20 *2 / 7.5 * 1vw);
   }
   .weui-panel {
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: calc(10 *2 / 7.5 * 1vw);
+    box-shadow: 0 0 calc(10 *2 / 7.5 * 1vw) rgba(0, 0, 0, 0.1);
   }
   .card {
-    font-size: 14px;
+    font-size: calc(14 *2 / 7.5 * 1vw);
     font-weight: 550;
     color: rgb(51, 51, 51);
-    margin-bottom: 65px;
+    margin-bottom: calc(65 *2 / 7.5 * 1vw);
   }
   .card-demo-flex {
     display: flex;
   }
   .card-demo-content01 {
-    padding: 15px 0;
+    padding: calc(15 *2 / 7.5 * 1vw) 0;
   }
   .card-padding {
-    padding: 15px;
+    padding: calc(15 *2 / 7.5 * 1vw);
   }
   .card-demo-flex > a {
     flex: 1;
     text-align: center;
-    font-size: 12px;
-    line-height: 25px;
+    font-size: calc(12 *2 / 7.5 * 1vw);
+    line-height: calc(25 *2 / 7.5 * 1vw);
     font-weight: 550;
     color: rgb(169, 169, 169);
   }
   .card-demo-flex span {
-    font-size: 13px;
+    font-size: calc(13 *2 / 7.5 * 1vw);
     color: rgb(51, 51, 51);
   }
 }

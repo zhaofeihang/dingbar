@@ -88,7 +88,7 @@ export default {
   }
   .x-header,
   .flexbox {
-    border-bottom: 1px solid rgb(229, 229, 229);
+    border-bottom: calc(1 *2 / 7.5 * 1vw) solid rgb(229, 229, 229);
   }
   .flexbox {
     width: 100%;
@@ -102,9 +102,9 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 25px;
-    height: 25px;
-    font-size: 25px;
+    width: calc(25 *2 / 7.5 * 1vw);
+    height: calc(25 *2 / 7.5 * 1vw);
+    font-size: calc(25 *2 / 7.5 * 1vw);
     overflow: hidden;
   }
   .icon-weixin {
@@ -120,11 +120,11 @@ export default {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: 12px;
+    font-size: calc(12 *2 / 7.5 * 1vw);
     color: rgb(169, 169, 169);
   }
   .text {
-    font-size: 15px;
+    font-size: calc(15 *2 / 7.5 * 1vw);
     font-weight: 550;
     color: rgb(51, 51, 51);
   }

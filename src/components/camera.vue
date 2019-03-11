@@ -35,11 +35,11 @@
     <mt-popup
       v-model="popupDynamic"
       :modal="false"
-      style="height:95px;padding:0px;border-radius: 0px; background:rgb(245, 245, 245); width:100%;"
+      style="height:calc(calc(95 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw);padding:calc(calc(0 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw);border-radius: calc(calc(0 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw); background:rgb(245, 245, 245); width:100%;"
       position="bottom"
     >
       <ul>
-        <li style="border-bottom:1px solid #f5efef;" @click="videoimage">从相册选择</li>
+        <li style="border-bottom:calc(calc(1 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw) solid #f5efef;" @click="videoimage">从相册选择</li>
         <li>相机</li>
         <li style="color:#aaa;" @click="dyfaclose">取消</li>
       </ul>
@@ -211,14 +211,14 @@ export default {
 </script>
 <style  scoped>
 .dy-header {
-  height: 40px;
+  height: calc(calc(40 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw);
   width: 100%;
-  border-bottom: 1px solid #ece3e3;
+  border-bottom: calc(calc(1 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw) solid #ece3e3;
   /* background-color: rgb(180, 180, 192); */
 }
 .dy-header ul li {
   display: inline-block;
-  line-height: 40px;
+  line-height: calc(calc(40 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw);
 }
 .dy-header ul li:nth-of-type(1) {
   width: 12%;
@@ -229,7 +229,7 @@ export default {
   text-align: center;
 }
 .dy-header ul li:nth-of-type(2) span {
-  padding: 0px 3px;
+  padding: calc(calc(0 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw) calc(calc(3 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw);
   font-weight: bold;
 }
 .dy-header ul li:nth-of-type(3) {
@@ -237,69 +237,69 @@ export default {
   text-align: right;
 }
 .dy-header ul li:nth-of-type(3) span {
-  padding: 3px 4px;
-  font-size: 14px;
+  padding: calc(calc(3 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw) calc(calc(4 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw);
+  font-size: calc(calc(14 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw);
   /* color: #bbb; */
   color: #d01c1c;
   background-color: #eee;
 }
 .dy-content textarea {
   width: 97%;
-  height: 200px;
-  border: 0px;
-  padding: 3px 5px;
+  height: calc(calc(200 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw);
+  border: calc(calc(0 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw);
+  padding: calc(calc(3 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw) calc(calc(5 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw);
 }
 .mint-popup ul li {
-  height: 24px;
+  height: calc(calc(24 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw);
   background-color: #fff;
-  padding: 3px 0px;
-  line-height: 24px;
+  padding: calc(calc(3 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw) calc(calc(0 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw);
+  line-height: calc(calc(24 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw);
 }
 .mint-popup ul {
-  margin-top: 1px;
+  margin-top: calc(calc(1 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw);
 }
 .mint-popup ul li:nth-of-type(3) {
-  margin-top: 5px;
+  margin-top: calc(calc(5 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw);
 }
 /* .mint-popup ul{
-        margin-top: 6px;
+        margin-top: calc(calc(6 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw);
     } */
 .dynamic-video-image {
-  width: 80px;
-  height: 80px;
+  width: calc(calc(80 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw);
+  height: calc(calc(80 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw);
   background-color: rgb(245, 239, 239);
-  margin-left: 8px;
-  font-size: 12px;
+  margin-left: calc(calc(8 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw);
+  font-size: calc(calc(12 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw);
   color: #827878;
-  padding-top: 5px;
+  padding-top: calc(calc(5 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw);
 }
 textarea:focus {
   outline: none;
 }
 #image-list .image-item {
-  width: 80px;
-  height: 80px;
+  width: calc(calc(80 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw);
+  height: calc(calc(80 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw);
   float: left;
-  padding-left: 8px;
-  padding-top: 0px;
-  margin-top: 5px;
+  padding-left: calc(calc(8 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw);
+  padding-top: calc(calc(0 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw);
+  margin-top: calc(calc(5 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw);
 }
 #image-list .image-close {
   position: relative;
-  /* bottom: 0px; */
-  left: 65px;
-  top: 15px;
+  /* bottom: calc(calc(0 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw); */
+  left: calc(calc(65 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw);
+  top: calc(calc(15 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw);
   color: #eee;
-  /* right: 58px; */
-  font-size: 12px;
+  /* right: calc(calc(58 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw); */
+  font-size: calc(calc(12 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw);
   font-weight: bold;
   z-index: 13213;
   background-color: rgba(123, 111, 111, 0.6901960784313725);
-  width: 14px;
-  height: 14px;
+  width: calc(calc(14 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw);
+  height: calc(calc(14 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw);
 }
 #image-list .image-item div:nth-of-type(2) {
-  height: 80px;
-  width: 80px;
+  height: calc(calc(80 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw);
+  width: calc(calc(80 *2 / 7.5 * 1vw) *2 / 7.5 * 1vw);
 }
 </style>

@@ -99,76 +99,76 @@ export default {
     flex-direction: column;
     align-items: center;
     color: #fff;
-    font-size: 15px;
-    padding-top: 90px;
+    font-size: calc(15 *2 / 7.5 * 1vw);
+    padding-top: calc(90 *2 / 7.5 * 1vw);
     .logo-img {
-      width: 130px;
-      height: 77px;
-      margin-bottom: 20px;
+      width: calc(130 *2 / 7.5 * 1vw);
+      height: calc(77 *2 / 7.5 * 1vw);
+      margin-bottom: calc(20 *2 / 7.5 * 1vw);
     }
   }
   .login-register-btns {
-    padding: 65px 0;
+    padding: calc(65 *2 / 7.5 * 1vw) 0;
     .login,
     .register,
     div {
       display: block;
-      width: 240px;
-      height: 45px;
-      line-height: 45px;
+      width: calc(240 *2 / 7.5 * 1vw);
+      height: calc(45 *2 / 7.5 * 1vw);
+      line-height: calc(45 *2 / 7.5 * 1vw);
       margin: auto;
       text-align: center;
-      font-size: 14px;
+      font-size: calc(14 *2 / 7.5 * 1vw);
     }
     .register {
       background-color: #fff;
       color: rgb(51, 51, 51);
     }
     div {
-      height: 12px;
-      font-size: 12px;
-      line-height: 12px;
-      margin-top: 17px;
-      margin-bottom: 7px;
+      height: calc(12 *2 / 7.5 * 1vw);
+      font-size: calc(12 *2 / 7.5 * 1vw);
+      line-height: calc(12 *2 / 7.5 * 1vw);
+      margin-top: calc(17 *2 / 7.5 * 1vw);
+      margin-bottom: calc(7 *2 / 7.5 * 1vw);
       color: rgb(142, 142, 142);
     }
     .login {
       background-color: rgba(0, 0, 0, 0);
       color: #fff;
-      border: 1px solid #fff;
+      border: calc(1 *2 / 7.5 * 1vw) solid #fff;
       box-sizing: border-box;
     }
   }
   .fast-login {
     text-align: center;
-    margin-top: 10px;
+    margin-top: calc(10 *2 / 7.5 * 1vw);
     color: rgb(142, 142, 142);
-    font-size: 12px;
+    font-size: calc(12 *2 / 7.5 * 1vw);
     .btns {
-      margin-top: 15px;
+      margin-top: calc(15 *2 / 7.5 * 1vw);
       .iconfont {
         display: inline-block;
-        width: 43px;
-        height: 43px;
-        line-height: 43px;
-        border: 1px solid #fff;
+        width: calc(43 *2 / 7.5 * 1vw);
+        height: calc(43 *2 / 7.5 * 1vw);
+        line-height: calc(43 *2 / 7.5 * 1vw);
+        border: calc(1 *2 / 7.5 * 1vw) solid #fff;
         border-radius: 50%;
-        margin: 0 20px;
+        margin: 0 calc(20 *2 / 7.5 * 1vw);
       }
       .iconfont::before {
         color: #fff;
-        font-size: 25px;
+        font-size: calc(25 *2 / 7.5 * 1vw);
       }
     }
   }
   .statement-box {
-    font-size: 12px;
+    font-size: calc(12 *2 / 7.5 * 1vw);
     color: rgb(142, 142, 142);
     text-align: center;
-    margin-top: 80px;
+    margin-top: calc(80 *2 / 7.5 * 1vw);
     span {
       color: #fff;
-      font-size: 12px;
+      font-size: calc(12 *2 / 7.5 * 1vw);
       font-weight: 550;
     }
   }

@@ -57,23 +57,23 @@ export default {
 <style lang="less">
 .MobileInfoLogin {
   .to-register a {
-    font-size: 15px;
+    font-size: calc(15 *2 / 7.5 * 1vw);
     color: rgb(142, 142, 142) !important;
   }
   .content-box {
     padding: 0 10vw;
   }
   .login-title {
-    height: 135px;
-    line-height: 135px;
+    height: calc(135 *2 / 7.5 * 1vw);
+    line-height: calc(135 *2 / 7.5 * 1vw);
   }
   .mobile {
-    font-size: 15px;
-    padding: 15px 0;
-    border-bottom: 1px solid rgb(237, 237, 237);
+    font-size: calc(15 *2 / 7.5 * 1vw);
+    padding: calc(15 *2 / 7.5 * 1vw) 0;
+    border-bottom: calc(1 *2 / 7.5 * 1vw) solid rgb(237, 237, 237);
   }
   .login-commit {
-    margin-top: 105px;
+    margin-top: calc(105 *2 / 7.5 * 1vw);
     background-color: rgb(252, 97, 66);
     color: #fff;
   }

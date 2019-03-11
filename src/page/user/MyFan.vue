@@ -89,7 +89,7 @@ export default {
 .MyFollow {
   .x-header,
   .flexbox {
-    border-bottom: 1px solid rgb(229, 229, 229);
+    border-bottom: calc(1 *2 / 7.5 * 1vw) solid rgb(229, 229, 229);
   }
   .flexbox {
     width: 100%;
@@ -101,14 +101,14 @@ export default {
   }
   .avatar {
     display: block;
-    width: 40px;
-    height: 40px;
+    width: calc(40 *2 / 7.5 * 1vw);
+    height: calc(40 *2 / 7.5 * 1vw);
   }
   .icon-nvsheng,
   .icon-nansheng {
-    width: 15px;
+    width: calc(15 *2 / 7.5 * 1vw);
     color: rgb(255, 108, 152) !important;
-    margin-left: -10px;
+    margin-left: -calc(10 *2 / 7.5 * 1vw);
   }
   .icon-nansheng {
     color: rgb(75, 157, 255) !important;
@@ -119,17 +119,17 @@ export default {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: 12px;
+    font-size: calc(12 *2 / 7.5 * 1vw);
     color: rgb(169, 169, 169);
   }
   .username {
-    font-size: 15px;
+    font-size: calc(15 *2 / 7.5 * 1vw);
     font-weight: 550;
     color: rgb(51, 51, 51);
   }
   .x-button {
-    width: 60px;
-    height: 30px;
+    width: calc(60 *2 / 7.5 * 1vw);
+    height: calc(30 *2 / 7.5 * 1vw);
     padding: 0;
     margin: 0;
   }

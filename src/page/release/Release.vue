@@ -87,10 +87,10 @@ export default {
 <style lang="less">
 .Release {
   .grid {
-    padding: 6px 3px;
+    padding: calc(6 *2 / 7.5 * 1vw) calc(3 *2 / 7.5 * 1vw);
   }
   .grid-item {
-    padding: 0 3px;
+    padding: 0 calc(3 *2 / 7.5 * 1vw);
   }
   .weui-grids:before,.grid-item::after {
     display: none;
@@ -101,7 +101,7 @@ export default {
     object-fit: cover;
   }
   .x-textarea {
-    font-size: 13px;
+    font-size: calc(13 *2 / 7.5 * 1vw);
   }
   .x-textarea::before {
     display: none;
@@ -112,20 +112,20 @@ export default {
     left: 0;
     bottom: 0;
     right: 0;
-    height: 1px;
-    border-top: 1px solid #D9D9D9;
+    height: calc(1 *2 / 7.5 * 1vw);
+    border-top: calc(1 *2 / 7.5 * 1vw) solid #D9D9D9;
     color: #D9D9D9;
     -webkit-transform-origin: 0 0;
     transform-origin: 0 0;
     -webkit-transform: scaleY(0.5);
     transform: scaleY(0.5);
-    left: 15px;
+    left: calc(15 *2 / 7.5 * 1vw);
   }
   .commit-btn-box {
-    padding: 0 15px;
+    padding: 0 calc(15 *2 / 7.5 * 1vw);
     box-sizing: border-box;
     position: fixed;
-    bottom: 15px;
+    bottom: calc(15 *2 / 7.5 * 1vw);
     left: 0;
     right: 0;
     margin: auto;

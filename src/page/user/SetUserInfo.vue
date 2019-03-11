@@ -163,7 +163,7 @@ export default {
   .x-header::after {
     content: "";
     display: block;
-    height: 10px;
+    height: calc(10 *2 / 7.5 * 1vw);
     background-color: rgb(239, 239, 244);
   }
 }
@@ -172,20 +172,20 @@ export default {
   background-color: rgb(255, 255, 255);
   .direc {
     align-items: flex-start;
-    line-height: 20px;
+    line-height: calc(20 *2 / 7.5 * 1vw);
   }
 }
 .content .flexbox {
-  padding: 15px 0;
+  padding: calc(15 *2 / 7.5 * 1vw) 0;
   padding-right: 5vw;
   box-sizing: border-box;
-  border-bottom: 1px solid rgb(229, 229, 229);
+  border-bottom: calc(1 *2 / 7.5 * 1vw) solid rgb(229, 229, 229);
   .avatar {
     display: flex;
     align-items: center;
     img {
-      width: 40px;
-      height: 40px;
+      width: calc(40 *2 / 7.5 * 1vw);
+      height: calc(40 *2 / 7.5 * 1vw);
     }
   }
   .weui-cell {

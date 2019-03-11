@@ -98,10 +98,10 @@ export default {
 <style lang="less">
 .MyCollect {
   .grid {
-    padding: 6px 3px;
+    padding: calc(6 *2 / 7.5 * 1vw) calc(3 *2 / 7.5 * 1vw);
   }
   .grid-item {
-    padding: 0 3px;
+    padding: 0 calc(3 *2 / 7.5 * 1vw);
   }
   .weui-grids:before {
     display: none;

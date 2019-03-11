@@ -81,31 +81,31 @@ export default {
   }
   .weui-cell {
     padding-left: 0;
-    border-bottom: 1px solid rgb(237, 237, 237);
+    border-bottom: calc(1 *2 / 7.5 * 1vw) solid rgb(237, 237, 237);
   }
   .vux-card-content {
     padding-left: 5vw;
     box-sizing: border-box;
   }
   .vux-label {
-    font-size: 14px;
+    font-size: calc(14 *2 / 7.5 * 1vw);
   }
   .vux-label-desc {
-    font-size: 11px;
+    font-size: calc(11 *2 / 7.5 * 1vw);
     color: rgb(142, 142, 142);
   }
   .iconfont {
-    font-size: 20px;
+    font-size: calc(20 *2 / 7.5 * 1vw);
     color: rgb(197, 197, 197) !important;
   }
   .icon-xuanzhong {
     color: rgb(252, 97, 66) !important;
   }
   .commit-btn-box {
-    padding: 0 15px;
+    padding: 0 calc(15 *2 / 7.5 * 1vw);
     box-sizing: border-box;
     position: fixed;
-    bottom: 15px;
+    bottom: calc(15 *2 / 7.5 * 1vw);
     left: 0;
     right: 0;
     margin: auto;

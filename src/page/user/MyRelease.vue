@@ -133,49 +133,49 @@ export default {
   }
   .bgImg {
     width: 100%;
-    height: 160px;
+    height: calc(160 *2 / 7.5 * 1vw);
     object-fit: cover;
     filter: brightness(60%);
   }
   .user-detail {
-    margin-top: -50px;
+    margin-top: -calc(50 *2 / 7.5 * 1vw);
   }
   .username {
     color: rgb(51, 51, 51);
     text-align: center;
-    font-size: 15px;
+    font-size: calc(15 *2 / 7.5 * 1vw);
     font-weight: 550;
-    margin-top: 5px;
+    margin-top: calc(5 *2 / 7.5 * 1vw);
   }
   .signature {
     text-align: center;
     color: rgb(169, 169, 169);
-    font-size: 11px;
+    font-size: calc(11 *2 / 7.5 * 1vw);
   }
   .icon-nvsheng {
-    width: 15px;
+    width: calc(15 *2 / 7.5 * 1vw);
     color: rgb(255, 108, 152) !important;
-    margin-left: -10px;
+    margin-left: -calc(10 *2 / 7.5 * 1vw);
   }
   .avatar {
-    width: 65px;
-    height: 65px;
+    width: calc(65 *2 / 7.5 * 1vw);
+    height: calc(65 *2 / 7.5 * 1vw);
     margin-left: 50vw;
     transform: translateX(-50%);
-    margin-top: 10px;
-    border: 3px solid #fff;
+    margin-top: calc(10 *2 / 7.5 * 1vw);
+    border: calc(3 *2 / 7.5 * 1vw) solid #fff;
     border-radius: 50%;
   }
 
   .weui-panel {
-    border-radius: 10px;
+    border-radius: calc(10 *2 / 7.5 * 1vw);
   }
   .weui-panel::before,
   .weui-panel::after {
     display: none;
   }
   .card {
-    font-size: 14px;
+    font-size: calc(14 *2 / 7.5 * 1vw);
     font-weight: 550;
     color: rgb(51, 51, 51);
   }
@@ -183,39 +183,39 @@ export default {
     display: flex;
   }
   .card-demo-content01 {
-    padding: 15px 0;
+    padding: calc(15 *2 / 7.5 * 1vw) 0;
   }
   .card-padding {
-    padding: 15px;
+    padding: calc(15 *2 / 7.5 * 1vw);
   }
   .card-demo-flex > a {
     flex: 1;
     text-align: center;
-    font-size: 12px;
-    line-height: 25px;
+    font-size: calc(12 *2 / 7.5 * 1vw);
+    line-height: calc(25 *2 / 7.5 * 1vw);
     font-weight: 550;
     color: rgb(169, 169, 169);
   }
   .card-demo-flex span {
-    font-size: 13px;
+    font-size: calc(13 *2 / 7.5 * 1vw);
     color: rgb(51, 51, 51);
   }
   .grid {
-    padding: 6px 3px;
+    padding: calc(6 *2 / 7.5 * 1vw) calc(3 *2 / 7.5 * 1vw);
   }
   .grid-item {
-    padding: 0 3px;
+    padding: 0 calc(3 *2 / 7.5 * 1vw);
     position: relative;
     .icon-shuliangbiaoqian {
-      font-size: 22px;
+      font-size: calc(22 *2 / 7.5 * 1vw);
     }
     > span {
       position: absolute;
       top: 0;
-      right: 8px;
+      right: calc(8 *2 / 7.5 * 1vw);
       display: inline-block;
-      width: 18px;
-      height: 22px;
+      width: calc(18 *2 / 7.5 * 1vw);
+      height: calc(22 *2 / 7.5 * 1vw);
       .icon-shuliangbiaoqian,
       span {
         position: absolute;
@@ -234,7 +234,7 @@ export default {
       span {
         bottom: 10%;
         color: #fff;
-        font-size: 12px;
+        font-size: calc(12 *2 / 7.5 * 1vw);
         transform: scale(0.6);
       }
     }

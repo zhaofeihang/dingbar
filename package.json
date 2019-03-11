@@ -50,6 +50,7 @@
     "jest-serializer-vue": "^0.3.0",
     "less": "^2.7.3",
     "less-loader": "^2.2.3",
+    "less-plugin-functions": "^1.0.0",
     "nightwatch": "^0.9.12",
     "node-notifier": "^5.1.2",
     "optimize-css-assets-webpack-plugin": "^3.2.0",

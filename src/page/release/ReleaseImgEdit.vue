@@ -76,8 +76,8 @@ export default {
 .ReleaseImgEdit {
   .icon-danchuangguanbi {
     position: fixed;
-    top: 10px;
-    left: 10px;
+    top: calc(10 *2 / 7.5 * 1vw);
+    left: calc(10 *2 / 7.5 * 1vw);
     z-index: 1000;
   }
   .img-box {
@@ -95,15 +95,15 @@ export default {
   }
   .img-list {
     width: 100%;
-    padding-top: 13px;
-    padding-left: 13px;
+    padding-top: calc(13 *2 / 7.5 * 1vw);
+    padding-left: calc(13 *2 / 7.5 * 1vw);
     box-sizing: border-box;
     position: absolute;
     bottom: 0;
     overflow: scroll;
     img {
-      width: 60px;
-      height: 60px;
+      width: calc(60 *2 / 7.5 * 1vw);
+      height: calc(60 *2 / 7.5 * 1vw);
     }
     .vux-flexbox-item {
       width: max-content;
@@ -115,55 +115,55 @@ export default {
       position: relative;
     }
     .icon-danchuangguanbi {
-      width: 27px;
-      height: 27px;
+      width: calc(27 *2 / 7.5 * 1vw);
+      height: calc(27 *2 / 7.5 * 1vw);
       background-color: rgb(252, 97, 66);
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
-      font-size: 12px;
+      font-size: calc(12 *2 / 7.5 * 1vw);
       transform: scale(0.6);
       position: absolute;
-      top: -13px;
-      left: -13px;
+      top: -calc(13 *2 / 7.5 * 1vw);
+      left: -calc(13 *2 / 7.5 * 1vw);
     }
   }
   .flex-demo {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 13px;
+    font-size: calc(13 *2 / 7.5 * 1vw);
     color: rgb(51,51,51);
   }
   .go-take-photo {
     text-align: center;
-    font-size: 12px;
+    font-size: calc(12 *2 / 7.5 * 1vw);
     color: rgb(185,185,185);
-    padding: 20px 0;
+    padding: calc(20 *2 / 7.5 * 1vw) 0;
   }
   .icon-lvjing {
-    font-size: 23px;
+    font-size: calc(23 *2 / 7.5 * 1vw);
   }
   .icon-xiangji {
-    font-size: 23px;
+    font-size: calc(23 *2 / 7.5 * 1vw);
     color: rgb(185,185,185) !important;
-    width: 76px;
-    height: 75px;
+    width: calc(76 *2 / 7.5 * 1vw);
+    height: calc(75 *2 / 7.5 * 1vw);
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    border: 5px solid rgb(252,97,66);
+    border: calc(5 *2 / 7.5 * 1vw) solid rgb(252,97,66);
   }
   .icon-xiayibu {
-    width: 49px;
-    height: 49px;
+    width: calc(49 *2 / 7.5 * 1vw);
+    height: calc(49 *2 / 7.5 * 1vw);
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    border: 2px solid rgb(51,51,51);
+    border: calc(2 *2 / 7.5 * 1vw) solid rgb(51,51,51);
   }
 }
 </style>

@@ -141,31 +141,31 @@ export default {
 <style lang="less">
 .MobileInfoLogin {
   .to-register a {
-    font-size: 15px;
+    font-size: calc(15 *2 / 7.5 * 1vw);
     color: rgb(142, 142, 142) !important;
   }
   .content-box {
     padding: 0 10vw;
   }
   .login-title {
-    height: 135px;
-    line-height: 135px;
+    height: calc(135 *2 / 7.5 * 1vw);
+    line-height: calc(135 *2 / 7.5 * 1vw);
   }
   .text,
   .weui-label {
-    font-size: 15px;
+    font-size: calc(15 *2 / 7.5 * 1vw);
     font-weight: 550;
   }
   .text {
-    padding: 15px 0;
+    padding: calc(15 *2 / 7.5 * 1vw) 0;
   }
   .mobile {
-    font-size: 15px;
-    padding: 15px 0;
-    border-bottom: 1px solid rgb(237, 237, 237);
+    font-size: calc(15 *2 / 7.5 * 1vw);
+    padding: calc(15 *2 / 7.5 * 1vw) 0;
+    border-bottom: calc(1 *2 / 7.5 * 1vw) solid rgb(237, 237, 237);
   }
   .login-commit {
-    margin-top: 55px;
+    margin-top: calc(55 *2 / 7.5 * 1vw);
     background-color: rgb(252, 97, 66);
     color: #fff;
   }
@@ -175,11 +175,11 @@ export default {
     display: none;
   }
   .get-verification-code {
-    font-size: 11px;
+    font-size: calc(11 *2 / 7.5 * 1vw);
     color: rgb(142, 142, 142);
   }
   .get-verification-code-btn {
-    font-size: 13px;
+    font-size: calc(13 *2 / 7.5 * 1vw);
     color: rgb(252, 97, 66);
   }
 

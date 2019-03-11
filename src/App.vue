@@ -16,7 +16,7 @@
         <span slot="label">我的</span>
       </tabbar-item>
     </tabbar>
-    <popup v-model="releaseShowState" height="190px" is-transparent>
+    <popup v-model="releaseShowState" height="calc(190 *2 / 7.5 * 1vw)" is-transparent>
       <div class="release-view">
         <span @click="takephoto">
           <i slot="icon" class="iconfont icon-xiangji"></i>
@@ -107,28 +107,28 @@ body .containBox {
   font-weight: 550 !important;
 }
 .message-icon {
-  width: 18px;
-  height: 18px;
+  width: calc(18 *2 / 7.5 * 1vw);
+  height: calc(18 *2 / 7.5 * 1vw);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  left: -10px;
+  left: -calc(10 *2 / 7.5 * 1vw);
   .icon-xiaoxi::before {
-    font-size: 18px;
+    font-size: calc(18 *2 / 7.5 * 1vw);
   }
   .message-badge {
     position: absolute;
-    right: 8px;
-    top: 8px;
+    right: calc(8 *2 / 7.5 * 1vw);
+    top: calc(8 *2 / 7.5 * 1vw);
     transform: translate(90%, -90%);
   }
 }
 #app .vux-header .vux-header-left .left-arrow:before {
-  width: 8px;
-  height: 8px;
-  border-width: 2px 0 0 2px;
-  top: 10px;
+  width: calc(8 *2 / 7.5 * 1vw);
+  height: calc(8 *2 / 7.5 * 1vw);
+  border-width: calc(2 *2 / 7.5 * 1vw) 0 0 calc(2 *2 / 7.5 * 1vw);
+  top: calc(10 *2 / 7.5 * 1vw);
 }
 #app .iconfont,
 .weui-tabbar__label {
@@ -143,8 +143,8 @@ body .containBox {
     color: rgb(252, 97, 66) !important;
   }
   .iconfont {
-    font-size: 18px;
-    line-height: 18px;
+    font-size: calc(18 *2 / 7.5 * 1vw);
+    line-height: calc(18 *2 / 7.5 * 1vw);
   }
   .weui-tabbar__icon {
     width: auto;
@@ -154,10 +154,10 @@ body .containBox {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
-    font-size: 52px;
-    margin-top: -13px;
+    width: calc(50 *2 / 7.5 * 1vw);
+    height: calc(50 *2 / 7.5 * 1vw);
+    font-size: calc(52 *2 / 7.5 * 1vw);
+    margin-top: calc(-13 *2 / 7.5 * 1vw);
     border-radius: 50%;
     overflow: hidden;
   }
@@ -170,29 +170,29 @@ body .containBox {
   display: none;
 }
 .tabbar {
-  height: 49px;
-  padding-top: 13px;
+  height: calc(49 *2 / 7.5 * 1vw);
+  padding-top: calc(16 *2 / 7.5 * 1vw);
   background-image: linear-gradient(
       0deg,
       #fff 0%,
-      #fff 48px,
-      transparent 49px,
+      #fff calc(47 *2 / 7.5 * 1vw),
+      transparent calc(49 *2 / 7.5 * 1vw),
       transparent 100%
     ),
     radial-gradient(
       circle at 50% 50%,
       #fff 0%,
-      #fff 30px,
-      rgb(212,212,212) 31px,
-      transparent 31px
+      #fff calc(30 *2 / 7.5 * 1vw),
+      rgb(212,212,212) calc(32 *2 / 7.5 * 1vw),
+      transparent calc(32 *2 / 7.5 * 1vw)
     ),
     linear-gradient(
       0deg,
       #fff 0%,
-      #fff 48px,
-      rgb(212,212,212) 49px,
-      rgb(212,212,212) 49px,
-      transparent 49px,
+      #fff calc(47 *2 / 7.5 * 1vw),
+      rgb(212,212,212) calc(49 *2 / 7.5 * 1vw),
+      rgb(212,212,212) calc(49 *2 / 7.5 * 1vw),
+      transparent calc(49 *2 / 7.5 * 1vw),
       transparent 100%
     );
 }
@@ -238,8 +238,8 @@ body .containBox {
 
 .release-view {
   color: #fff;
-  font-size: 13px;
-  padding: 0 40px;
+  font-size: calc(13 *2 / 7.5 * 1vw);
+  padding: 0 calc(40 *2 / 7.5 * 1vw);
   box-sizing: border-box;
   display: flex;
   justify-content: space-around;
@@ -249,15 +249,15 @@ body .containBox {
     flex-direction: column;
     align-items: center;
     .iconfont {
-      font-size: 33px;
-      width: 80px;
-      height: 80px;
+      font-size: calc(33 *2 / 7.5 * 1vw);
+      width: calc(80 *2 / 7.5 * 1vw);
+      height: calc(80 *2 / 7.5 * 1vw);
       background-color: #fff;
       border-radius: 50%;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 10px;
+      margin-bottom: calc(10 *2 / 7.5 * 1vw);
     }
     .iconfont::before {
       color: rgb(252, 97, 66);
