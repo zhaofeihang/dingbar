@@ -31,5 +31,8 @@
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
     <plugin name="cordova-plugin-camera" spec="^4.0.3" />
     <plugin name="cordova-plugin-console" spec="^1.1.0" />
+    <plugin name="cordova-plugin-image-picker" spec="^1.1.3">
+        <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="选择上传图片" />
+    </plugin>
     <engine name="android" spec="^7.1.4" />
 </widget>

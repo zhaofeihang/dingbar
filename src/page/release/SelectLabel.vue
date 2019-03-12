@@ -16,7 +16,7 @@
       </grid>
     </group>
     <div class="commit-btn-box">
-      <x-button class="commit-btn">下一步</x-button>
+      <x-button class="commit-btn">发布</x-button>
     </div>
   </div>
 </template>

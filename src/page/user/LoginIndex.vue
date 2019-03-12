@@ -17,7 +17,7 @@
         </span>
       </x-header>
       <div class="logo-box">
-        <x-img class="logo-img" default-src="src/assets/img/icon/logo-text.png"></x-img>
+        <x-img class="logo-img" default-src="static/img/icon/logo-text.png"></x-img>
         <span class="logo-desc">美好生活研究院</span>
       </div>
       <div class="login-register-btns">
@@ -51,13 +51,13 @@ export default {
         pageHeight: document.documentElement.clientHeight + "px",
         list: [
           {
-            img: "src/assets/img/test/img.png"
+            img: "static/img/img.png"
           },
           {
-            img: "src/assets/img/test/img.png"
+            img: "static/img/img.png"
           },
           {
-            img: "src/assets/img/test/img.png"
+            img: "static/img/img.png"
           }
         ]
       }

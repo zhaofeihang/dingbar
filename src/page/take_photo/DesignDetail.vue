@@ -139,22 +139,22 @@ export default {
           commentCount: 0,
           avatarList: [
             {
-              img: "src/assets/img/test/img.png"
+              img: "static/img/img.png"
             },
             {
-              img: "src/assets/img/test/img.png"
+              img: "static/img/img.png"
             },
             {
-              img: "src/assets/img/test/img.png"
+              img: "static/img/img.png"
             },
             {
-              img: "src/assets/img/test/img.png"
+              img: "static/img/img.png"
             },
             {
-              img: "src/assets/img/test/img.png"
+              img: "static/img/img.png"
             },
             {
-              img: "src/assets/img/test/img.png"
+              img: "static/img/img.png"
             }
           ],
           commentList: [

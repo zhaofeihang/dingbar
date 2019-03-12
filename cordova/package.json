@@ -13,13 +13,17 @@
         "cordova-android": "^7.1.4",
         "cordova-plugin-camera": "^4.0.3",
         "cordova-plugin-console": "^1.1.0",
+        "cordova-plugin-image-picker": "^1.1.3",
         "cordova-plugin-whitelist": "^1.3.3"
     },
     "cordova": {
         "plugins": {
             "cordova-plugin-whitelist": {},
             "cordova-plugin-camera": {},
-            "cordova-plugin-console": {}
+            "cordova-plugin-console": {},
+            "cordova-plugin-image-picker": {
+                "PHOTO_LIBRARY_USAGE_DESCRIPTION": "选择上传图片"
+            }
         },
         "platforms": [
             "android"

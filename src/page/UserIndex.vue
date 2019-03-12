@@ -104,7 +104,7 @@ export default {
         method: "get"
       });
       data.usersinfos.logos =
-        data.usersinfos.logos || "src/assets/img/default-avatar.png";
+        data.usersinfos.logos || "static/img/default-avatar.png";
       data.usersinfos.remarks = data.usersinfos.remarks || "暂无签名";
       this.userInfo = data;
       this.$vux.loading.hide();
@@ -116,7 +116,7 @@ export default {
         my_praise_total: 0,
         usersinfos: {
           gender: "-1",
-          logos: "src/assets/img/default-avatar.png",
+          logos: "static/img/default-avatar.png",
           nicknames: "未登录",
           remarks: null
         }

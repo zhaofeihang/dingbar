@@ -22,6 +22,7 @@
             :key="index"
             :title="cell.title"
             :link="cell.pageUrl"
+            @click.native="cell.title == '联系我们' ? callPhone(13817492716) : ''"
           >
             <i slot="icon" class="iconfont" :class="cell.iconclass"></i>
           </cell>
@@ -42,7 +43,7 @@ export default {
         {
           title: "清理缓存",
           iconclass: "icon-qinglihuancun",
-          pageUrl: "#",
+          pageUrl: "",
           value: '12.83MB'
         },
         {
@@ -65,7 +66,7 @@ export default {
         {
           title: "联系我们",
           iconclass: "icon-lianxiwomen",
-          pageUrl: "#"
+          pageUrl: ""
         }
       ]
     };
@@ -88,6 +89,10 @@ export default {
       this.$router.push({
         path: '/page/UserIndex'
       });
+    },
+    // 调用拨号功能
+    callPhone (phoneNumber) {
+        window.location.href = 'tel://' + phoneNumber
     }
   }
 };

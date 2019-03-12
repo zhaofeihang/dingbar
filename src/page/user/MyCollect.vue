@@ -26,36 +26,36 @@ export default {
     return {
       imgList: [
         {
-          msrc: "src/assets/img/test/img.png",
-          src: "src/assets/img/test/img.png"
+          msrc: "static/img/img.png",
+          src: "static/img/img.png"
         },
         {
-          msrc: "src/assets/img/test/img.png",
-          src: "src/assets/img/test/img.png"
+          msrc: "static/img/img.png",
+          src: "static/img/img.png"
         },
         {
-          msrc: "src/assets/img/test/img.png",
-          src: "src/assets/img/test/img.png"
+          msrc: "static/img/img.png",
+          src: "static/img/img.png"
         },
         {
-          msrc: "src/assets/img/test/img.png",
-          src: "src/assets/img/test/img.png"
+          msrc: "static/img/img.png",
+          src: "static/img/img.png"
         },
         {
-          msrc: "src/assets/img/test/img.png",
-          src: "src/assets/img/test/img.png"
+          msrc: "static/img/img.png",
+          src: "static/img/img.png"
         },
         {
-          msrc: "src/assets/img/test/img.png",
-          src: "src/assets/img/test/img.png"
+          msrc: "static/img/img.png",
+          src: "static/img/img.png"
         },
         {
-          msrc: "src/assets/img/test/img.png",
-          src: "src/assets/img/test/img.png"
+          msrc: "static/img/img.png",
+          src: "static/img/img.png"
         },
         {
-          msrc: "src/assets/img/test/img.png",
-          src: "src/assets/img/test/img.png"
+          msrc: "static/img/img.png",
+          src: "static/img/img.png"
         }
       ],
       options: {

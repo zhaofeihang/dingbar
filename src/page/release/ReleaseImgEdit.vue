@@ -1,14 +1,14 @@
 <template>
   <div class="ReleaseImgEdit">
-    <i slot="left" @click="back" class="iconfont icon-danchuangguanbi"></i>
+    <i slot="left" @click="back" class="iconfont icon-danchuangguanbi back"></i>
     <div class="img-box">
-      <x-img class="select-img" default-src="src/assets/img/test/img.png" alt></x-img>
+      <x-img class="select-img" :default-src="imgList.currentImg" alt></x-img>
       <div class="img-list">
         <flexbox>
           <flexbox-item :span="2.4" v-for="(src,index) in imgList.list" :key="index">
             <div class="img-item-box">
-              <img :src="src" alt>
-              <i class="iconfont icon-danchuangguanbi"></i>
+              <img @click="selectImg(index)" :class="imgList.index == index ? 'selectImg':''" :src="src" alt>
+              <i @click="deleteImg(index)" class="iconfont icon-danchuangguanbi"></i>
             </div>
           </flexbox-item>
         </flexbox>
@@ -25,12 +25,12 @@
         </flexbox-item>
         <flexbox-item>
           <div class="flex-demo">
-            <i class="iconfont icon-xiangji"></i>
+            <i @click="takePhoto" class="iconfont icon-xiangji"></i>
           </div>
         </flexbox-item>
         <flexbox-item>
           <div class="flex-demo">
-            <i class="iconfont icon-xiayibu"></i>
+            <i @click="next" class="iconfont icon-xiayibu"></i>
           </div>
         </flexbox-item>
       </flexbox>
@@ -40,27 +40,67 @@
 
 <script>
 import { XHeader, XImg, Flexbox, FlexboxItem } from "vux";
+import { openAlbum, takePicture } from "../../../static/cordovaplugin.js";
 
 export default {
   data() {
     return {
       imgList: {
         index: 0,
+        currentImg: '',
         list: [
-          "src/assets/img/test/img.png",
-          "src/assets/img/test/img.png",
-          "src/assets/img/test/img.png",
-          "src/assets/img/test/img.png",
-          "src/assets/img/test/img.png",
-          "src/assets/img/test/img.png"
         ]
       }
     };
   },
-  created: function() {},
+  created: function() {
+    let params = this.$route.params;
+    if(params) {
+      this.imgList.list = params.photos;
+      this.imgList.currentImg = this.imgList.list[0];
+    }
+  },
   methods: {
     back() {
       this.$router.back();
+    },
+    //切换图片
+    selectImg(index) {
+      this.imgList.index = index;
+      this.imgList.currentImg = this.imgList.list[index];
+    },
+    //删除图片
+    deleteImg(index) {
+      this.imgList.list.splice(index,1);
+      if(this.imgList.list.length<=0) {
+        this.$router.back();
+      }
+      if(index == this.imgList.index) {
+        this.imgList.currentImg = this.imgList.list[0];
+        this.imgList.index = 0;
+      }
+    },
+    //继续拍照
+    async takePhoto() {
+      if(this.imgList.list.length>=9) {
+        this.$vux.alert.show({
+          title: "提示",
+          content: "单次发布最多9张"
+        });
+      }else {
+        let photo = await takePicture();
+        this.imgList.list.push(photo);
+      }
+    },
+    //下一步
+    next() {
+      this.$router.push({
+        path: '/page/release/Release',
+        name: 'Release',
+        params: {
+          photos: this.imgList.list
+        }
+      });
     }
   },
   components: {
@@ -79,6 +119,9 @@ export default {
     top: calc(10 *2 / 7.5 * 1vw);
     left: calc(10 *2 / 7.5 * 1vw);
     z-index: 1000;
+  }
+  .icon-danchuangguanbi.back {
+    color: #fff;
   }
   .img-box {
     height: 70vh;
@@ -104,6 +147,11 @@ export default {
     img {
       width: calc(60 *2 / 7.5 * 1vw);
       height: calc(60 *2 / 7.5 * 1vw);
+      object-fit: cover;
+    }
+    .selectImg {
+      border: calc(4 *2 / 7.5 * 1vw) solid rgb(252, 97, 66);
+      box-sizing: border-box;
     }
     .vux-flexbox-item {
       width: max-content;

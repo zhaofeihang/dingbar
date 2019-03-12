@@ -4,12 +4,12 @@
     <div class="img-list">
       <grid class="grid" :cols="4" :show-lr-borders="false" :show-vertical-dividers="false">
         <grid-item class="grid-item" v-for="(item, index) in imgList" :key="index">
-          <img class="previewer-demo-img" :src="item.src">
+          <img class="previewer-demo-img" :src="item">
         </grid-item>
       </grid>
       <x-textarea class="x-textarea" :height="30" v-model="desc" placeholder="说点什么"></x-textarea>
       <div class="commit-btn-box">
-        <x-button class="commit-btn" :class="btnClass">下一步</x-button>
+        <x-button @click.native="next" class="commit-btn" :class="btnClass">下一步</x-button>
       </div>
     </div>
   </div>
@@ -24,47 +24,30 @@ export default {
       desc: "",
       btnClass: "",
       imgList: [
-        {
-          msrc: "src/assets/img/test/img.png",
-          src: "src/assets/img/test/img.png"
-        },
-        {
-          msrc: "src/assets/img/test/img.png",
-          src: "src/assets/img/test/img.png"
-        },
-        {
-          msrc: "src/assets/img/test/img.png",
-          src: "src/assets/img/test/img.png"
-        },
-        {
-          msrc: "src/assets/img/test/img.png",
-          src: "src/assets/img/test/img.png"
-        },
-        {
-          msrc: "src/assets/img/test/img.png",
-          src: "src/assets/img/test/img.png"
-        },
-        {
-          msrc: "src/assets/img/test/img.png",
-          src: "src/assets/img/test/img.png"
-        },
-        {
-          msrc: "src/assets/img/test/img.png",
-          src: "src/assets/img/test/img.png"
-        },
-        {
-          msrc: "src/assets/img/test/img.png",
-          src: "src/assets/img/test/img.png"
-        },
-        {
-          msrc: "src/assets/img/test/img.png",
-          src: "src/assets/img/test/img.png"
-        }
       ]
     };
   },
-  created: function() {},
-  methods: {},
+  created: function() {
+    let params = this.$route.params;
+    this.imgList = params.photos;
+  },
+  methods: {
+    next() {
+      if(this.desc) {
+        this.$router.push({
+          path: '/page/release/SelectLabel',
+          params: {
+            desc: this.desc
+          }
+        });
+      }else {
+        this.$vux.alert.show({
+          title: "提示",
+          content: "图片描述不能为空"
+        });
+      }
+    }
+  },
   components: {
     XHeader,
     Grid,

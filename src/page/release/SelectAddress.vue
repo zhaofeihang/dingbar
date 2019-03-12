@@ -14,7 +14,7 @@
       </card>
     </group>
     <div class="commit-btn-box">
-      <x-button class="commit-btn">下一步</x-button>
+      <x-button @click.native="next" class="commit-btn">下一步</x-button>
     </div>
   </div>
 </template>
@@ -25,6 +25,7 @@ import { XHeader, Flexbox, FlexboxItem, Group, Card, Cell,XButton } from "vux";
 export default {
   data() {
     return {
+      imgInfo: {},
       cellArr: [
         {
           name: "绿亮科创园",
@@ -53,13 +54,26 @@ export default {
       ]
     };
   },
-  created: function() {},
+  created: function() {
+    let params = this.$route.params;
+    this.imgInfo.desc = params.desc;
+  },
   methods: {
     selectAddress(cell) {
+      this.imgInfo.address = cell;
       this.cellArr.forEach((el, index) => {
         el.selectClass = "";
       });
       cell.selectClass = "icon-xuanzhong";
+    },
+    //下一步
+    next() {
+      this.$router.push({
+        path: '/page/release/SelectLabel',
+        params: {
+          imgInfo: this.imgInfo
+        }
+      });
     }
   },
   components: {

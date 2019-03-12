@@ -11,15 +11,15 @@ INJECTED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidMa
 	android:name
 		ADDED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:12:127-180
 manifest
-ADDED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:2:1-18:12
-INJECTED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:2:1-18:12
-INJECTED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:2:1-18:12
-INJECTED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:2:1-18:12
-MERGED from [com.android.support:support-v4:24.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v4-24.1.1.aar\03363599754ffdbdb4d6a16ab26860e5\AndroidManifest.xml:17:1-27:12
-MERGED from [:CordovaLib] E:\web\shedou\app\cordova\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:20:1-27:12
-INJECTED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:2:1-18:12
-INJECTED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:2:1-18:12
-INJECTED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:2:1-18:12
+ADDED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
+INJECTED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
+INJECTED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
+INJECTED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
+MERGED from [com.android.support:support-v4:24.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v4-24.1.1.aar\091ab7d46d3022c2dbad57cf9deb9f44\AndroidManifest.xml:17:1-27:12
+MERGED from [:CordovaLib] E:\web\shedou\app\cordova\platforms\android\CordovaLib\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:20:1-27:12
+INJECTED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
+INJECTED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
+INJECTED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
 	package
 		ADDED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:2:102-135
 		INJECTED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml
@@ -55,9 +55,9 @@ ADDED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManif
 	android:name
 		ADDED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:4:22-64
 application
-ADDED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:5:5-15:19
-MERGED from [com.android.support:support-v4:24.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v4-24.1.1.aar\03363599754ffdbdb4d6a16ab26860e5\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-v4:24.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v4-24.1.1.aar\03363599754ffdbdb4d6a16ab26860e5\AndroidManifest.xml:25:5-20
+ADDED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:5:5-16:19
+MERGED from [com.android.support:support-v4:24.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v4-24.1.1.aar\091ab7d46d3022c2dbad57cf9deb9f44\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v4:24.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v4-24.1.1.aar\091ab7d46d3022c2dbad57cf9deb9f44\AndroidManifest.xml:25:5-20
 	android:supportsRtl
 		ADDED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:5:114-140
 	android:label
@@ -80,7 +80,7 @@ ADDED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManif
 		ADDED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:6:194-256
 	android:name
 		ADDED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:6:166-193
-intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:7:13-10:29
 	android:label
 		ADDED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:7:28-65
@@ -92,26 +92,34 @@ category#android.intent.category.LAUNCHER
 ADDED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:9:17-77
 	android:name
 		ADDED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:9:27-74
+activity#com.synconset.MultiImageChooserActivity
+ADDED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:15:9-163
+	android:label
+		ADDED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:15:19-57
+	android:theme
+		ADDED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:15:113-160
+	android:name
+		ADDED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:15:58-112
 uses-sdk
-ADDED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:16:5-74
-INJECTED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:16:5-74
-MERGED from [com.android.support:support-v4:24.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v4-24.1.1.aar\03363599754ffdbdb4d6a16ab26860e5\AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-v4:24.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v4-24.1.1.aar\03363599754ffdbdb4d6a16ab26860e5\AndroidManifest.xml:21:5-23:54
-MERGED from [:CordovaLib] E:\web\shedou\app\cordova\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:25:5-44
-MERGED from [:CordovaLib] E:\web\shedou\app\cordova\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:25:5-44
-INJECTED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:16:5-74
+ADDED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:17:5-47
+INJECTED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:17:5-47
+MERGED from [com.android.support:support-v4:24.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v4-24.1.1.aar\091ab7d46d3022c2dbad57cf9deb9f44\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:24.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v4-24.1.1.aar\091ab7d46d3022c2dbad57cf9deb9f44\AndroidManifest.xml:21:5-23:54
+MERGED from [:CordovaLib] E:\web\shedou\app\cordova\platforms\android\CordovaLib\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:25:5-44
+MERGED from [:CordovaLib] E:\web\shedou\app\cordova\platforms\android\CordovaLib\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:25:5-44
+INJECTED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:17:5-47
 	tools:overrideLibrary
-		ADDED from [com.android.support:support-v4:24.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v4-24.1.1.aar\03363599754ffdbdb4d6a16ab26860e5\AndroidManifest.xml:23:9-51
+		ADDED from [com.android.support:support-v4:24.1.1] C:\Users\Administrator\.gradle\caches\transforms-1\files-1.1\support-v4-24.1.1.aar\091ab7d46d3022c2dbad57cf9deb9f44\AndroidManifest.xml:23:9-51
 	android:targetSdkVersion
-		ADDED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:16:42-71
+		ADDED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:17:15-44
 	android:minSdkVersion
-		ADDED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:16:15-41
 		INJECTED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml
+		ADDED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:17:5-47
 		INJECTED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:17:5-81
+ADDED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:18:5-81
 	android:name
-		ADDED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:17:22-78
+		ADDED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:18:22-78
 meta-data#android.support.FILE_PROVIDER_PATHS
 ADDED from E:\web\shedou\app\cordova\platforms\android\app\src\main\AndroidManifest.xml:13:13-123
 	android:resource

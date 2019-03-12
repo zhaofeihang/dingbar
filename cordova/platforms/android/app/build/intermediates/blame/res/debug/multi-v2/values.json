@@ -4,20 +4,56 @@
             "outputFile": "E:\\web\\shedou\\app\\cordova\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
-                    "source": "E:\\web\\shedou\\app\\cordova\\platforms\\android\\app\\src\\main\\res\\values\\strings.xml",
+                    "source": "E:\\web\\shedou\\app\\cordova\\platforms\\android\\app\\src\\main\\res\\values\\themes.xml",
                     "from": {
-                        "startLines": "-1,2,-1",
-                        "startColumns": "-1,4,-1",
-                        "startOffsets": "-1,55,-1",
-                        "endColumns": "-1,40,-1",
-                        "endOffsets": "-1,91,-1"
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "3",
+                        "endColumns": "12",
+                        "endOffsets": "124"
                     },
                     "to": {
-                        "startLines": "2,3,4",
+                        "startLines": "15",
+                        "startColumns": "4",
+                        "startOffsets": "983",
+                        "endLines": "16",
+                        "endColumns": "12",
+                        "endOffsets": "1052"
+                    }
+                },
+                {
+                    "source": "E:\\web\\shedou\\app\\cordova\\platforms\\android\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "4,2,3",
                         "startColumns": "4,4,4",
-                        "startOffsets": "55,119,160",
+                        "startOffsets": "155,55,96",
                         "endColumns": "63,40,58",
-                        "endOffsets": "114,155,214"
+                        "endOffsets": "214,91,150"
+                    },
+                    "to": {
+                        "startLines": "2,3,8",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,119,435",
+                        "endColumns": "63,40,58",
+                        "endOffsets": "114,155,489"
+                    }
+                },
+                {
+                    "source": "E:\\web\\shedou\\app\\cordova\\platforms\\android\\app\\src\\main\\res\\values\\multiimagechooser_strings_en.xml",
+                    "from": {
+                        "startLines": "10,11,4,3,8,9,2,6,7,5",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "821,864,275,197,637,716,136,484,555,393",
+                        "endColumns": "42,35,117,77,78,104,60,70,81,90",
+                        "endOffsets": "859,895,388,270,711,816,192,550,632,479"
+                    },
+                    "to": {
+                        "startLines": "4,5,6,7,9,10,11,12,13,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "160,203,239,357,494,573,678,739,810,892",
+                        "endColumns": "42,35,117,77,78,104,60,70,81,90",
+                        "endOffsets": "198,234,352,430,568,673,734,805,887,978"
                     }
                 }
             ]

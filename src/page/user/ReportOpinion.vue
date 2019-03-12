@@ -25,7 +25,7 @@ export default {
     return {
       imgList: [
         {
-          src: "src/assets/img/icon/add-img.png",
+          src: "static/img/icon/add-img.png",
         }
       ],
       editValue: "",

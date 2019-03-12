@@ -31,6 +31,14 @@ module.exports = [
     "clobbers": [
       "CameraPopoverHandle"
     ]
+  },
+  {
+    "id": "cordova-plugin-image-picker.ImagePicker",
+    "file": "plugins/cordova-plugin-image-picker/www/imagepicker.js",
+    "pluginId": "cordova-plugin-image-picker",
+    "clobbers": [
+      "plugins.imagePicker"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -38,7 +46,8 @@ module.exports.metadata =
 {
   "cordova-plugin-whitelist": "1.3.3",
   "cordova-plugin-camera": "4.0.3",
-  "cordova-plugin-console": "1.1.0"
+  "cordova-plugin-console": "1.1.0",
+  "cordova-plugin-image-picker": "1.1.1"
 };
 // BOTTOM OF METADATA
 });

@@ -38,6 +38,7 @@ export default {
   name: "app",
   data() {
     return {
+      photos: [],
       transitionName: "vux-pop-in",
       showTabbar: true,
       releaseShowState: false
@@ -62,11 +63,28 @@ export default {
     releaseShow() {
       this.releaseShowState = true;
     },
-    takephoto() {
-      takePicture();
+    async takephoto() {
+      let photo = await takePicture();
+      this.photos.push(photo);
+      this.$router.push({
+        path: '/page/release/ReleaseImgEdit',
+        name: 'ReleaseImgEdit',
+        params: {
+          photos: this.photos
+        }
+      });
+      this.releaseShowState = false;
     },
-    selectImg() {
-      openAlbum();
+    async selectImg() {
+      let photos = await openAlbum();
+      this.$router.push({
+        path: '/page/release/ReleaseImgEdit',
+        name: 'ReleaseImgEdit',
+        params: {
+          photos: this.photos.concat(photos)
+        }
+      });
+      this.releaseShowState = false;
     }
   },
   watch: {

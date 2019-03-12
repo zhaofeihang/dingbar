@@ -3,7 +3,7 @@
     <x-header class="x-header" :left-options="{backText: ''}">关于舍豆</x-header>
     <div class="content-box">
       <div class="logo-box">
-        <x-img class="logo" default-src="src/assets/img/icon/logo.png"></x-img>
+        <x-img class="logo" default-src="static/img/icon/logo.png"></x-img>
         <h3 class="logo-title">舍豆</h3>
       </div>
       <div

@@ -91,7 +91,7 @@ export default {
           method: "get"
         });
         data.usersinfos.logos =
-          data.usersinfos.logos || "src/assets/img/default-avatar.png";
+          data.usersinfos.logos || "static/img/default-avatar.png";
         data.usersinfos.remarks = data.usersinfos.remarks || "暂无签名";
         this.userInfo = data;
         /*
