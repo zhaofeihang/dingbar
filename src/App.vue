@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <transition :name="transitionName">
-      <router-view class="router-view"></router-view>
+      <keep-alive include="Release,ReleaseImgEdit,SelectAddress,SelectLabel">
+        <router-view class="router-view"></router-view>
+      </keep-alive>
     </transition>
     <tabbar class="tabbar" v-if="showTabbar">
       <tabbar-item :selected="$route.path=='/'" link="/">

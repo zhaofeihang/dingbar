@@ -49,16 +49,21 @@ export default {
         index: 0,
         currentImg: '',
         list: [
+          'static/img/img.png',
+          'static/img/img.png',
+          'static/img/img.png',
+          'static/img/img.png',
+          'static/img/img.png'
         ]
       }
     };
   },
   created: function() {
-    let params = this.$route.params;
-    if(params) {
-      this.imgList.list = params.photos;
-      this.imgList.currentImg = this.imgList.list[0];
-    }
+    // let params = this.$route.params;
+    // if(params) {
+    //   this.imgList.list = params.photos;
+    //   this.imgList.currentImg = this.imgList.list[0];
+    // }
   },
   methods: {
     back() {
@@ -101,6 +106,7 @@ export default {
           photos: this.imgList.list
         }
       });
+      sessionStorage.setItem('photos', JSON.stringify(this.imgList.list));
     }
   },
   components: {
@@ -173,8 +179,9 @@ export default {
       font-size: calc(12 *2 / 7.5 * 1vw);
       transform: scale(0.6);
       position: absolute;
-      top: -calc(13 *2 / 7.5 * 1vw);
-      left: -calc(13 *2 / 7.5 * 1vw);
+      top: calc(-13 *2 / 7.5 * 1vw);
+      left: calc(-13 *2 / 7.5 * 1vw);
+      overflow: auto;
     }
   }
   .flex-demo {

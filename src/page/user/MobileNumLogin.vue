@@ -34,6 +34,7 @@
 
 <script>
 import { XHeader, XButton, Group, XInput } from "vux";
+import { mapMutations } from "vuex";
 import util from "../../util";
 
 export default {
@@ -43,6 +44,7 @@ export default {
       pwd: ""
     };
   },
+  computed: {},
   components: {
     XHeader,
     XButton,
@@ -51,6 +53,9 @@ export default {
   },
   created: function() {},
   methods: {
+    ...mapMutations({
+      updateUserInfo: "updateUserInfo"
+    }),
     async loginCommit() {
       let mobile = this.mobile;
       let pwd = this.pwd;
@@ -60,7 +65,7 @@ export default {
         ) &&
         pwd
       ) {
-        let data = await util.getData({
+        let data = await util.request({
           url: `/users/login`,
           method: "post",
           param: {
@@ -69,14 +74,22 @@ export default {
             login_password: pwd
           }
         });
-        localStorage.setItem('userInfo', JSON.stringify(data));
-        // this.$vux.toast.show({
-        //   text: "登录成功",
-        //   type: "text",
-        //   onHide: () => {
-        //     this.$router.push({ path: "/page/UserIndex" });
-        //   }
-        // });
+        if (data.return_code == "success") {
+          let userInfo = data.return_data;
+          this.$vux.toast.show({
+            text: "登录成功",
+            onHide: () => {
+              this.$router.go(-1);
+            }
+          });
+          this.updateUserInfo(userInfo);
+          localStorage.setItem("userInfo", JSON.stringify(userInfo));
+        } else {
+          this.$vux.alert.show({
+            title: "提示",
+            content: "登录失败，请稍后重试"
+          });
+        }
       } else {
         this.$vux.alert.show({
           title: "提示",
@@ -91,24 +104,24 @@ export default {
 <style lang="less">
 .MobileNumLogin {
   .to-register a {
-    font-size: calc(15 *2 / 7.5 * 1vw);
+    font-size: calc(15 * 2 / 7.5 * 1vw);
     color: rgb(142, 142, 142) !important;
   }
   .content-box {
     padding: 0 10vw;
   }
   .login-title {
-    height: calc(135 *2 / 7.5 * 1vw);
-    line-height: calc(135 *2 / 7.5 * 1vw);
+    height: calc(135 * 2 / 7.5 * 1vw);
+    line-height: calc(135 * 2 / 7.5 * 1vw);
   }
   .vux-no-group-title {
     margin-top: 0;
   }
   .mobile,
   .pwd {
-    font-size: calc(15 *2 / 7.5 * 1vw);
-    padding: calc(15 *2 / 7.5 * 1vw) 0;
-    border-bottom: calc(1 *2 / 7.5 * 1vw) solid rgb(237, 237, 237);
+    font-size: calc(15 * 2 / 7.5 * 1vw);
+    padding: calc(15 * 2 / 7.5 * 1vw) 0;
+    border-bottom: calc(1 * 2 / 7.5 * 1vw) solid rgb(237, 237, 237);
   }
   .weui-label {
     font-weight: 550;
@@ -119,8 +132,8 @@ export default {
     display: none;
   }
   .forget-pwd {
-    font-size: calc(13 *2 / 7.5 * 1vw);
-    margin-top: calc(15 *2 / 7.5 * 1vw);
+    font-size: calc(13 * 2 / 7.5 * 1vw);
+    margin-top: calc(15 * 2 / 7.5 * 1vw);
     display: flex;
     justify-content: space-between;
     a {
@@ -128,30 +141,30 @@ export default {
     }
   }
   .login-commit {
-    margin-top: calc(25 *2 / 7.5 * 1vw);
+    margin-top: calc(25 * 2 / 7.5 * 1vw);
     background-color: rgb(252, 97, 66);
     color: #fff;
   }
 
   .fast-login {
     text-align: center;
-    margin-top: calc(75 *2 / 7.5 * 1vw);
+    margin-top: calc(75 * 2 / 7.5 * 1vw);
     color: rgb(142, 142, 142);
-    font-size: calc(12 *2 / 7.5 * 1vw);
+    font-size: calc(12 * 2 / 7.5 * 1vw);
     .btns {
-      margin-top: calc(15 *2 / 7.5 * 1vw);
+      margin-top: calc(15 * 2 / 7.5 * 1vw);
       .iconfont {
         display: inline-block;
-        width: calc(43 *2 / 7.5 * 1vw);
-        height: calc(43 *2 / 7.5 * 1vw);
-        line-height: calc(43 *2 / 7.5 * 1vw);
-        border: calc(1 *2 / 7.5 * 1vw) solid rgb(226, 226, 226);
+        width: calc(43 * 2 / 7.5 * 1vw);
+        height: calc(43 * 2 / 7.5 * 1vw);
+        line-height: calc(43 * 2 / 7.5 * 1vw);
+        border: calc(1 * 2 / 7.5 * 1vw) solid rgb(226, 226, 226);
         border-radius: 50%;
-        margin: 0 calc(20 *2 / 7.5 * 1vw);
+        margin: 0 calc(20 * 2 / 7.5 * 1vw);
       }
       .iconfont::before {
         color: rgb(235, 85, 85);
-        font-size: calc(25 *2 / 7.5 * 1vw);
+        font-size: calc(25 * 2 / 7.5 * 1vw);
       }
       .icon-weixin1::before {
         color: rgb(70, 187, 43);
@@ -162,13 +175,13 @@ export default {
     }
   }
   .statement-box {
-    font-size: calc(12 *2 / 7.5 * 1vw);
+    font-size: calc(12 * 2 / 7.5 * 1vw);
     color: rgb(142, 142, 142);
     text-align: center;
-    margin-top: calc(85 *2 / 7.5 * 1vw);
+    margin-top: calc(85 * 2 / 7.5 * 1vw);
     span {
       color: rgb(252, 97, 66);
-      font-size: calc(12 *2 / 7.5 * 1vw);
+      font-size: calc(12 * 2 / 7.5 * 1vw);
       font-weight: 550;
     }
   }

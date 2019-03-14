@@ -5,10 +5,11 @@ import FastClick from 'fastclick'
 import VueRouter from 'vue-router'
 import App from './App'
 import routes from './router/index'
-import  { AlertPlugin } from 'vux'
-import  { ToastPlugin } from 'vux'
-import  { LoadingPlugin } from 'vux'
+import store from './store'//引入store
 
+import  { AlertPlugin,ToastPlugin,LoadingPlugin,ConfirmPlugin } from 'vux'
+
+Vue.use(ConfirmPlugin)
 Vue.use(ToastPlugin, {position: 'center'})
 Vue.use(AlertPlugin)
 Vue.use(LoadingPlugin)
@@ -22,15 +23,17 @@ FastClick.attach(document.body)
 
 Vue.config.productionTip = false
 /* eslint-disable no-new */
-// new Vue({
-//   router,
-//   render: h => h(App)
-// }).$mount('#app-box')
+new Vue({
+  router,
+  store,
+  render: h => h(App)
+}).$mount('#app-box')
 
-document.addEventListener('deviceready', function() {
-  new Vue({
-    router,
-    render: h => h(App)
-  }).$mount('#app-box')
-  window.navigator.splashscreen.hide()
-}, false);
+// document.addEventListener('deviceready', function() {
+//   new Vue({
+//     router,
+//     store,
+//     render: h => h(App)
+//   }).$mount('#app-box')
+//   window.navigator.splashscreen.hide()
+// }, false);

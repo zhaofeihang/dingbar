@@ -40,12 +40,12 @@ export default {
   data() {
     return {
       cellArr1: [
-        {
-          title: "清理缓存",
-          iconclass: "icon-qinglihuancun",
-          pageUrl: "",
-          value: '12.83MB'
-        },
+        // {
+        //   title: "清理缓存",
+        //   iconclass: "icon-qinglihuancun",
+        //   pageUrl: "",
+        //   value: '12.83MB'
+        // },
         {
           title: "意见反馈",
           iconclass: "icon-yijianfankui",

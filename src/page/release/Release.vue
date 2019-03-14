@@ -40,6 +40,7 @@ export default {
             desc: this.desc
           }
         });
+        sessionStorage.setItem('imgDesc',this.desc);
       }else {
         this.$vux.alert.show({
           title: "提示",
