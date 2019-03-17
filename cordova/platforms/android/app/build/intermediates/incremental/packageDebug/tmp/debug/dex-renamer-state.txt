@@ -1,4 +1,4 @@
-#Thu Mar 14 09:40:58 CST 2019
-base.0=E\:\\web\\shedou\\app\\cordova\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+#Fri Mar 15 11:02:18 CST 2019
+base.0=/Users/zhaofeihang/Documents/app/cordova/platforms/android/app/build/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex

@@ -49,21 +49,16 @@ export default {
         index: 0,
         currentImg: '',
         list: [
-          'static/img/img.png',
-          'static/img/img.png',
-          'static/img/img.png',
-          'static/img/img.png',
-          'static/img/img.png'
         ]
       }
     };
   },
   created: function() {
-    // let params = this.$route.params;
-    // if(params) {
-    //   this.imgList.list = params.photos;
-    //   this.imgList.currentImg = this.imgList.list[0];
-    // }
+    let params = this.$route.params;
+    if(params) {
+      this.imgList.list = params.photos;
+      this.imgList.currentImg = this.imgList.list[0];
+    }
   },
   methods: {
     back() {

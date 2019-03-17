@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\web\\shedou\\app\\cordova\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-es\\values-es.xml",
+            "outputFile": "/Users/zhaofeihang/Documents/app/cordova/platforms/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-es/values-es.xml",
             "map": [
                 {
-                    "source": "E:\\web\\shedou\\app\\cordova\\platforms\\android\\app\\src\\main\\res\\values-es\\multiimagechooser_strings_es.xml",
+                    "source": "/Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/res/values-es/multiimagechooser_strings_es.xml",
                     "from": {
                         "startLines": "10,11,5,4,8,9,2,6,7,3",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4",

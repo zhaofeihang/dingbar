@@ -1,31 +1,31 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\web\shedou\app\cordova\platforms\android\CordovaLib\AndroidManifest.xml:20:1-21:97
-INJECTED from E:\web\shedou\app\cordova\platforms\android\CordovaLib\AndroidManifest.xml:20:1-21:97
-INJECTED from E:\web\shedou\app\cordova\platforms\android\CordovaLib\AndroidManifest.xml:20:1-21:97
-INJECTED from E:\web\shedou\app\cordova\platforms\android\CordovaLib\AndroidManifest.xml:20:1-21:97
-INJECTED from E:\web\shedou\app\cordova\platforms\android\CordovaLib\AndroidManifest.xml:20:1-21:97
-INJECTED from E:\web\shedou\app\cordova\platforms\android\CordovaLib\AndroidManifest.xml:20:1-21:97
-INJECTED from E:\web\shedou\app\cordova\platforms\android\CordovaLib\AndroidManifest.xml:20:1-21:97
+ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/CordovaLib/AndroidManifest.xml:20:1-21:97
+INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/CordovaLib/AndroidManifest.xml:20:1-21:97
+INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/CordovaLib/AndroidManifest.xml:20:1-21:97
+INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/CordovaLib/AndroidManifest.xml:20:1-21:97
+INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/CordovaLib/AndroidManifest.xml:20:1-21:97
+INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/CordovaLib/AndroidManifest.xml:20:1-21:97
+INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/CordovaLib/AndroidManifest.xml:20:1-21:97
 	package
-		ADDED from E:\web\shedou\app\cordova\platforms\android\CordovaLib\AndroidManifest.xml:21:7-35
-		INJECTED from E:\web\shedou\app\cordova\platforms\android\CordovaLib\AndroidManifest.xml
-		INJECTED from E:\web\shedou\app\cordova\platforms\android\CordovaLib\AndroidManifest.xml
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/CordovaLib/AndroidManifest.xml:21:7-35
+		INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/CordovaLib/AndroidManifest.xml
+		INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/CordovaLib/AndroidManifest.xml
 	android:versionName
-		ADDED from E:\web\shedou\app\cordova\platforms\android\CordovaLib\AndroidManifest.xml:21:36-61
-		INJECTED from E:\web\shedou\app\cordova\platforms\android\CordovaLib\AndroidManifest.xml
-		INJECTED from E:\web\shedou\app\cordova\platforms\android\CordovaLib\AndroidManifest.xml
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/CordovaLib/AndroidManifest.xml:21:36-61
+		INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/CordovaLib/AndroidManifest.xml
+		INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/CordovaLib/AndroidManifest.xml
 	xmlns:android
-		ADDED from E:\web\shedou\app\cordova\platforms\android\CordovaLib\AndroidManifest.xml:20:11-69
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/CordovaLib/AndroidManifest.xml:20:11-69
 	android:versionCode
-		ADDED from E:\web\shedou\app\cordova\platforms\android\CordovaLib\AndroidManifest.xml:21:62-85
-		INJECTED from E:\web\shedou\app\cordova\platforms\android\CordovaLib\AndroidManifest.xml
-		INJECTED from E:\web\shedou\app\cordova\platforms\android\CordovaLib\AndroidManifest.xml
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/CordovaLib/AndroidManifest.xml:21:62-85
+		INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/CordovaLib/AndroidManifest.xml
+		INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/CordovaLib/AndroidManifest.xml
 uses-sdk
-INJECTED from E:\web\shedou\app\cordova\platforms\android\CordovaLib\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from E:\web\shedou\app\cordova\platforms\android\CordovaLib\AndroidManifest.xml
-INJECTED from E:\web\shedou\app\cordova\platforms\android\CordovaLib\AndroidManifest.xml
+INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/CordovaLib/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/CordovaLib/AndroidManifest.xml
+INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/CordovaLib/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from E:\web\shedou\app\cordova\platforms\android\CordovaLib\AndroidManifest.xml
-		ADDED from E:\web\shedou\app\cordova\platforms\android\CordovaLib\AndroidManifest.xml
-		INJECTED from E:\web\shedou\app\cordova\platforms\android\CordovaLib\AndroidManifest.xml
+		INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/CordovaLib/AndroidManifest.xml
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/CordovaLib/AndroidManifest.xml
+		INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/CordovaLib/AndroidManifest.xml

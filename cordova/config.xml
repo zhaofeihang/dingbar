@@ -35,4 +35,5 @@
         <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="选择上传图片" />
     </plugin>
     <engine name="android" spec="^7.1.4" />
+    <engine name="ios" spec="4.5.5" />
 </widget>

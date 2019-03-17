@@ -1,10 +1,10 @@
 <template>
   <div class="TakePhoto" v-if="pageShow">
     <x-header class="x-header" :left-options="{showBack: false}">随手拍
-      <router-link to="/page/take_photo/Message" slot="right" class="message-icon">
+      <!-- <router-link to="/page/take_photo/Message" slot="right" class="message-icon">
         <badge class="message-badge" :text="messageBadge"></badge>
         <i class="iconfont icon-xiaoxi"></i>
-      </router-link>
+      </router-link> -->
     </x-header>
     <div class="tab-box">
       <div class="tab-title">热门话题</div>
@@ -23,11 +23,11 @@
         class="design-list"
         v-for="(designItem,designItemIndex) in designList"
         :key="designItemIndex"
-        @click="toDetail(designItem)"
+        @click="toDetail(designItem,'detail')"
       >
         <flexbox class="flexbox">
           <flexbox-item :span="1.7">
-            <img class="avatar" :src="designItem.users_logos" alt>
+            <img class="avatar" :src="designItem.users_logos" alt="">
           </flexbox-item>
           <flexbox-item :span="7.3">
             <div>
@@ -42,7 +42,11 @@
               <div class="direc">{{designItem.dates}}</div>
             </div>
           </flexbox-item>
-          <flexbox-item class="x-button-box" :span="3" v-if="designItem.userid != userInfo.id">
+          <flexbox-item
+            class="x-button-box"
+            :span="3"
+            v-if="userInfo&&designItem.userid != userInfo.id"
+          >
             <x-button
               v-show="designItem.followed"
               class="x-button"
@@ -78,12 +82,12 @@
           <flexbox-item :span="1.7"></flexbox-item>
           <flexbox-item :span="10.3">
             <div class="design-item-menus">
-              <span class="design-item-praise">
+              <span @click.stop="liking(designItem)" class="design-item-praise" :class="designItem.praised == 1 ? 'liked' : ''">
                 <i class="iconfont icon-dianzan"></i>
                 {{designItem.praisesnums}}
               </span>
               <span class="design-item-comment">
-                <i class="iconfont icon-pinglun"></i>
+                <i @click.stop="toDetail(designItem,'comment')" class="iconfont icon-pinglun"></i>
                 {{designItem.commentsnums}}
               </span>
               <span class="design-item-menu">
@@ -94,7 +98,7 @@
         </flexbox>
       </div>
     </div>
-    <div class="preview" v-show="previewList.list.length">
+    <div class="preview" v-if="previewList.list.length">
       <div class="preview-swiper-box">
         <swiper
           dots-class="test"
@@ -105,9 +109,14 @@
           :list="previewList.list"
           v-model="previewList.index"
         ></swiper>
-        <!-- {{previewList.list[previewList.index].collected}} -->
-        <span @click="imgCollect(previewList.list[previewList.index],previewList.userId)" class="preview-icon shoucang">
-          <i class="iconfont icon-shoucang"></i>
+        <span
+          @click="imgCollect(previewList.list[previewList.index],previewList.userId)"
+          class="preview-icon shoucang"
+        >
+          <i
+            class="iconfont icon-shoucang"
+            :class="previewList.list[previewList.index].collected == 1 ? 'collected' : ''"
+          ></i>
         </span>
         <span class="preview-icon xiazai">
           <i class="iconfont icon-xiazai"></i>
@@ -193,7 +202,6 @@ import {
   Cell,
   Badge
 } from "vux";
-import {mapGetters,mapMutations} from 'vuex';
 import util from "../util";
 
 export default {
@@ -220,7 +228,7 @@ export default {
       previewList: {
         list: [],
         index: 0,
-        userId: ''
+        userId: ""
       },
       rewards: {
         list: [0.01, 0.1, 0.5, 1, 5, 10],
@@ -228,27 +236,20 @@ export default {
       },
       confirmReward: "",
       tab: {
-        tabList: [
-          {topics_id: "0", tits: "全部"}
-        ],
+        tabList: [{ topics_id: "0", tits: "全部" }],
         id: 0
       },
       baseList: [],
-      designList: []
+      designList: [],
+      userInfo: null
     };
   },
-  computed: {
-    ...mapGetters([
-      'userInfo'
-    ]),
-  },
-  created: function() {
-    let userInfo = localStorage.getItem("userInfo");
-    if(userInfo) {
-      this.updateUserInfo(JSON.parse(userInfo));
-    }
-  },
+  created: function() {},
   mounted: async function() {
+    let userInfo = localStorage.getItem("userInfo");
+    if (userInfo) {
+      this.userInfo = JSON.parse(userInfo);
+    }
     this.$vux.loading.show({
       text: "Loading"
     });
@@ -278,10 +279,14 @@ export default {
      ** 随手拍列表
      */
     let designListUrl;
-    if(this.userInfo) {
-      designListUrl = `/materials/postslists?loginid=${this.userInfo.id}&topics_id=${this.tab.id}&pages=1&rowsmax=10`
-    }else {
-      designListUrl = `/materials/postslists?topics_id=${this.tab.id}&pages=1&rowsmax=10`
+    if (this.userInfo) {
+      designListUrl = `/materials/postslists?loginid=${
+        this.userInfo.id
+      }&topics_id=${this.tab.id}&pages=1&rowsmax=10`;
+    } else {
+      designListUrl = `/materials/postslists?topics_id=${
+        this.tab.id
+      }&pages=1&rowsmax=10`;
     }
     this.designList = await util.getData({
       url: designListUrl,
@@ -295,7 +300,7 @@ export default {
         item.previewList.push({
           id: img.id,
           img: img.updatas,
-          collected: img.collected
+          collected: img.collected || 0
         });
       });
       //判断性别
@@ -338,9 +343,6 @@ export default {
     this.pageShow = true;
   },
   methods: {
-    ...mapMutations({
-      updateUserInfo: 'updateUserInfo'
-    }),
     //话题目录切换
     async seleted(id) {
       this.tab.id = id;
@@ -403,25 +405,44 @@ export default {
       });
       this.$vux.loading.hide();
     },
-    async imgCollect(imgs,userId) {
-      let data = await util.request({
-        url: `/materials/collects`,
-        method: "post",
-        param: {
-           loginid: this.userInfo.id,
-           users_mains_id: userId,
-           targets_id: imgs.id,
-           types: 1
+    async imgCollect(imgs, userId) {
+      if (this.userInfo) {
+        if(imgs.collected == 1) {
+          this.$vux.alert.show({
+            title: '提示',
+            content: '不能重复收藏'
+          });
+          return false;
         }
-      });
-      if(data.return_code == 'success') {
-        this.$vux.toast.show({
-          text: '收藏成功'
+        let data = await util.request({
+          url: `/materials/collects`,
+          method: "post",
+          param: {
+            loginid: this.userInfo.id,
+            users_mains_id: userId,
+            targets_id: imgs.id,
+            types: 1
+          }
         });
-      }else {
-        this.$vux.alert.show({
-          title: '提示',
-          content: data.return_data
+        if (data.return_code == "success") {
+          this.$vux.toast.show({
+            text: "收藏成功"
+          });
+        } else {
+          this.$vux.alert.show({
+            title: "提示",
+            content: data.return_data
+          });
+        }
+      } else {
+        this.$vux.confirm.show({
+          title: "提示",
+          content: "请先登录",
+          onConfirm: () => {
+            this.$router.push({
+              path: "/page/user/LoginIndex"
+            });
+          }
         });
       }
     },
@@ -433,10 +454,10 @@ export default {
     previewClose() {
       this.previewList.list = [];
     },
-    toDetail(designItem) {
+    toDetail(designItem,type) {
       this.$router.push({
         path: "/page/take_photo/DesignDetail",
-        query: { id: designItem.sources_id }
+        query: { id: designItem.sources_id,type: type }
       });
     },
     togglePopup(type) {
@@ -477,20 +498,63 @@ export default {
           users.followed = types;
           this.designList.forEach((item, index) => {
             if ((users.userid = item.userid)) {
-              item.follow = users.follow;
+              item.followed = users.followed;
             }
           });
         }
         this.$vux.toast.show({
           text: data.return_data
         });
-      }else {
-        this.$vux.confirm({
-          title: '提示',
-          content: '请先登录',
-          onConfirm () {
+      } else {
+        this.$vux.confirm.show({
+          title: "提示",
+          content: "请先登录",
+          onConfirm: () => {
             this.$router.push({
-              path: '/page/user/LoginIndex'
+              path: "/page/user/LoginIndex"
+            });
+          }
+        });
+      }
+    },
+    //点赞
+    async liking(users) {
+      if (this.userInfo) {
+        if(users.praised == 1) {
+          this.$vux.alert.show({
+            title: '提示',
+            content: '不能重复点赞'
+          });
+          return false;
+        }
+        let data = await util.request({
+          url: `/materials/scores`,
+          method: "post",
+          param: {
+            users_mains_id: users.userid,
+            loginid: this.userInfo.id,
+            types: 1,
+            scores: 5,
+            targets_id: users.sources_id
+          }
+        });
+        if (data.return_code == "success") {
+          this.$vux.toast.show({
+            text: data.return_data
+          });
+        }else {
+          this.$vux.alert.show({
+            title: '提示',
+            content: data.return_data
+          });
+        }
+      } else {
+        this.$vux.confirm.show({
+          title: "提示",
+          content: "请先登录",
+          onConfirm: () => {
+            this.$router.push({
+              path: "/page/user/LoginIndex"
             });
           }
         });
@@ -974,6 +1038,9 @@ export default {
       bottom: 0;
     }
   }
+  .liked,.liked .icon-dianzan::before {
+    color: rgb(252, 97, 66) !important;
+  }
   .design-item-menus,
   .design-item-menus .iconfont::before {
     color: rgb(185, 185, 185);
@@ -1107,6 +1174,8 @@ export default {
     height: 100%;
     border-radius: calc(10 * 2 / 7.5 * 1vw);
   }
+
+  //赞赏
   .reward-box {
     .reward-title-box {
       height: calc(45 * 2 / 7.5 * 1vw);

@@ -70,7 +70,7 @@ export default {
     if (photos) {
       photos = JSON.parse(photos);
       photos.forEach(async (item, index) => {
-        this.photos += "||" + (await util.convertImg(item, 375, 375));
+        this.photos += "||" + (await util.convertImg(item, 1, 1));
       });
     }
   },
@@ -102,16 +102,19 @@ export default {
       }
     },
     async release() {
-      alert(this.photos);
       let userInfo = localStorage.getItem("userInfo");
       let imgDesc = sessionStorage.getItem("imgDesc");
       if (userInfo) {
         userInfo = JSON.parse(userInfo);
       }
-      this.$vux.loading.show({
-        text: '努力上传中...'
-      })
-      let data = await util.request({
+      // this.$vux.loading.show({
+      //   text: '努力上传中...'
+      // })
+      await util.getData({
+        url: "/materials/bannerslists",
+        method: "post"
+      });
+      await util.getData({
         url: "/materials/adds",
         method: "post",
         param: {
@@ -122,16 +125,16 @@ export default {
           topics_id: this.selectTopic
         }
       });
-      this.$vux.loading.hide();
-      this.$vux.alert.show({
-        title: "提示",
-        content: data.return_data,
-        onHide: () => {
-          this.$router.push({
-            path: "/"
-          });
-        }
-      });
+      // this.$vux.loading.hide();
+      // this.$vux.alert.show({
+      //   title: "提示",
+      //   content: data.return_data,
+      //   onHide: () => {
+      //     this.$router.push({
+      //       path: "/"
+      //     });
+      //   }
+      // });
     }
   },
   components: {
