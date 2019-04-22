@@ -48,7 +48,7 @@ export default {
     topicList.forEach((item, index) => {
       this.topicList.push({
         text: item.tits,
-        id: item.topics_id,
+        id: item.id,
         selectClass: ""
       });
     });
@@ -67,10 +67,11 @@ export default {
 
     //图片转换成base64格式
     let photos = sessionStorage.getItem("photos");
+    
     if (photos) {
       photos = JSON.parse(photos);
       photos.forEach(async (item, index) => {
-        this.photos += "||" + (await util.convertImg(item, 1, 1));
+        this.photos += "||" + (await util.convertImg(item, 675, 934));
       });
     }
   },
@@ -86,7 +87,7 @@ export default {
           });
           return false;
         }
-        this.selectLabelList.push(label.id);
+        this.selectLabelList.push(label.id + '');
       }
       label.selectClass = label.selectClass == "selected" ? "" : "selected";
     },
@@ -107,34 +108,39 @@ export default {
       if (userInfo) {
         userInfo = JSON.parse(userInfo);
       }
-      // this.$vux.loading.show({
-      //   text: '努力上传中...'
-      // })
-      await util.getData({
-        url: "/materials/bannerslists",
-        method: "post"
-      });
-      await util.getData({
+      this.$vux.loading.show({
+        text: '努力上传中...'
+      })
+      let data = await util.request({
         url: "/materials/adds",
         method: "post",
         param: {
-          loginid: userInfo.id,
-          descriptions: imgDesc,
+          loginid: userInfo.id + '',
+          descriptions: imgDesc + '',
           updata: this.photos.slice(2),
           labels_id: this.selectLabelList,
-          topics_id: this.selectTopic
+          topics_id: this.selectTopic+''
         }
       });
-      // this.$vux.loading.hide();
-      // this.$vux.alert.show({
-      //   title: "提示",
-      //   content: data.return_data,
-      //   onHide: () => {
-      //     this.$router.push({
-      //       path: "/"
-      //     });
-      //   }
-      // });
+      this.$vux.loading.hide();
+      if(data.return_code == 'success') {
+        sessionStorage.removeItem('photos');
+        sessionStorage.removeItem('imgDesc');
+        this.$vux.toast.show({
+          text: data.return_data,
+          type: "text",
+          onHide: () => {
+            this.$router.push({
+              path: "/"
+            });
+          }
+        });
+      }else {
+        this.$vux.alert.show({
+          title: '提示',
+          content: data.return_data
+        });
+      }
     }
   },
   components: {
@@ -171,8 +177,6 @@ export default {
     color: rgb(51, 51, 51);
     background-color: rgb(242, 242, 242);
     border-radius: calc(5 * 2 / 7.5 * 1vw);
-    margin: auto;
-    margin-bottom: calc(15 * 2 / 7.5 * 1vw);
   }
   .selected {
     background-color: rgb(252, 97, 66) !important;
@@ -182,7 +186,13 @@ export default {
     padding: calc(6 * 2 / 7.5 * 1vw) calc(3 * 2 / 7.5 * 1vw);
   }
   .grid-item {
-    padding: 0 calc(3 * 2 / 7.5 * 1vw);
+    display: block;
+    width: max-content;
+    margin: auto;
+    margin-bottom: calc(15 * 2 / 7.5 * 1vw);
+    // padding: 0 calc(3 * 2 / 7.5 * 1vw);
+    padding-top: 0;
+    padding-bottom: 0;
   }
   .weui-grids:before {
     display: none;

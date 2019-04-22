@@ -1,0 +1,458 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		3A8A18DEF73197AC76F37E557C2815C6 /* YCAlipaySDK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 0C9CA1D79B196027C35C627A5CA7A457 /* Build configuration list for PBXAggregateTarget "YCAlipaySDK" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = YCAlipaySDK;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		FA65DBFFF1F38E0741E77529EDC85246 /* Pods-随手拍-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E81F559A942BA60860CE18AC522606AD /* Pods-随手拍-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7A6239CA3FBAE7885FD8AFABE74C24D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3A8A18DEF73197AC76F37E557C2815C6;
+			remoteInfo = YCAlipaySDK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		02AA68E2F141827F46E4FB74ABF10EB8 /* Pods-随手拍-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-随手拍-acknowledgements.plist"; sourceTree = "<group>"; };
+		1872F52393C99F99D9664C416E107804 /* YCAlipaySDK.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YCAlipaySDK.xcconfig; sourceTree = "<group>"; };
+		1A0C4EA180B17F6400409F10BB6DFA18 /* AlipaySDK.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = AlipaySDK.bundle; path = AlipaySDK/AlipaySDK.bundle; sourceTree = "<group>"; };
+		218EC351852BCBB03617BEEE323429A3 /* Pods-随手拍-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-随手拍-resources.sh"; sourceTree = "<group>"; };
+		4452094AF85CFE98F44DE11BFB358766 /* Pods-随手拍-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-随手拍-acknowledgements.markdown"; sourceTree = "<group>"; };
+		65F5B57856D2183CF149E7E95F259260 /* Pods-随手拍.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-随手拍.release.xcconfig"; sourceTree = "<group>"; };
+		9B043BD9BF21FAAAECDA7717A9B2E658 /* libPods-随手拍.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-随手拍.a"; path = "libPods-随手拍.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B94CE5F317A89E047F38063FB2FC1F83 /* AlipaySDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AlipaySDK.framework; path = AlipaySDK/AlipaySDK.framework; sourceTree = "<group>"; };
+		BAB9F0F4DAA2668300B7D93D927896D1 /* Pods-随手拍.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-随手拍.debug.xcconfig"; sourceTree = "<group>"; };
+		E81F559A942BA60860CE18AC522606AD /* Pods-随手拍-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-随手拍-dummy.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B4DC636C52202470E25FFF82D74CB6E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		014FE75064B8A7C8600B2F95AD03D038 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8A7B9EF227140C1807DB8EF0FE7DB823 /* YCAlipaySDK */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		149F4E36015DE42435E1D39892EAA9B6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9B043BD9BF21FAAAECDA7717A9B2E658 /* libPods-随手拍.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6B2CA9A2A27040C06E01FCF25F5152F4 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E566AADB0354A81B2996EFF34C1BCC04 /* Pods-随手拍 */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		72D2C39211AF685210665617A002E556 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1A0C4EA180B17F6400409F10BB6DFA18 /* AlipaySDK.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		8A7B9EF227140C1807DB8EF0FE7DB823 /* YCAlipaySDK */ = {
+			isa = PBXGroup;
+			children = (
+				C6B7E52A15908058611113B792889A04 /* Frameworks */,
+				72D2C39211AF685210665617A002E556 /* Resources */,
+				ED7DE9A3E88100B80533E186EBFB626E /* Support Files */,
+			);
+			name = YCAlipaySDK;
+			path = YCAlipaySDK;
+			sourceTree = "<group>";
+		};
+		C6B7E52A15908058611113B792889A04 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B94CE5F317A89E047F38063FB2FC1F83 /* AlipaySDK.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D89477F20FB1DE18A04690586D7808C4 /* Frameworks */,
+				014FE75064B8A7C8600B2F95AD03D038 /* Pods */,
+				149F4E36015DE42435E1D39892EAA9B6 /* Products */,
+				6B2CA9A2A27040C06E01FCF25F5152F4 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D89477F20FB1DE18A04690586D7808C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E566AADB0354A81B2996EFF34C1BCC04 /* Pods-随手拍 */ = {
+			isa = PBXGroup;
+			children = (
+				4452094AF85CFE98F44DE11BFB358766 /* Pods-随手拍-acknowledgements.markdown */,
+				02AA68E2F141827F46E4FB74ABF10EB8 /* Pods-随手拍-acknowledgements.plist */,
+				E81F559A942BA60860CE18AC522606AD /* Pods-随手拍-dummy.m */,
+				218EC351852BCBB03617BEEE323429A3 /* Pods-随手拍-resources.sh */,
+				BAB9F0F4DAA2668300B7D93D927896D1 /* Pods-随手拍.debug.xcconfig */,
+				65F5B57856D2183CF149E7E95F259260 /* Pods-随手拍.release.xcconfig */,
+			);
+			name = "Pods-随手拍";
+			path = "Target Support Files/Pods-随手拍";
+			sourceTree = "<group>";
+		};
+		ED7DE9A3E88100B80533E186EBFB626E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1872F52393C99F99D9664C416E107804 /* YCAlipaySDK.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/YCAlipaySDK";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A6AC353407D73DB74685635609B11575 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		A23F5A39A5F928E20759DC78B781F27A /* Pods-随手拍 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9005F9B4519CA1E8EF4A5B8DA9220D86 /* Build configuration list for PBXNativeTarget "Pods-随手拍" */;
+			buildPhases = (
+				A6AC353407D73DB74685635609B11575 /* Headers */,
+				B870CD171ADC4CAA3CAB3B2BA66983C5 /* Sources */,
+				B4DC636C52202470E25FFF82D74CB6E6 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				38F4A42D12B0DE4921A62DA06D71B86D /* PBXTargetDependency */,
+			);
+			name = "Pods-随手拍";
+			productName = "Pods-随手拍";
+			productReference = 9B043BD9BF21FAAAECDA7717A9B2E658 /* libPods-随手拍.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 149F4E36015DE42435E1D39892EAA9B6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A23F5A39A5F928E20759DC78B781F27A /* Pods-随手拍 */,
+				3A8A18DEF73197AC76F37E557C2815C6 /* YCAlipaySDK */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B870CD171ADC4CAA3CAB3B2BA66983C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA65DBFFF1F38E0741E77529EDC85246 /* Pods-随手拍-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		38F4A42D12B0DE4921A62DA06D71B86D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = YCAlipaySDK;
+			target = 3A8A18DEF73197AC76F37E557C2815C6 /* YCAlipaySDK */;
+			targetProxy = 7A6239CA3FBAE7885FD8AFABE74C24D4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		6088CEB53D58C036BE46360C6CE2804F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1872F52393C99F99D9664C416E107804 /* YCAlipaySDK.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6489BB557FAEE2DF7E7B2166020FEB49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BAB9F0F4DAA2668300B7D93D927896D1 /* Pods-随手拍.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6B24865849881D487417D822F26460EC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		7747042D6C14A11041459E6CD7EFDE91 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65F5B57856D2183CF149E7E95F259260 /* Pods-随手拍.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		941D2361789486AF91B4F48A0B2292CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		97CB19A514CBD67AAF5BEC5B4A2DF1FA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1872F52393C99F99D9664C416E107804 /* YCAlipaySDK.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0C9CA1D79B196027C35C627A5CA7A457 /* Build configuration list for PBXAggregateTarget "YCAlipaySDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				97CB19A514CBD67AAF5BEC5B4A2DF1FA /* Debug */,
+				6088CEB53D58C036BE46360C6CE2804F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B24865849881D487417D822F26460EC /* Debug */,
+				941D2361789486AF91B4F48A0B2292CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9005F9B4519CA1E8EF4A5B8DA9220D86 /* Build configuration list for PBXNativeTarget "Pods-随手拍" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6489BB557FAEE2DF7E7B2166020FEB49 /* Debug */,
+				7747042D6C14A11041459E6CD7EFDE91 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

@@ -1,14 +1,24 @@
 <template>
   <div class="MyRelease" v-if="showState">
-    <x-header class="x-header" :left-options="{backText: ''}">我的发布</x-header>
+    <x-header @on-click-back="back" class="x-header" :left-options="{backText: '',preventGoBack: true}">{{title}}</x-header>
     <div class="user">
-      <x-img class="bgImg" :default-src="userInfo.imgList[0].src"></x-img>
+      <x-img
+        class="bgImg"
+        :default-src="userInfo.imgList.length? userInfo.imgList[0].src : 'static/img/img.png'"
+      ></x-img>
       <div class="user-detail">
         <router-link to>
-          <x-img class="avatar" :default-src="userInfo.usersinfos.logos"></x-img>
+          <x-img
+            class="avatar"
+            :default-src="userInfo.usersinfos.logos || 'static/img/default-avatar.png'"
+          ></x-img>
           <div class="username">
             {{userInfo.usersinfos.nicknames}}
-            <i class="iconfont icon-nvsheng"></i>
+            <i
+              v-if="userInfo.usersinfos.gender == 1"
+              class="iconfont icon-nansheng"
+            ></i>
+            <i v-else class="iconfont icon-nvsheng"></i>
           </div>
           <div class="signature">{{userInfo.usersinfos.remarks}}</div>
         </router-link>
@@ -42,7 +52,12 @@
       </div>-->
       <div>
         <grid class="grid" :cols="3" :show-lr-borders="false" :show-vertical-dividers="false">
-          <grid-item class="grid-item" v-for="(item, index) in userInfo.imgList" :key="index">
+          <grid-item
+            class="grid-item"
+            v-for="(item, index) in userInfo.imgList"
+            :key="index"
+            @click.native="toDetail(item.id)"
+          >
             <img class="previewer-demo-img" :src="item.src">
             <span>
               <i class="iconfont icon-shuliangbiaoqian"></i>
@@ -62,8 +77,9 @@ import util from "../../util";
 export default {
   data() {
     return {
-      userInfo: {},
-      showState: false
+      userInfo: null,
+      showState: false,
+      title: '我的发布'
     };
   },
   components: {
@@ -74,47 +90,67 @@ export default {
     GridItem
   },
   created: async function() {
-    let type = this.$route.query.type;
+    let params = this.$route.params;
     let userInfo = localStorage.getItem("userInfo");
-    if (type == "current") {
-      try {
+    if(sessionStorage.getItem('releaseId')) {
+      this.title = '发布信息';
+      this.userId = sessionStorage.getItem('releaseId');
+    }else {
+      if (params.type == "other") {
+        this.userId = params.id;
+        this.title = '发布信息';
+      }else {
         this.userId = JSON.parse(localStorage.getItem("userInfo")).id;
-      } catch (data) {
-        this.userId = false;
       }
-      if (this.userId) {
-        this.$vux.loading.show({
-          text: "Loading"
-        });
-        let data = await util.getData({
-          url: `/users/usersinfos?loginid=${this.userId}`,
-          method: "get"
-        });
-        data.usersinfos.logos =
-          data.usersinfos.logos || "static/img/default-avatar.png";
-        data.usersinfos.remarks = data.usersinfos.remarks || "暂无签名";
-        this.userInfo = data;
-        /*
+      sessionStorage.setItem('releaseId', this.userId);
+    }
+    if (this.userId) {
+      this.$vux.loading.show({
+        text: "Loading"
+      });
+      let data = await util.getData({
+        url: `/users/usersinfos?loginid=${this.userId}`,
+        method: "get"
+      });
+      data.usersinfos.logos =
+        data.usersinfos.logos || "static/img/default-avatar.png";
+      data.usersinfos.remarks =
+        data.usersinfos.remarks || "当前大咖有点儿懒。。。";
+      this.userInfo = data;
+      /*
          ** 发布信息
          */
-        this.userInfo.imgList = [];
-        let imgList = await util.getData({
-          url: `/users/mypublishes?loginid=${this.userId}`,
-          method: "get"
+      this.userInfo.imgList = [];
+      let imgList = await util.getData({
+        url: `/users/mypublishes?loginid=${this.userId}`,
+        method: "get"
+      });
+      imgList.forEach((item, index) => {
+        this.userInfo.imgList.push({
+          src: item.thumbs,
+          imgCount: item.image_total,
+          id: item.id
         });
-        imgList.forEach((item,index) => {
-          this.userInfo.imgList.push({
-            src: item.thumbs,
-            imgCount: item.image_total,
-            id: item.id
-          });
-        });
-        this.showState = true;
-        this.$vux.loading.hide();
-      }
+      });
     }
+    this.showState = true;
+    this.$vux.loading.hide();
   },
-  methods: {}
+  methods: {
+    toDetail(id) {
+      this.$router.push({
+        path: "/page/user/MyCollect",
+        name: "MyCollect",
+        params: {
+          id: id
+        }
+      });
+    },
+    back() {
+      sessionStorage.removeItem('releaseId');
+      this.$router.go(-1);
+    }
+  }
 };
 </script>
 
@@ -133,49 +169,54 @@ export default {
   }
   .bgImg {
     width: 100%;
-    height: calc(160 *2 / 7.5 * 1vw);
+    height: calc(160 * 2 / 7.5 * 1vw);
     object-fit: cover;
     filter: brightness(60%);
   }
   .user-detail {
-    margin-top: -calc(50 *2 / 7.5 * 1vw);
+    margin-top: calc(-50 * 2 / 7.5 * 1vw);
   }
   .username {
     color: rgb(51, 51, 51);
     text-align: center;
-    font-size: calc(15 *2 / 7.5 * 1vw);
+    font-size: calc(15 * 2 / 7.5 * 1vw);
     font-weight: 550;
-    margin-top: calc(5 *2 / 7.5 * 1vw);
+    margin-top: calc(5 * 2 / 7.5 * 1vw);
   }
   .signature {
     text-align: center;
     color: rgb(169, 169, 169);
-    font-size: calc(11 *2 / 7.5 * 1vw);
+    font-size: calc(11 * 2 / 7.5 * 1vw);
+  }
+  .iconfont {
+    width: calc(15 * 2 / 7.5 * 1vw);
+    margin-left: calc(-10 * 2 / 7.5 * 1vw);
   }
   .icon-nvsheng {
-    width: calc(15 *2 / 7.5 * 1vw);
     color: rgb(255, 108, 152) !important;
-    margin-left: -calc(10 *2 / 7.5 * 1vw);
+  }
+  .icon-nansheng {
+    color: #4b9dff !important;
   }
   .avatar {
-    width: calc(65 *2 / 7.5 * 1vw);
-    height: calc(65 *2 / 7.5 * 1vw);
+    width: calc(65 * 2 / 7.5 * 1vw);
+    height: calc(65 * 2 / 7.5 * 1vw);
     margin-left: 50vw;
     transform: translateX(-50%);
-    margin-top: calc(10 *2 / 7.5 * 1vw);
-    border: calc(3 *2 / 7.5 * 1vw) solid #fff;
+    margin-top: calc(10 * 2 / 7.5 * 1vw);
+    border: calc(3 * 2 / 7.5 * 1vw) solid #fff;
     border-radius: 50%;
   }
 
   .weui-panel {
-    border-radius: calc(10 *2 / 7.5 * 1vw);
+    border-radius: calc(10 * 2 / 7.5 * 1vw);
   }
   .weui-panel::before,
   .weui-panel::after {
     display: none;
   }
   .card {
-    font-size: calc(14 *2 / 7.5 * 1vw);
+    font-size: calc(14 * 2 / 7.5 * 1vw);
     font-weight: 550;
     color: rgb(51, 51, 51);
   }
@@ -183,39 +224,39 @@ export default {
     display: flex;
   }
   .card-demo-content01 {
-    padding: calc(15 *2 / 7.5 * 1vw) 0;
+    padding: calc(15 * 2 / 7.5 * 1vw) 0;
   }
   .card-padding {
-    padding: calc(15 *2 / 7.5 * 1vw);
+    padding: calc(15 * 2 / 7.5 * 1vw);
   }
   .card-demo-flex > a {
     flex: 1;
     text-align: center;
-    font-size: calc(12 *2 / 7.5 * 1vw);
-    line-height: calc(25 *2 / 7.5 * 1vw);
+    font-size: calc(12 * 2 / 7.5 * 1vw);
+    line-height: calc(25 * 2 / 7.5 * 1vw);
     font-weight: 550;
     color: rgb(169, 169, 169);
   }
   .card-demo-flex span {
-    font-size: calc(13 *2 / 7.5 * 1vw);
+    font-size: calc(13 * 2 / 7.5 * 1vw);
     color: rgb(51, 51, 51);
   }
   .grid {
-    padding: calc(6 *2 / 7.5 * 1vw) calc(3 *2 / 7.5 * 1vw);
+    padding: calc(6 * 2 / 7.5 * 1vw) calc(3 * 2 / 7.5 * 1vw);
   }
   .grid-item {
-    padding: 0 calc(3 *2 / 7.5 * 1vw);
+    padding: 0 calc(3 * 2 / 7.5 * 1vw);
     position: relative;
     .icon-shuliangbiaoqian {
-      font-size: calc(22 *2 / 7.5 * 1vw);
+      font-size: calc(22 * 2 / 7.5 * 1vw);
     }
     > span {
       position: absolute;
       top: 0;
-      right: calc(8 *2 / 7.5 * 1vw);
+      right: calc(8 * 2 / 7.5 * 1vw);
       display: inline-block;
-      width: calc(18 *2 / 7.5 * 1vw);
-      height: calc(22 *2 / 7.5 * 1vw);
+      width: calc(18 * 2 / 7.5 * 1vw);
+      height: calc(22 * 2 / 7.5 * 1vw);
       .icon-shuliangbiaoqian,
       span {
         position: absolute;
@@ -234,7 +275,7 @@ export default {
       span {
         bottom: 10%;
         color: #fff;
-        font-size: calc(12 *2 / 7.5 * 1vw);
+        font-size: calc(12 * 2 / 7.5 * 1vw);
         transform: scale(0.6);
       }
     }
@@ -244,6 +285,8 @@ export default {
   }
   .previewer-demo-img {
     width: 100%;
+    height: calc(164 * 2 / 7.5 * 1vw);
+    object-fit: cover;
   }
 }
 </style>

@@ -1,0 +1,22 @@
+PODS:
+  - YCAlipaySDK (15.5.3)
+
+DEPENDENCIES:
+  - YCAlipaySDK (from `https://github.com/yccp/AlipaySDK`, tag `15.5.3`)
+
+EXTERNAL SOURCES:
+  YCAlipaySDK:
+    :git: https://github.com/yccp/AlipaySDK
+    :tag: 15.5.3
+
+CHECKOUT OPTIONS:
+  YCAlipaySDK:
+    :git: https://github.com/yccp/AlipaySDK
+    :tag: 15.5.3
+
+SPEC CHECKSUMS:
+  YCAlipaySDK: 070c2a6053af24eceeef7979f5af47b94462cd15
+
+PODFILE CHECKSUM: aeb90fc16271b512e97a80500dbc558bd15b8be9
+
+COCOAPODS: 1.6.1

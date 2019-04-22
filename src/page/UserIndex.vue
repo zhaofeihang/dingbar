@@ -38,7 +38,12 @@
     </card>
     <card class="card">
       <div slot="content">
-        <cell v-for="(cell,index) in cellArr" :key="index" :title="cell.title" :link="cell.pageUrl">
+        <cell
+          v-for="(cell,index) in cellArr"
+          :key="index"
+          :title="cell.title"
+          @click.native="toPageUrl(cell)"
+        >
           <i slot="icon" class="iconfont" :class="cell.iconclass"></i>
         </cell>
       </div>
@@ -55,27 +60,40 @@ export default {
     return {
       userId: "",
       userInfo: null,
+      loginState: false,
       cellArr: [
         {
           title: "我的发布",
           iconclass: "icon-fabu",
-          pageUrl: "/page/MyRelease?type=current"
+          name: 'MyRelease',
+          pageUrl: "/page/MyRelease",
+          params: {
+            type: 'current'
+          }
         },
         {
           title: "我的关注",
           iconclass: "icon-guanzhu",
-          pageUrl: "/page/MyFollow?type=current"
+          name: 'MyFollow',
+          pageUrl: "/page/MyFollow"
         },
         {
           title: "我的收藏",
           iconclass: "icon-shoucangxianxing",
-          pageUrl: "/page/MyCollect?type=current"
+          name: 'MyCollect',
+          pageUrl: "/page/MyCollect"
         },
-        { title: "我的粉丝", iconclass: "icon-fensi", pageUrl: "/page/MyFan?type=current" },
+        {
+          title: "我的粉丝",
+          iconclass: "icon-fensi",
+          name: 'MyFan',
+          pageUrl: "/page/MyFan"
+        },
         {
           title: "我的收入",
           iconclass: "icon-shouru",
-          pageUrl: "/page/MyIncome?type=current"
+          name: 'MyIncome',
+          pageUrl: "/page/MyIncome"
         }
       ]
     };
@@ -92,7 +110,7 @@ export default {
   mounted: async function() {
     try {
       this.userId = JSON.parse(localStorage.getItem("userInfo")).id;
-    }catch(data) {
+    } catch (data) {
       this.userId = false;
     }
     if (this.userId) {
@@ -105,10 +123,13 @@ export default {
       });
       data.usersinfos.logos =
         data.usersinfos.logos || "static/img/default-avatar.png";
-      data.usersinfos.remarks = data.usersinfos.remarks || "暂无签名";
+      data.usersinfos.remarks =
+        data.usersinfos.remarks || "当前大咖有点儿懒。。。";
       this.userInfo = data;
+      this.loginState = true;
       this.$vux.loading.hide();
-    }else {
+    } else {
+      this.loginState = false;
       this.userInfo = {
         my_fans_total: 0,
         my_follow_total: 0,
@@ -120,7 +141,7 @@ export default {
           nicknames: "未登录",
           remarks: null
         }
-      }
+      };
     }
   },
   methods: {
@@ -132,6 +153,25 @@ export default {
         this.$router.push("/page/user/SetUserInfo");
       } else {
         this.$router.push("/page/user/LoginIndex");
+      }
+    },
+    toPageUrl(cell) {
+      if (!this.loginState) {
+        this.$vux.confirm.show({
+          title: "提示",
+          content: "请先登录",
+          onConfirm: () => {
+            this.$router.push({
+              path: "/page/user/LoginIndex"
+            });
+          }
+        });
+      } else {
+        this.$router.push({
+          path: cell.pageUrl,
+          name: cell.name,
+          params: cell.params
+        });
       }
     }
   }
@@ -146,67 +186,73 @@ export default {
     right: 0;
   }
   .icon-shezhi {
-    font-size: calc(18 *2 / 7.5 * 1vw);
+    font-size: calc(18 * 2 / 7.5 * 1vw);
     display: inline-block;
-    width: calc(18 *2 / 7.5 * 1vw);
+    width: calc(18 * 2 / 7.5 * 1vw);
   }
   .username {
+    padding-left: calc(20 * 2 / 7.5 * 1vw);
+    box-sizing: border-box;
     color: rgb(51, 51, 51);
     text-align: center;
-    font-size: calc(15 *2 / 7.5 * 1vw);
+    font-size: calc(15 * 2 / 7.5 * 1vw);
     font-weight: 550;
   }
   .signature {
     text-align: center;
     color: rgb(169, 169, 169);
-    font-size: calc(11 *2 / 7.5 * 1vw);
+    font-size: calc(11 * 2 / 7.5 * 1vw);
   }
-  .icon-nvsheng {
-    width: calc(15 *2 / 7.5 * 1vw);
+  .icon-nvsheng,
+  .icon-nansheng {
+    width: calc(15 * 2 / 7.5 * 1vw);
     color: rgb(255, 108, 152) !important;
-    margin-left: -calc(10 *2 / 7.5 * 1vw);
+    margin-left: calc(-10 * 2 / 7.5 * 1vw);
+  }
+  .icon-nansheng {
+    color: rgb(75, 157, 255) !important;
   }
   .avatar {
     display: block;
-    width: calc(65 *2 / 7.5 * 1vw);
-    height: calc(65 *2 / 7.5 * 1vw);
+    width: calc(65 * 2 / 7.5 * 1vw);
+    height: calc(65 * 2 / 7.5 * 1vw);
     border-radius: 50%;
     margin: auto;
-    margin-top: calc(10 *2 / 7.5 * 1vw);
+    margin-top: calc(10 * 2 / 7.5 * 1vw);
   }
 
   .weui-cell {
-    padding: calc(20 *2 / 7.5 * 1vw);
+    padding: calc(20 * 2 / 7.5 * 1vw);
   }
   .weui-panel {
-    border-radius: calc(10 *2 / 7.5 * 1vw);
-    box-shadow: 0 0 calc(10 *2 / 7.5 * 1vw) rgba(0, 0, 0, 0.1);
+    border-radius: calc(10 * 2 / 7.5 * 1vw);
+    box-shadow: 0 0 calc(10 * 2 / 7.5 * 1vw) rgba(0, 0, 0, 0.1);
   }
   .card {
-    font-size: calc(14 *2 / 7.5 * 1vw);
+    font-size: calc(14 * 2 / 7.5 * 1vw);
     font-weight: 550;
     color: rgb(51, 51, 51);
-    margin-bottom: calc(65 *2 / 7.5 * 1vw);
+    margin-bottom: calc(65 * 2 / 7.5 * 1vw);
   }
   .card-demo-flex {
     display: flex;
   }
   .card-demo-content01 {
-    padding: calc(15 *2 / 7.5 * 1vw) 0;
+    padding: calc(15 * 2 / 7.5 * 1vw) 0;
   }
   .card-padding {
-    padding: calc(15 *2 / 7.5 * 1vw);
+    padding: calc(15 * 2 / 7.5 * 1vw);
   }
   .card-demo-flex > a {
     flex: 1;
     text-align: center;
-    font-size: calc(12 *2 / 7.5 * 1vw);
-    line-height: calc(25 *2 / 7.5 * 1vw);
+    font-size: calc(12 * 2 / 7.5 * 1vw);
+    line-height: calc(25 * 2 / 7.5 * 1vw);
     font-weight: 550;
     color: rgb(169, 169, 169);
   }
   .card-demo-flex span {
-    font-size: calc(13 *2 / 7.5 * 1vw);
+    font-size: calc(13 * 2 / 7.5 * 1vw);
     color: rgb(51, 51, 51);
   }
 }

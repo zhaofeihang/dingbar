@@ -39,14 +39,53 @@ module.exports = [
     "clobbers": [
       "plugins.imagePicker"
     ]
+  },
+  {
+    "id": "cordova-plugin-imagepicker.ImagePicker",
+    "file": "plugins/cordova-plugin-imagepicker/www/ImagePicker.js",
+    "pluginId": "cordova-plugin-imagepicker",
+    "clobbers": [
+      "ImagePicker"
+    ]
+  },
+  {
+    "id": "cordova-plugin-payments-alipay.Alipay",
+    "file": "plugins/cordova-plugin-payments-alipay/www/Alipay.js",
+    "pluginId": "cordova-plugin-payments-alipay",
+    "clobbers": [
+      "Alipay"
+    ]
+  },
+  {
+    "id": "cordova-plugin-wechat.Wechat",
+    "file": "plugins/cordova-plugin-wechat/www/wechat.js",
+    "pluginId": "cordova-plugin-wechat",
+    "clobbers": [
+      "Wechat"
+    ]
+  },
+  {
+    "id": "cordova-save-image-gallery.saveImageGallery",
+    "file": "plugins/cordova-save-image-gallery/www/saveImageGallery.js",
+    "pluginId": "cordova-save-image-gallery",
+    "clobbers": [
+      "cordova.saveImageGallery"
+    ]
   }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
+  "cordova-android-support-gradle-release": "2.1.0",
   "cordova-plugin-camera": "4.0.3",
+  "cordova-plugin-cocoapod-support": "1.6.0",
+  "cordova-plugin-crosswalk-webview": "2.4.0",
   "cordova-plugin-image-picker": "1.1.1",
-  "cordova-plugin-whitelist": "1.3.3"
+  "cordova-plugin-imagepicker": "1.1.6",
+  "cordova-plugin-payments-alipay": "1.0.3",
+  "cordova-plugin-wechat": "2.7.2",
+  "cordova-plugin-whitelist": "1.3.3",
+  "cordova-save-image-gallery": "0.0.26"
 };
 // BOTTOM OF METADATA
 });

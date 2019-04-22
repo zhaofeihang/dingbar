@@ -1,0 +1,62 @@
+{
+  "_from": "cordova-plugin-payments-alipay",
+  "_id": "cordova-plugin-payments-alipay@1.0.3",
+  "_inBundle": false,
+  "_integrity": "sha1-0dpPQg2b6BMp3zXyUwK4WSmBQrg=",
+  "_location": "/cordova-plugin-payments-alipay",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "cordova-plugin-payments-alipay",
+    "name": "cordova-plugin-payments-alipay",
+    "escapedName": "cordova-plugin-payments-alipay",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "http://registry.npm.taobao.org/cordova-plugin-payments-alipay/download/cordova-plugin-payments-alipay-1.0.3.tgz",
+  "_shasum": "d1da4f420d9be81329df35f25302b859298142b8",
+  "_spec": "cordova-plugin-payments-alipay",
+  "_where": "/Users/zhaofeihang/Documents/app/cordova",
+  "author": {
+    "name": "Yu Chen"
+  },
+  "bugs": {
+    "url": "https://github.com/yccp/cordova-plugin-payments-alipay/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-payments-alipay",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "deprecated": false,
+  "description": "Alipay for cordova app",
+  "homepage": "https://github.com/yccp/cordova-plugin-payments-alipay#readme",
+  "keywords": [
+    "cordova",
+    "alipay",
+    "feedback",
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "name": "cordova-plugin-payments-alipay",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yccp/cordova-plugin-payments-alipay.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.3"
+}

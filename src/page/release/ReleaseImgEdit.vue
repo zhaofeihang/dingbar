@@ -40,7 +40,7 @@
 
 <script>
 import { XHeader, XImg, Flexbox, FlexboxItem } from "vux";
-import { openAlbum, takePicture } from "../../../static/cordovaplugin.js";
+import { openAlbum, takePicture } from "../../cordovaplugin";
 
 export default {
   data() {
@@ -48,8 +48,7 @@ export default {
       imgList: {
         index: 0,
         currentImg: '',
-        list: [
-        ]
+        list: []
       }
     };
   },

@@ -18,7 +18,37 @@
     },
     "cordova-plugin-image-picker": {
       "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-plugin-wechat": {
+      "WECHATAPPID": "wx4ec18e420fe44790",
+      "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-plugin-payments-alipay": {
+      "APP_ID": "2019031663535941",
+      "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-save-image-gallery": {
+      "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-android-support-gradle-release": {
+      "ANDROID_SUPPORT_VERSION": "27.0.1",
+      "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-plugin-imagepicker": {
+      "PACKAGE_NAME": "io.cordova.hellocordova"
+    },
+    "cordova-plugin-crosswalk-webview": {
+      "XWALK_VERSION": "23+",
+      "XWALK_LITEVERSION": "xwalk_core_library_canary:17+",
+      "XWALK_COMMANDLINE": "--disable-pull-to-refresh-effect",
+      "XWALK_MODE": "embedded",
+      "XWALK_MULTIPLEAPK": "true",
+      "PACKAGE_NAME": "io.cordova.hellocordova"
     }
   },
-  "dependent_plugins": {}
+  "dependent_plugins": {
+    "cordova-plugin-cocoapod-support": {
+      "PACKAGE_NAME": "io.cordova.hellocordova"
+    }
+  }
 }

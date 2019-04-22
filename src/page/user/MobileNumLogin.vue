@@ -6,8 +6,8 @@
       </span>
     </x-header>
     <div class="content-box">
-      <group>
-        <h1 slot="title" class="login-title">手机号登录</h1>
+        <div>
+          <h1 slot="title" class="login-title">手机号登录</h1>
         <x-input v-model="mobile" class="mobile" title="手机" placeholder="请输入手机号"></x-input>
         <x-input v-model="pwd" type="password" class="pwd" title="密码" placeholder="请输入登录密码"></x-input>
         <div class="forget-pwd">
@@ -15,19 +15,19 @@
           <router-link to="/page/user/ForgetPwd">忘记密码？</router-link>
         </div>
         <x-button class="login-commit" @click.native="loginCommit">立即登录</x-button>
+        </div>
         <div class="fast-login">
           <div class="title">其他方式登录</div>
           <div class="btns">
             <i class="iconfont icon-xinlang"></i>
-            <i class="iconfont icon-weixin1"></i>
+            <i @click="wechatLogin" class="iconfont icon-weixin1"></i>
             <i class="iconfont icon-QQ"></i>
           </div>
         </div>
         <div class="statement-box">
           登录或注册即同意舍豆
-          <span>《用户服务协议》</span>
+          <router-link to="/page/ServicePact">《用户服务协议》</router-link>
         </div>
-      </group>
     </div>
   </div>
 </template>
@@ -36,6 +36,7 @@
 import { XHeader, XButton, Group, XInput } from "vux";
 import { mapMutations } from "vuex";
 import util from "../../util";
+const qs = require("qs");
 
 export default {
   data() {
@@ -79,7 +80,9 @@ export default {
           this.$vux.toast.show({
             text: "登录成功",
             onHide: () => {
-              this.$router.go(-1);
+              this.$router.push({
+                path: '/'
+              });
             }
           });
           this.updateUserInfo(userInfo);
@@ -96,6 +99,9 @@ export default {
           content: "手机号或密码有误"
         });
       }
+    },
+    wechatLogin() {
+      util.wechatLogin(this);
     }
   }
 };
@@ -103,12 +109,25 @@ export default {
 
 <style lang="less">
 .MobileNumLogin {
+  height: 100vh;
+  
   .to-register a {
     font-size: calc(15 * 2 / 7.5 * 1vw);
     color: rgb(142, 142, 142) !important;
   }
+  .x-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
   .content-box {
+    height: 100vh;
     padding: 0 10vw;
+    padding-top: 46px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   .login-title {
     height: calc(135 * 2 / 7.5 * 1vw);
@@ -147,8 +166,11 @@ export default {
   }
 
   .fast-login {
+    // position: absolute;
+    // bottom: 18vh;
+    // left: 0;
+    // right: 0;
     text-align: center;
-    margin-top: calc(75 * 2 / 7.5 * 1vw);
     color: rgb(142, 142, 142);
     font-size: calc(12 * 2 / 7.5 * 1vw);
     .btns {
@@ -178,8 +200,12 @@ export default {
     font-size: calc(12 * 2 / 7.5 * 1vw);
     color: rgb(142, 142, 142);
     text-align: center;
-    margin-top: calc(85 * 2 / 7.5 * 1vw);
-    span {
+    margin-bottom: calc(10 * 2 / 7.5 * 1vw);
+    // position: absolute;
+    // bottom: 2.3vh;
+    // left: 0;
+    // right: 0;
+    a {
       color: rgb(252, 97, 66);
       font-size: calc(12 * 2 / 7.5 * 1vw);
       font-weight: 550;

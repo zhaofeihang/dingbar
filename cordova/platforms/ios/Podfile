@@ -1,0 +1,4 @@
+platform :ios, '7.0'
+target '随手拍' do
+	pod 'YCAlipaySDK', :git => 'https://github.com/yccp/AlipaySDK', :tag => '15.5.3'
+end

@@ -33,7 +33,7 @@ const takePicture = () => {
      }
    })
  }
- const openAlbum = () => {
+ const openAlbum = (count=9) => {
   return new Promise((resolve, reject) => {
     window.imagePicker.getPictures(
       function(results) {
@@ -41,7 +41,7 @@ const takePicture = () => {
       }, function (error) {
         reject(error);
       }, {
-        maximumImagesCount: 9
+        maximumImagesCount: count
       }
     );
   })

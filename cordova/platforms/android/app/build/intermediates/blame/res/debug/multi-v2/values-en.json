@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/zhaofeihang/Documents/app/cordova/platforms/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-en/values-en.xml",
+            "map": [
+                {
+                    "source": "/Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/res/values-en/multi_image_chooser_strings.xml",
+                    "from": {
+                        "startLines": "1,13,14,5,2,9,10,8,7,3,11,6,12,4",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "16,672,714,257,66,476,520,423,368,134,576,303,618,192",
+                        "endColumns": "49,41,45,45,67,43,55,52,54,57,41,64,53,64",
+                        "endOffsets": "61,709,755,298,129,515,571,471,418,187,613,363,667,252"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,105,147,193,239,307,351,407,460,515,573,615,680,734",
+                        "endColumns": "49,41,45,45,67,43,55,52,54,57,41,64,53,64",
+                        "endOffsets": "100,142,188,234,302,346,402,455,510,568,610,675,729,794"
+                    }
+                }
+            ]
+        }
+    ]
+}

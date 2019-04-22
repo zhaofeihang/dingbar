@@ -1,0 +1,294 @@
+-- Merging decision tree log ---
+provider#org.apache.cordova.camera.FileProvider
+INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:12:9-14:20
+	android:grantUriPermissions
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:12:92-126
+	android:authorities
+		INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:12:19-66
+	android:exported
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:12:67-91
+	android:name
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:12:127-180
+provider#com.giants.imagepicker.ImagePickerProvider
+INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:33:9-35:20
+	android:grantUriPermissions
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:33:104-138
+	android:authorities
+		INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:33:19-78
+	android:exported
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:33:79-103
+	android:name
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:33:139-196
+manifest
+ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:2:1-46:12
+INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:2:1-46:12
+INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:2:1-46:12
+INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:2:1-46:12
+MERGED from [org.xwalk:xwalk_core_library:23.53.589.4] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/xwalk_core_library-23.53.589.4.aar/f63dad2889f33456903ea8e097141c15/AndroidManifest.xml:1:1-9:12
+MERGED from [com.github.chrisbanes.photoview:library:1.2.4] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/library-1.2.4.aar/4fb6d0178edbfc2c670703ddf5cca032/AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:support-v4:27.0.1] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/support-v4-27.0.1.aar/ad2f6fb650898908bffcca7af79bc25a/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:appcompat-v7:27.0.1] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/04b938de55f9a938efd8642788f7e19c/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:27.0.1] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.0.1.aar/1143030d8a558a03fb8d8346ef7d08f8/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:exifinterface:27.0.1] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/exifinterface-27.0.1.aar/7ea70fb11e015b728c9391a9911d1769/AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/glide-4.9.0.aar/779e24149e51a2c05e43c3ab77826423/AndroidManifest.xml:2:1-12:12
+MERGED from [com.github.nanchen2251:CompressHelper:1.0.6] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/CompressHelper-1.0.6.aar/ada78409a00ca98edbcda5db4e0e0673/AndroidManifest.xml:2:1-17:12
+MERGED from [top.zibin:Luban:1.1.8] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/Luban-1.1.8.aar/d7dbadaca4f52422f8769450bf44416d/AndroidManifest.xml:2:1-11:12
+MERGED from [:CordovaLib] /Users/zhaofeihang/Documents/app/cordova/platforms/android/CordovaLib/build/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:20:1-27:12
+MERGED from [com.android.support:support-media-compat:27.0.1] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.1.aar/e2c61b7be521eb972dbc5d2f7f8beb1f/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.0.1] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/support-fragment-27.0.1.aar/26815c12a970dd1fc04d53fe56eee9cb/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.0.1] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.0.1.aar/8d92ad5c18df94a18e554c57724e9ece/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.0.1] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.0.1.aar/93909c8d02fd58b1cffd74a3d14a008f/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.0.1] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.0.1.aar/23189c0bf4922cab01dd7d1b2880b6c9/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.0.1] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.0.1.aar/d0ab1721b7f6ab6248facb7f7bbfb3fe/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.0.1] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.1.aar/343a109c374ff346244d23ec12007417/AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/gifdecoder-4.9.0.aar/368f4bfb062e510fb4419d17084d645a/AndroidManifest.xml:2:1-11:12
+MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/c53ef44d687fd13a39ea4795e0826ebf/AndroidManifest.xml:17:1-30:12
+INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:2:1-46:12
+INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:2:1-46:12
+INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:2:1-46:12
+	package
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:2:102-135
+		INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml
+	android:versionName
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:2:74-101
+		INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml
+	android:hardwareAccelerated
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:2:11-45
+	xmlns:android
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:2:136-194
+	android:versionCode
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:2:46-73
+		INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml
+supports-screens
+ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:3:5-191
+	android:largeScreens
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:3:49-76
+	android:smallScreens
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:3:132-159
+	android:normalScreens
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:3:77-105
+	android:xlargeScreens
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:3:160-188
+	android:resizeable
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:3:106-131
+	android:anyDensity
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:3:23-48
+uses-permission#android.permission.INTERNET
+ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:4:5-67
+	android:name
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:4:22-64
+application
+ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:5:5-36:19
+MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/glide-4.9.0.aar/779e24149e51a2c05e43c3ab77826423/AndroidManifest.xml:10:5-20
+MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/glide-4.9.0.aar/779e24149e51a2c05e43c3ab77826423/AndroidManifest.xml:10:5-20
+MERGED from [com.github.nanchen2251:CompressHelper:1.0.6] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/CompressHelper-1.0.6.aar/ada78409a00ca98edbcda5db4e0e0673/AndroidManifest.xml:11:5-15:19
+MERGED from [com.github.nanchen2251:CompressHelper:1.0.6] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/CompressHelper-1.0.6.aar/ada78409a00ca98edbcda5db4e0e0673/AndroidManifest.xml:11:5-15:19
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/gifdecoder-4.9.0.aar/368f4bfb062e510fb4419d17084d645a/AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/gifdecoder-4.9.0.aar/368f4bfb062e510fb4419d17084d645a/AndroidManifest.xml:9:5-20
+MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/c53ef44d687fd13a39ea4795e0826ebf/AndroidManifest.xml:24:5-28:19
+MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/c53ef44d687fd13a39ea4795e0826ebf/AndroidManifest.xml:24:5-28:19
+	android:supportsRtl
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:5:139-165
+	android:label
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:5:81-113
+	android:hardwareAccelerated
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:5:18-52
+	android:allowBackup
+		ADDED from [com.github.nanchen2251:CompressHelper:1.0.6] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/CompressHelper-1.0.6.aar/ada78409a00ca98edbcda5db4e0e0673/AndroidManifest.xml:12:9-35
+	android:largeHeap
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:5:114-138
+	android:icon
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:5:53-80
+activity#io.cordova.hellocordova.MainActivity
+ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:6:9-11:20
+	android:label
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:6:97-134
+	android:launchMode
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:6:135-165
+	android:windowSoftInputMode
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:6:257-299
+	android:configChanges
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:6:19-96
+	android:theme
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:6:194-256
+	android:name
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:6:166-193
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:7:13-10:29
+	android:label
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:7:28-65
+action#android.intent.action.MAIN
+ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:8:17-69
+	android:name
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:8:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:9:17-77
+	android:name
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:9:27-74
+activity#com.synconset.MultiImageChooserActivity
+ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:15:9-163
+	android:label
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:15:19-57
+	android:theme
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:15:113-160
+	android:name
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:15:58-112
+activity#io.cordova.hellocordova.wxapi.WXEntryActivity
+ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:16:9-22:20
+	android:label
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:16:43-80
+	android:launchMode
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:16:81-112
+	android:exported
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:16:19-42
+	android:taskAffinity
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:16:151-197
+	android:name
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:16:113-150
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.DEFAULT+data:scheme:wx4ec18e420fe44790
+ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:17:13-21:29
+action#android.intent.action.VIEW
+ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:18:17-69
+	android:name
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:18:25-66
+category#android.intent.category.DEFAULT
+ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:19:17-76
+	android:name
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:19:27-73
+data
+ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:20:17-61
+	android:scheme
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:20:23-58
+activity#io.cordova.hellocordova.wxapi.WXPayEntryActivity
+ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:23:9-29:20
+	android:label
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:23:43-80
+	android:launchMode
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:23:81-111
+	android:exported
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:23:19-42
+	android:name
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:23:112-152
+activity#com.giants.imagepicker.ui.ImageGridActivity
+ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:30:9-184
+	android:configChanges
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:30:19-65
+	android:theme
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:30:125-181
+	android:name
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:30:66-124
+activity#com.giants.imagepicker.ui.ImageCropActivity
+ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:31:9-220
+	android:hardwareAccelerated
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:31:66-101
+	android:configChanges
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:31:19-65
+	android:theme
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:31:161-217
+	android:name
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:31:102-160
+activity#com.giants.imagepicker.ui.ImagePreviewActivity
+ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:32:9-187
+	android:configChanges
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:32:19-65
+	android:theme
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:32:128-184
+	android:name
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:32:66-127
+uses-sdk
+ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:37:5-74
+INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:37:5-74
+MERGED from [org.xwalk:xwalk_core_library:23.53.589.4] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/xwalk_core_library-23.53.589.4.aar/f63dad2889f33456903ea8e097141c15/AndroidManifest.xml:6:5-8:41
+MERGED from [org.xwalk:xwalk_core_library:23.53.589.4] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/xwalk_core_library-23.53.589.4.aar/f63dad2889f33456903ea8e097141c15/AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.chrisbanes.photoview:library:1.2.4] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/library-1.2.4.aar/4fb6d0178edbfc2c670703ddf5cca032/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.chrisbanes.photoview:library:1.2.4] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/library-1.2.4.aar/4fb6d0178edbfc2c670703ddf5cca032/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:support-v4:27.0.1] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/support-v4-27.0.1.aar/ad2f6fb650898908bffcca7af79bc25a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.0.1] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/support-v4-27.0.1.aar/ad2f6fb650898908bffcca7af79bc25a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.0.1] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/04b938de55f9a938efd8642788f7e19c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.0.1] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.0.1.aar/04b938de55f9a938efd8642788f7e19c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.0.1] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.0.1.aar/1143030d8a558a03fb8d8346ef7d08f8/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:27.0.1] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-27.0.1.aar/1143030d8a558a03fb8d8346ef7d08f8/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:exifinterface:27.0.1] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/exifinterface-27.0.1.aar/7ea70fb11e015b728c9391a9911d1769/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:exifinterface:27.0.1] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/exifinterface-27.0.1.aar/7ea70fb11e015b728c9391a9911d1769/AndroidManifest.xml:20:5-44
+MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/glide-4.9.0.aar/779e24149e51a2c05e43c3ab77826423/AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.bumptech.glide:glide:4.9.0] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/glide-4.9.0.aar/779e24149e51a2c05e43c3ab77826423/AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.nanchen2251:CompressHelper:1.0.6] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/CompressHelper-1.0.6.aar/ada78409a00ca98edbcda5db4e0e0673/AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.nanchen2251:CompressHelper:1.0.6] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/CompressHelper-1.0.6.aar/ada78409a00ca98edbcda5db4e0e0673/AndroidManifest.xml:7:5-9:41
+MERGED from [top.zibin:Luban:1.1.8] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/Luban-1.1.8.aar/d7dbadaca4f52422f8769450bf44416d/AndroidManifest.xml:7:5-9:41
+MERGED from [top.zibin:Luban:1.1.8] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/Luban-1.1.8.aar/d7dbadaca4f52422f8769450bf44416d/AndroidManifest.xml:7:5-9:41
+MERGED from [:CordovaLib] /Users/zhaofeihang/Documents/app/cordova/platforms/android/CordovaLib/build/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:25:5-44
+MERGED from [:CordovaLib] /Users/zhaofeihang/Documents/app/cordova/platforms/android/CordovaLib/build/intermediates/merged_manifests/release/processReleaseManifest/merged/AndroidManifest.xml:25:5-44
+MERGED from [com.android.support:support-media-compat:27.0.1] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.1.aar/e2c61b7be521eb972dbc5d2f7f8beb1f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.0.1] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/support-media-compat-27.0.1.aar/e2c61b7be521eb972dbc5d2f7f8beb1f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.0.1] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/support-fragment-27.0.1.aar/26815c12a970dd1fc04d53fe56eee9cb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.0.1] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/support-fragment-27.0.1.aar/26815c12a970dd1fc04d53fe56eee9cb/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.0.1] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.0.1.aar/8d92ad5c18df94a18e554c57724e9ece/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.0.1] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.0.1.aar/8d92ad5c18df94a18e554c57724e9ece/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.0.1] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.0.1.aar/93909c8d02fd58b1cffd74a3d14a008f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.0.1] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.0.1.aar/93909c8d02fd58b1cffd74a3d14a008f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.0.1] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.0.1.aar/23189c0bf4922cab01dd7d1b2880b6c9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.0.1] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.0.1.aar/23189c0bf4922cab01dd7d1b2880b6c9/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.0.1] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.0.1.aar/d0ab1721b7f6ab6248facb7f7bbfb3fe/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.0.1] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.0.1.aar/d0ab1721b7f6ab6248facb7f7bbfb3fe/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.0.1] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.1.aar/343a109c374ff346244d23ec12007417/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.0.1] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/support-compat-27.0.1.aar/343a109c374ff346244d23ec12007417/AndroidManifest.xml:20:5-44
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/gifdecoder-4.9.0.aar/368f4bfb062e510fb4419d17084d645a/AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/gifdecoder-4.9.0.aar/368f4bfb062e510fb4419d17084d645a/AndroidManifest.xml:5:5-7:41
+MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/c53ef44d687fd13a39ea4795e0826ebf/AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/c53ef44d687fd13a39ea4795e0826ebf/AndroidManifest.xml:20:5-22:41
+INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:37:5-74
+	android:targetSdkVersion
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:37:42-71
+	android:minSdkVersion
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:37:15-41
+		INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:38:5-81
+	android:name
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:38:22-78
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:39:5-79
+	android:name
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:39:22-76
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:40:5-76
+	android:name
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:40:22-73
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:41:5-75
+	android:name
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:41:22-72
+uses-permission#android.permission.DELETE_CACHE_FILES
+ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:42:5-77
+	android:name
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:42:22-74
+uses-permission#android.permission.MOUNT_UNMOUNT_FILESYSTEMS
+ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:43:5-84
+	android:name
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:43:22-81
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:44:5-80
+	android:name
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:44:22-77
+uses-permission#android.permission.CAMERA
+ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:45:5-65
+	android:name
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:45:22-62
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:13:13-123
+	android:resource
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:13:75-120
+	android:name
+		ADDED from /Users/zhaofeihang/Documents/app/cordova/platforms/android/app/src/main/AndroidManifest.xml:13:24-74
+meta-data#android.arch.lifecycle.VERSION
+ADDED from [android.arch.lifecycle:runtime:1.0.0] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/c53ef44d687fd13a39ea4795e0826ebf/AndroidManifest.xml:25:9-27:47
+	android:value
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/c53ef44d687fd13a39ea4795e0826ebf/AndroidManifest.xml:27:13-44
+	android:name
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] /Users/zhaofeihang/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/c53ef44d687fd13a39ea4795e0826ebf/AndroidManifest.xml:26:13-58

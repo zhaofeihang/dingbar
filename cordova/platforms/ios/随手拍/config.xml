@@ -25,6 +25,20 @@
     <feature name="ImagePicker">
         <param name="ios-package" value="SOSPicker" />
     </feature>
+    <feature name="ImagePicker">
+        <param name="ios-package" value="ImagePicker" />
+    </feature>
+    <feature name="Alipay">
+        <param name="ios-package" value="Alipay" />
+    </feature>
+    <feature name="Wechat">
+        <param name="ios-package" value="CDVWechat" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="SaveImageGallery">
+        <param name="ios-package" value="SaveImageGallery" />
+        <param name="onload" value="true" />
+    </feature>
     <name>随手拍</name>
     <description>
         酷定吧附属项目
@@ -40,6 +54,21 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <icon height="180" src="res/icon/ios/icon.png" width="180" />
+    <icon height="60" src="res/icon/ios/icon.png" width="60" />
+    <icon height="120" src="res/icon/ios/icon.png" width="120" />
+    <icon height="76" src="res/icon/ios/icon.png" width="76" />
+    <icon height="152" src="res/icon/ios/icon.png" width="152" />
+    <icon height="40" src="res/icon/ios/icon.png" width="40" />
+    <icon height="80" src="res/icon/ios/icon.png" width="80" />
+    <icon height="57" src="res/icon/ios/icon.png" width="57" />
+    <icon height="114" src="res/icon/ios/icon.png" width="114" />
+    <icon height="72" src="res/icon/ios/icon.png" width="72" />
+    <icon height="144" src="res/icon/ios/icon.png" width="144" />
+    <icon height="29" src="res/icon/ios/icon.png" width="29" />
+    <icon height="58" src="res/icon/ios/icon.png" width="58" />
+    <icon height="50" src="res/icon/ios/icon.png" width="50" />
+    <icon height="100" src="res/icon/ios/icon.png" width="100" />
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
     <preference name="AllowInlineMediaPlayback" value="false" />
@@ -56,4 +85,7 @@
     <preference name="PaginationBreakingMode" value="page" />
     <preference name="PaginationMode" value="unpaginated" />
     <preference name="CameraUsesGeolocation" value="false" />
+    <preference name="APP_ID" value="2019031663535941" />
+    <preference name="WECHATAPPID" value="wx4ec18e420fe44790" />
+    <preference name="xwalkMultipleApk" value="false" />
 </widget>

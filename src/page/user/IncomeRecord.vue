@@ -1,5 +1,6 @@
 <template>
   <div class="IncomeRecord">
+    <scroller :on-infinite="onInfinite" ref="scroller" noDataText="我是有底线的..." :class="incomeRecordList.length<10 ? 'hide-scroller':''">
     <x-header class="x-header" :left-options="{backText: ''}">收入记录</x-header>
     <div class="IncomeRecord">
       <flexbox class="flexbox" v-for="(incomeRecord,index) in incomeRecordList" :key="index">
@@ -9,67 +10,29 @@
         <flexbox-item :span="7.7">
           <div>
             <div class="text">{{incomeRecord.text}}</div>
-            <div class="time">{{incomeRecord.time}}</div>
+            <div class="time">{{incomeRecord.times}}</div>
           </div>
         </flexbox-item>
         <flexbox-item class="x-button-box" :span="3">
-          <span>{{incomeRecord.amount}}</span>
+          <span>{{'+' + incomeRecord.moneys}}</span>
         </flexbox-item>
       </flexbox>
     </div>
+    </scroller>
   </div>
 </template>
 
 <script>
 import { XHeader, Flexbox, FlexboxItem } from "vux";
+import util from '../../util';
 
 export default {
   data() {
     return {
+      userInfo: null,
       incomeRecordList: [
-        {
-          iconType: "icon-weixin",
-          text: "微信支付",
-          time: "2019-2-22 15:40",
-          amount: "+2.00"
-        },
-        {
-          iconType: "icon-weixin",
-          text: "微信支付",
-          time: "2019-2-22 15:40",
-          amount: "+2.00"
-        },
-        {
-          iconType: "icon-zhifubao",
-          text: "支付宝支付",
-          time: "2019-2-22 15:40",
-          amount: "+2.00"
-        },
-        {
-          iconType: "icon-weixin",
-          text: "微信支付",
-          time: "2019-2-22 15:40",
-          amount: "+2.00"
-        },
-        {
-          iconType: "icon-zhifubao",
-          text: "支付宝支付",
-          time: "2019-2-22 15:40",
-          amount: "-20.00"
-        },
-        {
-          iconType: "icon-zhifubao",
-          text: "支付宝支付",
-          time: "2019-2-22 15:40",
-          amount: "-20.00"
-        },
-        {
-          iconType: "icon-weixin",
-          text: "微信支付",
-          time: "2019-2-22 15:40",
-          amount: "+2.00"
-        }
-      ]
+      ],
+      pageNum: 1
     };
   },
   components: {
@@ -77,7 +40,63 @@ export default {
     Flexbox,
     FlexboxItem
   },
-  created: function() {}
+  created: async function() {
+    let userInfo = localStorage.getItem("userInfo");
+    if (userInfo) {
+      this.userInfo = JSON.parse(userInfo);
+      this.$vux.loading.show({
+        text: 'loading...'
+      });
+      let data = await util.getData({
+        url: `/users/myaccountsdetails?loginid=${this.userInfo.id}&pages=${this.pageNum}&rowsmax=10`,
+        method: "get"
+      });
+      this.incomeRecordList = data;
+      this.pageNum++;
+      this.incomeRecordList.forEach((item,index) => {
+        if(item.pays_types == 'alipay') {
+          item.iconType = "icon-zhifubao";
+          item.text = '支付宝支付';
+        }else {
+          item.iconType = "icon-weixin";
+          item.text = '微信支付';
+        }
+      });
+      this.$vux.loading.hide();
+    }
+  },
+  methods: {
+    onInfinite(done) {
+      if(this.pageNum == 1) {
+        done();
+        return false;
+      }
+      setTimeout(async () => {
+        let data = await util.getData({
+          url: `/users/myaccountsdetails?loginid=${this.userInfo.id}&pages=${
+            this.pageNum
+          }&rowsmax=10`,
+          method: "get"
+        });
+        if (data == "") {
+          this.$refs.scroller.finishInfinite(2);
+          return false;
+        }
+        this.incomeRecordList = this.incomeRecordList.concat(data);
+        this.incomeRecordList.forEach((item,index) => {
+          if(item.pays_types == 'alipay') {
+            item.iconType = "icon-zhifubao";
+            item.text = '支付宝支付';
+          }else {
+            item.iconType = "icon-weixin";
+            item.text = '微信支付';
+          }
+        });
+        this.pageNum++;
+        done();
+      }, 1000);
+    }
+  }
 };
 </script>
 

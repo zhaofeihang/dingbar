@@ -32,5 +32,67 @@
     "variables": {
       "PHOTO_LIBRARY_USAGE_DESCRIPTION": "选择上传图片"
     }
+  },
+  "cordova-plugin-wechat": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-wechat@2.7.2"
+    },
+    "is_top_level": true,
+    "variables": {
+      "WECHATAPPID": "wx4ec18e420fe44790"
+    }
+  },
+  "cordova-plugin-payments-alipay": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-payments-alipay"
+    },
+    "is_top_level": true,
+    "variables": {
+      "APP_ID": "2019031663535941"
+    }
+  },
+  "cordova-plugin-cocoapod-support": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-cocoapod-support@^1.0.0"
+    },
+    "is_top_level": false,
+    "variables": {}
+  },
+  "cordova-save-image-gallery": {
+    "source": {
+      "type": "registry",
+      "id": "https://github.com/agomezmoron/cordova-save-image-gallery.git"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-android-support-gradle-release": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-android-support-gradle-release"
+    },
+    "is_top_level": true,
+    "variables": {
+      "ANDROID_SUPPORT_VERSION": "27.0.1"
+    }
+  },
+  "cordova-plugin-imagepicker": {
+    "source": {
+      "type": "registry",
+      "id": "https://github.com/giantss/cordova-plugin-ImagePicker.git"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-crosswalk-webview": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-crosswalk-webview@2.4.0"
+    },
+    "is_top_level": true,
+    "variables": {}
   }
 }

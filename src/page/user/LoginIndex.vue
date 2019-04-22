@@ -29,13 +29,13 @@
         <div class="title">其他方式登录</div>
         <div class="btns">
           <i class="iconfont icon-xinlang"></i>
-          <i class="iconfont icon-weixin1"></i>
+          <i @click="wechatLogin" class="iconfont icon-weixin1"></i>
           <i class="iconfont icon-QQ"></i>
         </div>
       </div>
       <div class="statement-box">
         登录或注册即同意舍豆
-        <span>用户服务协议</span>
+        <router-link to="/page/ServicePact">用户服务协议</router-link>
       </div>
     </div>
   </div>
@@ -43,6 +43,7 @@
 
 <script>
 import { XHeader, Swiper, XImg, XButton } from "vux";
+import util from "../../util";
 
 export default {
   data() {
@@ -69,7 +70,12 @@ export default {
     XImg,
     XButton
   },
-  created: function() {}
+  created: function() {},
+  methods: {
+    wechatLogin() {
+      util.wechatLogin(this);
+    }
+  }
 };
 </script>
 
@@ -77,12 +83,15 @@ export default {
 .LoginIndex {
   .x-header {
     width: 100%;
-    position: fixed;
+    position: relative;
     z-index: 100;
   }
   .content-box {
     width: 100vw;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
   .to-index {
     color: rgb(169, 169, 169) !important;
@@ -100,15 +109,21 @@ export default {
     align-items: center;
     color: #fff;
     font-size: calc(15 *2 / 7.5 * 1vw);
-    padding-top: calc(90 *2 / 7.5 * 1vw);
+    // position: absolute;
+    // top: 13.5vh;
+    // left: 0;
+    // right: 0;
     .logo-img {
       width: calc(130 *2 / 7.5 * 1vw);
       height: calc(77 *2 / 7.5 * 1vw);
-      margin-bottom: calc(20 *2 / 7.5 * 1vw);
+      margin-bottom: 3vh;
     }
   }
   .login-register-btns {
-    padding: calc(65 *2 / 7.5 * 1vw) 0;
+    // position: absolute;
+    // top: 39.4vh;
+    // left: 0;
+    // right: 0;
     .login,
     .register,
     div {
@@ -142,6 +157,10 @@ export default {
   .fast-login {
     text-align: center;
     margin-top: calc(10 *2 / 7.5 * 1vw);
+    // position: absolute;
+    // top: 70.4vh;
+    // left: 0;
+    // right: 0;
     color: rgb(142, 142, 142);
     font-size: calc(12 *2 / 7.5 * 1vw);
     .btns {
@@ -165,8 +184,12 @@ export default {
     font-size: calc(12 *2 / 7.5 * 1vw);
     color: rgb(142, 142, 142);
     text-align: center;
-    margin-top: calc(80 *2 / 7.5 * 1vw);
-    span {
+    margin-bottom: calc(10 *2 / 7.5 * 1vw);
+    // position: absolute;
+    // bottom: 3vh;
+    // left: 0;
+    // right: 0;
+    a {
       color: #fff;
       font-size: calc(12 *2 / 7.5 * 1vw);
       font-weight: 550;

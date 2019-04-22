@@ -10,6 +10,18 @@
     <feature name="ImagePicker">
         <param name="android-package" value="com.synconset.ImagePicker" />
     </feature>
+    <feature name="Wechat">
+        <param name="android-package" value="xu.li.cordova.wechat.Wechat" />
+    </feature>
+    <feature name="Alipay">
+        <param name="android-package" value="news.chen.yu.ionic.Alipay" />
+    </feature>
+    <feature name="SaveImageGallery">
+        <param name="android-package" value="com.agomezmoron.saveImageGallery.SaveImageGallery" />
+    </feature>
+    <feature name="ImagePicker">
+        <param name="android-package" value="com.giants.imagepicker.ImagePickerMain" />
+    </feature>
     <name>随手拍</name>
     <description>
         酷定吧附属项目
@@ -33,4 +45,13 @@
     <icon density="xxxhdpi" src="res/icon/android/icon.png" />
     <allow-intent href="market:*" />
     <preference name="loglevel" value="DEBUG" />
+    <preference name="WECHATAPPID" value="wx4ec18e420fe44790" />
+    <preference name="APP_ID" value="2019031663535941" />
+    <preference name="webView" value="org.crosswalk.engine.XWalkWebViewEngine" />
+    <preference name="xwalkVersion" value="23+" />
+    <preference name="xwalkLiteVersion" value="xwalk_core_library_canary:17+" />
+    <preference name="xwalkCommandLine" value="--disable-pull-to-refresh-effect" />
+    <preference name="xwalkMode" value="embedded" />
+    <preference name="xwalkMultipleApk" value="false" />
+    <preference name="android-minSdkVersion" value="16" />
 </widget>

@@ -117,6 +117,7 @@ export default {
   .log-out {
     margin-top: calc(30 *2 / 7.5 * 1vw);
     color: rgb(252, 97, 66);
+    border: 1px solid rgb(252, 97, 66);
     background-color: #fff;
     overflow: initial;
   }

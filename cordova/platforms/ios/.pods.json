@@ -1,0 +1,13 @@
+{
+	"pods": {
+		"YCAlipaySDK": {
+			"type": "pod",
+			"name": "YCAlipaySDK",
+			"git": "https://github.com/yccp/AlipaySDK",
+			"tag": "15.5.3"
+		}
+	},
+	"sources": {},
+	"iosMinVersion": "7.0",
+	"useFrameworks": false
+}

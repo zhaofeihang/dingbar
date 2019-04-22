@@ -10,12 +10,20 @@
     "author": "Apache Cordova Team",
     "license": "Apache-2.0",
     "dependencies": {
+        "com.synconset.imagepicker": "^2.1.8",
         "cordova-android": "^7.1.4",
-        "cordova-ios": "4.5.5",
+        "cordova-android-support-gradle-release": "^2.1.0",
+        "cordova-ios": "^4.5.5",
         "cordova-plugin-camera": "^4.0.3",
+        "cordova-plugin-cocoapod-support": "^1.6.0",
         "cordova-plugin-console": "^1.1.0",
+        "cordova-plugin-crosswalk-webview": "^2.4.0",
         "cordova-plugin-image-picker": "^1.1.3",
-        "cordova-plugin-whitelist": "^1.3.3"
+        "cordova-plugin-imagepicker": "git+https://github.com/giantss/cordova-plugin-ImagePicker.git",
+        "cordova-plugin-payments-alipay": "^1.0.3",
+        "cordova-plugin-wechat": "^2.7.2",
+        "cordova-plugin-whitelist": "^1.3.3",
+        "cordova-save-image-gallery": "git+https://github.com/agomezmoron/cordova-save-image-gallery.git"
     },
     "cordova": {
         "plugins": {
@@ -23,7 +31,30 @@
             "cordova-plugin-camera": {},
             "cordova-plugin-console": {},
             "cordova-plugin-image-picker": {
+                "locator": "https://github.com/Telerik-Verified-Plugins/ImagePicker",
+                "id": "cordova-plugin-image-picker",
                 "PHOTO_LIBRARY_USAGE_DESCRIPTION": "选择上传图片"
+            },
+            "cordova-plugin-wechat": {
+                "WECHATAPPID": "wx4ec18e420fe44790"
+            },
+            "cordova-plugin-payments-alipay": {
+                "APP_ID": "2019031663535941"
+            },
+            "cordova-save-image-gallery": {},
+            "cordova-android-support-gradle-release": {
+                "ANDROID_SUPPORT_VERSION": "27.0.1"
+            },
+            "cordova-plugin-imagepicker": {
+                "CAMERA_USAGE_DESCRIPTION": " ",
+                "PHOTOLIBRARY_USAGE_DESCRIPTION": " "
+            },
+            "cordova-plugin-crosswalk-webview": {
+                "XWALK_VERSION": "23+",
+                "XWALK_LITEVERSION": "xwalk_core_library_canary:17+",
+                "XWALK_COMMANDLINE": "--disable-pull-to-refresh-effect",
+                "XWALK_MODE": "embedded",
+                "XWALK_MULTIPLEAPK": "true"
             }
         },
         "platforms": [

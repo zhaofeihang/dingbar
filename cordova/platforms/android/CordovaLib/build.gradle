@@ -38,6 +38,16 @@ buildscript {
     }
 }
 
+allprojects {
+    repositories {
+        mavenCentral()
+        maven {
+            url "https://maven.google.com"
+        }
+        jcenter()
+    }
+}
+
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
@@ -74,7 +84,7 @@ android {
         exclude 'META-INF/NOTICE'
     }
   defaultConfig {
-    minSdkVersion = 19
+    minSdkVersion = 16
   }
 }
 

@@ -19,6 +19,7 @@ import LoginIndex from '@/page/user/LoginIndex'
 import MobileInfoLogin from '@/page/user/MobileInfoLogin'
 import MobileNumLogin from '@/page/user/MobileNumLogin'
 import Register from '@/page/user/Register'
+import BandUserInfo from '@/page/user/BandUserInfo'
 //随手拍
 import TakePhoto from '@/page/TakePhoto'
 import DesignDetail from '@/page/take_photo/DesignDetail'
@@ -213,7 +214,8 @@ export default  [
     name: 'ReleaseImgEdit',
     component: ReleaseImgEdit,
     meta: {
-      index: 25
+      index: 25,
+      keepAlive: true
     }
   },
   {
@@ -221,7 +223,8 @@ export default  [
     name: 'Release',
     component: Release,
     meta: {
-      index: 26
+      index: 26,
+      keepAlive: true
     }
   },
   {
@@ -229,7 +232,8 @@ export default  [
     name: 'SelectAddress',
     component: SelectAddress,
     meta: {
-      index: 27
+      index: 27,
+      keepAlive: true
     }
   },
   {
@@ -237,7 +241,16 @@ export default  [
     name: 'SelectLabel',
     component: SelectLabel,
     meta: {
-      index: 28
+      index: 28,
+      keepAlive: true
+    }
+  },
+  {
+    path: '/page/user/BandUserInfo',
+    name: 'BandUserInfo',
+    component: BandUserInfo,
+    meta: {
+      index: 29
     }
   },
 ]
